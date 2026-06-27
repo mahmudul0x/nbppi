@@ -2,49 +2,11 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import {
   ArrowRight,
-  Phone,
-  Mail,
-  MapPin,
-  Clock,
-  Globe,
-  Linkedin,
-  Facebook,
   Menu,
   X,
   Search,
 } from "lucide-react";
 import { NAV } from "@/lib/site-data";
-
-function TopBar() {
-  return (
-    <div className="hidden border-b border-white/10 bg-[#061F40] text-white/80 lg:block">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 text-xs">
-        <div className="flex items-center gap-6">
-          <span className="flex items-center gap-2">
-            <Phone className="h-3.5 w-3.5" /> +880 1700 000 000
-          </span>
-          <span className="flex items-center gap-2">
-            <Mail className="h-3.5 w-3.5" /> info@nbppi.com
-          </span>
-          <span className="flex items-center gap-2">
-            <MapPin className="h-3.5 w-3.5" /> Rangpur Industrial Zone, BD
-          </span>
-          <span className="flex items-center gap-2">
-            <Clock className="h-3.5 w-3.5" /> Sun–Thu · 9–18
-          </span>
-        </div>
-        <div className="flex items-center gap-4">
-          <button className="flex items-center gap-1.5 transition hover:text-white">
-            <Globe className="h-3.5 w-3.5" /> EN / বাং
-          </button>
-          <span className="h-3 w-px bg-white/20" />
-          <Linkedin className="h-3.5 w-3.5 cursor-pointer transition hover:text-white" />
-          <Facebook className="h-3.5 w-3.5 cursor-pointer transition hover:text-white" />
-        </div>
-      </div>
-    </div>
-  );
-}
 
 export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
@@ -66,7 +28,6 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
 
   return (
     <header className="sticky top-0 z-50">
-      <TopBar />
       <div
         className={`backdrop-blur-md transition-all duration-300 ${
           onDark
@@ -101,7 +62,7 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
             </div>
           </Link>
 
-          <nav className="hidden items-center gap-0.5 xl:flex">
+          <nav className="hidden items-center gap-0.5 lg:flex">
             {NAV.map((n) => {
               const active =
                 n.to === "/" ? pathname === "/" : pathname === n.to || pathname.startsWith(n.to + "/");
@@ -147,7 +108,7 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
             <button
               aria-label="Menu"
               onClick={() => setOpen((o) => !o)}
-              className={`flex h-10 w-10 items-center justify-center rounded-md xl:hidden ${
+              className={`flex h-10 w-10 items-center justify-center rounded-md lg:hidden ${
                 onDark ? "text-white" : "text-[#082B59]"
               }`}
             >
@@ -157,7 +118,7 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
         </div>
 
         {open ? (
-          <div className="border-t border-border bg-background xl:hidden">
+          <div className="border-t border-border bg-background lg:hidden">
             <div className="mx-auto grid max-w-7xl grid-cols-2 gap-1 px-4 py-4">
               {NAV.map((n) => (
                 <Link
