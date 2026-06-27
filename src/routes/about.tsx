@@ -341,14 +341,14 @@ function MissionVisionPromise() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-background py-16 sm:py-20 lg:py-24">
+    <section ref={sectionRef} className="bg-background py-10 sm:py-12 lg:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="grid gap-5 sm:grid-cols-3 sm:gap-6 lg:gap-8">
+        <div className="grid gap-4 sm:grid-cols-3 sm:gap-5 lg:gap-6">
           {MVP_ITEMS.map(({ i: Icon, t, d, accent }, idx) => (
             <div
               key={t}
               ref={(el) => { cardRefs.current[idx] = el; }}
-              className="group relative overflow-hidden rounded-2xl border border-border bg-white p-7 shadow-[0_2px_16px_-6px_rgba(11,45,107,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_-10px_rgba(11,45,107,0.16)] sm:p-8"
+              className="group relative overflow-hidden rounded-2xl border border-border bg-white p-5 shadow-[0_2px_16px_-6px_rgba(11,45,107,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_-10px_rgba(11,45,107,0.16)] sm:p-6"
             >
               {/* top accent bar */}
               <div
@@ -361,20 +361,20 @@ function MissionVisionPromise() {
                 style={{ backgroundColor: accent }}
               />
               <div
-                className="mvp-icon flex h-12 w-12 items-center justify-center rounded-xl"
+                className="mvp-icon flex h-10 w-10 items-center justify-center rounded-xl"
                 style={{ backgroundColor: accent + "15" }}
               >
-                <Icon className="h-6 w-6" style={{ color: accent }} />
+                <Icon className="h-5 w-5" style={{ color: accent }} />
               </div>
               <div
-                className="mt-5 font-display text-xl font-bold"
+                className="mt-4 font-display text-base font-bold"
                 style={{ color: accent }}
               >
                 {t}
               </div>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{d}</p>
+              <p className="mt-2 text-xs leading-relaxed text-muted-foreground sm:text-sm">{d}</p>
               <div
-                className="mt-6 h-px w-0 transition-all duration-500 group-hover:w-full"
+                className="mt-4 h-px w-0 transition-all duration-500 group-hover:w-full"
                 style={{ backgroundColor: accent + "40" }}
               />
             </div>
@@ -452,41 +452,63 @@ function AboutPage() {
     <PageShell>
       <PageHero
         eyebrow="About NBPPI"
-        title={<>Engineering Bangladesh's most advanced<br /> polypropylene packaging operation.</>}
+        title={<>Bangladesh's most trusted<br />PP woven manufacturer.</>}
         intro="What began as a single weaving line has grown into a vertically integrated industrial manufacturer trusted across agriculture, food, construction and export markets."
         image={factoryAerial}
         crumbs={[{ label: "Home", to: "/" }, { label: "About" }]}
       />
 
       <MissionVisionPromise />
-      <CoreValues />
 
-      <JourneyTimeline />
+      <section className="bg-[#F1F4F9] py-16 sm:py-20 lg:py-28">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="grid items-center gap-10 lg:grid-cols-[360px_1fr] lg:gap-16">
+            {/* Photo */}
+            <div className="flex justify-center lg:justify-start">
+              <div className="relative">
+                <div className="absolute -inset-3 rounded-3xl bg-linear-to-br from-[#0B2D6B]/10 to-[#0A6A38]/10 blur-2xl" />
+                <img
+                  src={teamEngineer}
+                  alt="SM Nayon Mahmood — Chairman, NBPPI"
+                  loading="lazy"
+                  className="relative h-80 w-64 rounded-2xl object-cover object-top shadow-[0_24px_70px_-16px_rgba(11,45,107,0.28)] sm:h-96 sm:w-72 lg:h-110 lg:w-80"
+                />
+              </div>
+            </div>
 
-      <section className="bg-[#0B2D6B] py-24 text-white">
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:items-center">
-          <div className="flex items-center justify-center">
-            <img
-              src={teamEngineer}
-              alt="SM Nayon Mahmood — Managing Director, NBPPI"
-              loading="lazy"
-              className="h-auto w-auto max-h-130 max-w-full rounded-2xl object-contain shadow-(--shadow-elevated)"
-            />
-          </div>
-          <div>
-            <SectionHeading dark eyebrow="Message From Leadership" title="A note from our Chairman." />
-            <p className="mt-6 text-lg leading-relaxed text-white/80">
-              &ldquo;We didn't set out to be the largest. We set out to be the most reliable — the
-              kind of manufacturer whose name on a shipment means the supply chain doesn't need to
-              worry. Two decades later, that principle still defines every line we run.&rdquo;
-            </p>
-            <div className="mt-8 border-t border-white/10 pt-6">
-              <div className="font-display text-lg font-semibold">SM Nayon Mahmood</div>
-              <div className="text-sm text-white/60">Chairman · NBPPI</div>
+            {/* Quote card */}
+            <div className="rounded-2xl border border-border bg-white p-8 shadow-[0_4px_24px_-8px_rgba(11,45,107,0.10)] sm:p-10">
+              <div className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.25em] text-[#0A6A38]">
+                <span className="h-px w-8 bg-[#0A6A38]" />
+                Message From Leadership
+              </div>
+              <h2 className="mt-4 font-display text-2xl font-bold leading-tight text-[#0B2D6B] sm:text-3xl lg:text-4xl">
+                A note from our Chairman.
+              </h2>
+              <div className="mt-6 border-l-2 border-[#0B2D6B]/20 pl-5">
+                <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
+                  &ldquo;We didn't set out to be the largest. We set out to be the most reliable — the
+                  kind of manufacturer whose name on a shipment means the supply chain doesn't need to
+                  worry. Two decades later, that principle still defines every line we run.&rdquo;
+                </p>
+              </div>
+              <div className="mt-8 flex items-center gap-4 border-t border-border pt-6">
+                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#0B2D6B]/8">
+                  <span className="font-display text-base font-bold text-[#0B2D6B]">SN</span>
+                </div>
+                <div>
+                  <div className="font-display text-base font-bold text-[#0B2D6B]">SM Nayon Mahmood</div>
+                  <div className="text-sm text-muted-foreground">Chairman · NBPPI</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
+
+      <CoreValues />
+
+      <JourneyTimeline />
     </PageShell>
   );
 }
