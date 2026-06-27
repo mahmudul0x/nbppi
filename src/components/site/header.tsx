@@ -36,7 +36,7 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
             <img
               src={logoAsset.url}
               alt="NBPPI logo"
-              className="h-12 w-12 object-contain sm:h-14 sm:w-14 lg:h-16 lg:w-16"
+              className="h-10 w-10 object-contain sm:h-11 sm:w-11 lg:h-12 lg:w-12"
             />
             <div className="leading-tight">
               <div
