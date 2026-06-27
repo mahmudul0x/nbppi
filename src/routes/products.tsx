@@ -70,6 +70,34 @@ function ProductsPage() {
                     </ul>
                   </div>
                 </div>
+                {(p.sizes || p.printing || p.lamination || p.customization) && (
+                  <div className="mt-6 grid gap-3 rounded-xl border border-border bg-card p-5 sm:grid-cols-2">
+                    {p.sizes && (
+                      <div>
+                        <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#2A9D8F]">Available Sizes</div>
+                        <div className="mt-1.5 text-sm text-muted-foreground">{p.sizes.join(" · ")}</div>
+                      </div>
+                    )}
+                    {p.printing && (
+                      <div>
+                        <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#2A9D8F]">Printing Options</div>
+                        <div className="mt-1.5 text-sm text-muted-foreground">{p.printing.join(" · ")}</div>
+                      </div>
+                    )}
+                    {p.lamination && (
+                      <div>
+                        <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#2A9D8F]">Lamination Options</div>
+                        <div className="mt-1.5 text-sm text-muted-foreground">{p.lamination.join(" · ")}</div>
+                      </div>
+                    )}
+                    {p.customization && (
+                      <div>
+                        <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#2A9D8F]">Customization</div>
+                        <div className="mt-1.5 text-sm text-muted-foreground">{p.customization.join(" · ")}</div>
+                      </div>
+                    )}
+                  </div>
+                )}
                 <div className="mt-10 flex flex-wrap gap-3">
                   <Link
                     to="/quote"
