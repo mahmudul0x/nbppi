@@ -109,14 +109,27 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 py-6 text-xs text-white/50">
-          <div>
-            © {new Date().getFullYear()} North Bengal Poly &amp; Packaging Industries Ltd. All rights reserved.
+        <div className="mt-16 border-t border-white/10 pt-6 pb-4">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 pb-4">
+            {["Trade Licensed", "BIDA Registered", "DIFE Factory License", "ISO 9001:2015", "ERC Authorized", "BSTI Certified"].map((cert) => (
+              <span
+                key={cert}
+                className="inline-flex items-center gap-1.5 rounded border border-white/10 bg-white/5 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.15em] text-white/50"
+              >
+                <span className="h-1.5 w-1.5 rounded-full bg-[#0A6A38]" />
+                {cert}
+              </span>
+            ))}
           </div>
-          <div className="flex gap-6">
-            <a className="hover:text-white">Privacy</a>
-            <a className="hover:text-white">Terms</a>
-            <a className="hover:text-white">Sitemap</a>
+          <div className="flex flex-wrap items-center justify-between gap-4 text-xs text-white/50">
+            <div>
+              © {new Date().getFullYear()} North Bengal Poly &amp; Packaging Industries Ltd. All rights reserved.
+            </div>
+            <div className="flex gap-6">
+              <a className="hover:text-white">Privacy</a>
+              <a className="hover:text-white">Terms</a>
+              <a className="hover:text-white">Sitemap</a>
+            </div>
           </div>
         </div>
       </div>

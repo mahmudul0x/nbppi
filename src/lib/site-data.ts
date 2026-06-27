@@ -178,10 +178,10 @@ export const CLIENTS = [
 ];
 
 export const TRUST_BAR = [
-  "Custom Manufacturing",
-  "Premium Raw Materials",
-  "Flexible Production",
-  "Strict Quality Control",
-  "Bulk Order Capability",
-  "Reliable Delivery",
+  "Trade Licensed",
+  "BIDA Registered",
+  "Factory Licensed — DIFE",
+  "ISO 9001:2015 Certified",
+  "ERC — Export Authorized",
+  "BSTI Certified",
 ];
