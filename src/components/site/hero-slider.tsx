@@ -1,18 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import {
-  ArrowRight,
-  ArrowUpRight,
-  ChevronLeft,
-  ChevronRight,
-  Award,
-  Package,
-  Users,
-  Globe2,
-  ShieldCheck,
-  Leaf,
-  Mouse,
-} from "lucide-react";
+import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import heroFactory from "@/assets/hero-factory.jpg";
 import factoryAerial from "@/assets/factory-aerial.jpg";
 import warehouseImg from "@/assets/warehouse.jpg";
@@ -120,7 +108,7 @@ const SLIDES: Slide[] = [
   },
 ];
 
-const DURATION_MS = 6000;
+const DURATION_MS = 5000;
 
 export function HeroSlider() {
   const [index, setIndex] = useState(0);
@@ -200,11 +188,11 @@ export function HeroSlider() {
       onMouseMove={onMouseMove}
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
-      className="relative isolate min-h-[100svh] overflow-hidden bg-[#0A1B33] text-white"
+      className="relative isolate h-[100svh] w-full overflow-hidden bg-[#0A1B33] text-white"
       aria-roledescription="carousel"
       aria-label="NBPPI product showcase"
     >
-      {/* Factory backgrounds (cross-fade + Ken Burns) */}
+      {/* Full-bleed product backgrounds (cross-fade + Ken Burns) */}
       <div className="absolute inset-0">
         {slides.map((s, i) => (
           <div
@@ -215,7 +203,7 @@ export function HeroSlider() {
             }`}
           >
             <img
-              src={s.background}
+              src={s.product}
               alt=""
               className={`h-full w-full object-cover ${
                 i === index ? "animate-[kenburns_12s_ease-out_forwards]" : ""
@@ -225,9 +213,15 @@ export function HeroSlider() {
             />
           </div>
         ))}
-        {/* Dark cinematic overlays */}
-        <div className="absolute inset-0 bg-[#0A1B33]/75" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0A1B33]/60 via-[#0A1B33]/40 to-[#0A1B33]" />
+        {/* Cinematic dark overlay for text legibility */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.45))",
+          }}
+        />
+        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-b from-transparent to-black/60" />
       </div>
 
       {/* Side nav arrows */}
@@ -248,163 +242,54 @@ export function HeroSlider() {
         <ChevronRight className="h-5 w-5" />
       </button>
 
-      {/* Centered product + headline stage */}
-      <div className="relative mx-auto flex max-w-6xl flex-col items-center px-6 pt-24 md:pt-28 lg:pt-32">
-        <div className="relative h-[58vh] min-h-[440px] w-full max-w-[760px]">
-          {/* Product stack — large centered */}
-          <div
-            className="absolute inset-0"
-            style={{
-              transform: `translate3d(${parallax.x * -10}px, ${parallax.y * -10}px, 0)`,
-              transition: "transform 500ms ease-out",
-            }}
-          >
-            {slides.map((s, i) => (
-              <div
-                key={s.id}
-                aria-hidden={i !== index}
-                className={`absolute inset-0 flex items-end justify-center transition-all duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
-                  i === index
-                    ? "translate-x-0 opacity-100"
-                    : i < index
-                      ? "-translate-x-16 opacity-0"
-                      : "translate-x-16 opacity-0"
-                }`}
-              >
-                <img
-                  src={s.product}
-                  alt={s.name}
-                  draggable={false}
-                  loading={i === 0 ? "eager" : "lazy"}
-                  fetchPriority={i === 0 ? "high" : "auto"}
-                  className={`h-full w-auto max-w-full select-none object-contain drop-shadow-[0_40px_60px_rgba(0,0,0,0.7)] ${
-                    i === index ? "animate-[floatY_6s_ease-in-out_infinite]" : ""
-                  }`}
-                />
-              </div>
-            ))}
+      {/* Centered hero content */}
+      <div className="relative z-20 flex h-full w-full items-center justify-center px-6">
+        <div
+          key={current.id}
+          className="flex max-w-4xl flex-col items-center text-center"
+        >
+          <div className="text-[11px] font-semibold uppercase tracking-[0.32em] text-white/80 animate-[fadeUp_700ms_ease-out_both]">
+            {current.tagline}
           </div>
-
-          {/* Headline overlay centered on product */}
-          <div
-            key={current.id}
-            className="pointer-events-none absolute inset-x-0 top-[18%] z-10 flex flex-col items-center px-4 text-center"
-          >
-            <h1 className="font-display text-4xl font-bold leading-[1.05] tracking-tight text-white drop-shadow-[0_6px_20px_rgba(0,0,0,0.6)] animate-[fadeUp_800ms_ease-out_both] md:text-5xl lg:text-6xl">
-              {current.name}
-            </h1>
-            <p className="mt-5 max-w-2xl text-sm leading-relaxed text-white/85 drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)] animate-[fadeUp_900ms_180ms_ease-out_both] md:text-base">
-              {current.description}
-            </p>
-            <div className="pointer-events-auto mt-8 flex flex-wrap items-center justify-center gap-3 animate-[fadeUp_900ms_320ms_ease-out_both]">
-              <Link
-                to="/products"
-                className="group inline-flex items-center gap-2 rounded-md bg-[#145DA0] px-6 py-3 text-sm font-semibold text-white shadow-[0_10px_40px_-10px_rgba(20,93,160,0.8)] transition hover:bg-[#176fbf]"
-              >
-                Explore Products
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link
-                to="/quote"
-                className="group inline-flex items-center gap-2 rounded-md border border-white/40 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/10"
-              >
-                Request a Quote
-                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Slide counter + progress */}
-        <div className="mt-2 flex w-full max-w-md items-center gap-4 text-xs font-medium uppercase tracking-[0.22em] text-white/70">
-          <span className="tabular-nums text-white">{String(index + 1).padStart(2, "0")}</span>
-          <span className="tabular-nums">/ {String(count).padStart(2, "0")}</span>
-          <div className="relative h-px flex-1 bg-white/20">
-            <div
-              className="absolute inset-y-0 left-0 bg-white transition-[width] duration-150"
-              style={{ width: `${progress * 100}%` }}
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* Scroll down hint */}
-      <div className="absolute right-6 bottom-[260px] z-20 hidden flex-col items-center gap-2 text-[10px] font-medium uppercase tracking-[0.2em] text-white/70 lg:flex">
-        <span>Scroll Down</span>
-        <Mouse className="h-5 w-5" />
-      </div>
-
-      {/* Thumbnail strip */}
-      <div className="relative z-20 mt-10 px-4">
-        <div className="mx-auto flex max-w-7xl items-end justify-center gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          {slides.map((s, i) => {
-            const active = i === index;
-            return (
-              <button
-                key={s.id}
-                type="button"
-                aria-label={`Show ${s.name}`}
-                aria-current={active}
-                onClick={() => go(i)}
-                className="group flex shrink-0 flex-col items-center gap-2"
-              >
-                <div
-                  className={`relative h-[88px] w-[120px] overflow-hidden rounded-md border transition-all duration-300 ${
-                    active
-                      ? "border-white shadow-[0_0_0_2px_rgba(255,255,255,0.2),0_15px_40px_-10px_rgba(0,0,0,0.6)]"
-                      : "border-white/15 opacity-60 group-hover:opacity-100 group-hover:border-white/40"
-                  }`}
-                >
-                  <img
-                    src={s.product}
-                    alt=""
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A1B33]/70 via-transparent to-transparent" />
-                </div>
-                <div
-                  className={`max-w-[120px] truncate text-[11px] font-semibold transition ${
-                    active ? "text-white" : "text-white/60 group-hover:text-white/90"
-                  }`}
-                >
-                  {s.name.replace(/Bags?$/, "").trim()} Bags
-                </div>
-              </button>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Stats bar */}
-      <div className="relative z-20 mt-8 border-t border-white/10 bg-[#06122A]/85 backdrop-blur">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-px overflow-hidden md:grid-cols-3 lg:grid-cols-6">
-          {[
-            { icon: Award, value: "20+", label: "Years of Experience" },
-            { icon: Package, value: "50M+", label: "Bags Manufactured" },
-            { icon: Users, value: "150+", label: "Happy Clients" },
-            { icon: Globe2, value: "15+", label: "Countries Served" },
-            { icon: ShieldCheck, value: "100%", label: "Quality Assurance" },
-            { icon: Leaf, value: "Sustainable", label: "Eco-Friendly Solutions" },
-          ].map(({ icon: Icon, value, label }) => (
-            <div
-              key={label}
-              className="flex items-center gap-4 bg-[#06122A] px-6 py-5 transition hover:bg-[#0A1B33]"
+          <h1 className="mt-5 font-display text-4xl font-bold uppercase leading-[1.02] tracking-tight text-white drop-shadow-[0_8px_30px_rgba(0,0,0,0.7)] animate-[fadeUp_800ms_120ms_ease-out_both] md:text-6xl lg:text-7xl">
+            {current.name}
+          </h1>
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/85 drop-shadow-[0_2px_12px_rgba(0,0,0,0.7)] animate-[fadeUp_900ms_240ms_ease-out_both] md:text-lg">
+            {current.description}
+          </p>
+          <div className="mt-9 flex flex-wrap items-center justify-center gap-3 animate-[scale-in_600ms_400ms_ease-out_both]">
+            <Link
+              to="/products"
+              className="group inline-flex items-center gap-2 rounded-md bg-[#145DA0] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_15px_45px_-10px_rgba(20,93,160,0.85)] transition hover:bg-[#176fbf]"
             >
-              <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/15 bg-white/[0.04] text-[#7FE0D4]">
-                <Icon className="h-5 w-5" />
-              </div>
-              <div className="min-w-0">
-                <div className="font-display text-lg font-bold leading-none text-white">
-                  {value}
-                </div>
-                <div className="mt-1 truncate text-[11px] font-medium uppercase tracking-wider text-white/55">
-                  {label}
-                </div>
-              </div>
-            </div>
-          ))}
+              Explore Products
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+            <Link
+              to="/quote"
+              className="group inline-flex items-center gap-2 rounded-md border border-white/45 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/10"
+            >
+              Request Quote
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </Link>
+          </div>
         </div>
+      </div>
+
+      {/* Dot indicators */}
+      <div className="absolute inset-x-0 bottom-8 z-30 flex items-center justify-center gap-2">
+        {slides.map((s, i) => (
+          <button
+            key={s.id}
+            type="button"
+            aria-label={`Go to slide ${i + 1}`}
+            aria-current={i === index}
+            onClick={() => go(i)}
+            className={`h-1.5 rounded-full transition-all duration-300 ${
+              i === index ? "w-10 bg-white" : "w-2.5 bg-white/40 hover:bg-white/70"
+            }`}
+          />
+        ))}
       </div>
     </section>
   );
