@@ -2,6 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { NAV } from "@/lib/site-data";
+import logoAsset from "@/assets/nbppi-logo.png.asset.json";
 
 export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
@@ -32,13 +33,11 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <Link to="/" className="flex items-center gap-3">
-            <div
-              className={`flex h-10 w-10 items-center justify-center rounded-md font-display text-sm font-bold ${
-                onDark ? "bg-white text-[#0B2D6B]" : "bg-[#0B2D6B] text-white"
-              }`}
-            >
-              NB
-            </div>
+            <img
+              src={logoAsset.url}
+              alt="NBPPI logo"
+              className="h-11 w-11 object-contain"
+            />
             <div className="leading-tight">
               <div
                 className={`font-display text-sm font-bold ${

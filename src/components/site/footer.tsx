@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Linkedin, Facebook, Youtube, ArrowRight } from "lucide-react";
+import logoAsset from "@/assets/nbppi-logo.png.asset.json";
 
 const cols = [
   {
@@ -41,9 +42,11 @@ export function SiteFooter() {
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <Link to="/" className="flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-md bg-white font-display text-sm font-bold text-[#0B2D6B]">
-                NB
-              </div>
+              <img
+                src={logoAsset.url}
+                alt="NBPPI logo"
+                className="h-12 w-12 rounded-md bg-white object-contain p-1"
+              />
               <div className="leading-tight">
                 <div className="font-display text-base font-bold text-white">NBPPI</div>
                 <div className="text-[10px] uppercase tracking-[0.18em] text-white/50">
