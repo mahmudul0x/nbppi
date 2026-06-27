@@ -200,11 +200,11 @@ export function HeroSlider() {
       onMouseMove={onMouseMove}
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
-      className="relative isolate min-h-[100svh] overflow-hidden bg-[#061F40] text-white"
+      className="relative isolate min-h-[100svh] overflow-hidden bg-[#0A1B33] text-white"
       aria-roledescription="carousel"
       aria-label="NBPPI product showcase"
     >
-      {/* Backgrounds (cross-fade with Ken Burns) */}
+      {/* Factory backgrounds (cross-fade + Ken Burns) */}
       <div className="absolute inset-0">
         {slides.map((s, i) => (
           <div
@@ -215,7 +215,7 @@ export function HeroSlider() {
             }`}
           >
             <img
-              src={s.product}
+              src={s.background}
               alt=""
               className={`h-full w-full object-cover ${
                 i === index ? "animate-[kenburns_12s_ease-out_forwards]" : ""
@@ -225,145 +225,185 @@ export function HeroSlider() {
             />
           </div>
         ))}
-        {/* Dark navy overlay */}
-        <div className="absolute inset-0 bg-[#061F40]/35" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#061F40] via-[#061F40]/70 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#061F40]/40 via-transparent to-[#061F40]" />
-        {/* Subtle grid */}
-        <div
-          className="absolute inset-0 opacity-[0.05]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)",
-            backgroundSize: "72px 72px",
-          }}
-        />
+        {/* Dark cinematic overlays */}
+        <div className="absolute inset-0 bg-[#0A1B33]/75" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0A1B33]/60 via-[#0A1B33]/40 to-[#0A1B33]" />
       </div>
 
-      <div className="relative mx-auto grid max-w-7xl gap-12 px-6 pb-40 pt-24 md:pt-32 lg:grid-cols-12 lg:gap-8 lg:pb-44 lg:pt-36">
-        {/* Left content */}
-        <div className="lg:col-span-6 xl:col-span-7">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-white/80 backdrop-blur">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#2A9D8F]" />
-            Premium PP Woven Packaging
+      {/* Side nav arrows */}
+      <button
+        type="button"
+        aria-label="Previous slide"
+        onClick={() => go(index - 1)}
+        className="absolute left-4 top-1/2 z-30 hidden -translate-y-1/2 grid h-12 w-12 place-items-center rounded-full border border-white/25 bg-white/5 text-white/90 backdrop-blur transition hover:border-white/60 hover:bg-white/10 md:grid lg:left-8"
+      >
+        <ChevronLeft className="h-5 w-5" />
+      </button>
+      <button
+        type="button"
+        aria-label="Next slide"
+        onClick={() => go(index + 1)}
+        className="absolute right-4 top-1/2 z-30 hidden -translate-y-1/2 grid h-12 w-12 place-items-center rounded-full border border-white/25 bg-white/5 text-white/90 backdrop-blur transition hover:border-white/60 hover:bg-white/10 md:grid lg:right-8"
+      >
+        <ChevronRight className="h-5 w-5" />
+      </button>
+
+      {/* Centered product + headline stage */}
+      <div className="relative mx-auto flex max-w-6xl flex-col items-center px-6 pt-24 md:pt-28 lg:pt-32">
+        <div className="relative h-[58vh] min-h-[440px] w-full max-w-[760px]">
+          {/* Product stack — large centered */}
+          <div
+            className="absolute inset-0"
+            style={{
+              transform: `translate3d(${parallax.x * -10}px, ${parallax.y * -10}px, 0)`,
+              transition: "transform 500ms ease-out",
+            }}
+          >
+            {slides.map((s, i) => (
+              <div
+                key={s.id}
+                aria-hidden={i !== index}
+                className={`absolute inset-0 flex items-end justify-center transition-all duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                  i === index
+                    ? "translate-x-0 opacity-100"
+                    : i < index
+                      ? "-translate-x-16 opacity-0"
+                      : "translate-x-16 opacity-0"
+                }`}
+              >
+                <img
+                  src={s.product}
+                  alt={s.name}
+                  draggable={false}
+                  loading={i === 0 ? "eager" : "lazy"}
+                  fetchPriority={i === 0 ? "high" : "auto"}
+                  className={`h-full w-auto max-w-full select-none object-contain drop-shadow-[0_40px_60px_rgba(0,0,0,0.7)] ${
+                    i === index ? "animate-[floatY_6s_ease-in-out_infinite]" : ""
+                  }`}
+                />
+              </div>
+            ))}
           </div>
 
-          {/* Animated slide content (re-mounts on index change via key) */}
-          <div key={current.id} className="mt-7">
-            <div className="text-xs font-medium uppercase tracking-[0.22em] text-[#7FE0D4] animate-[fadeUp_700ms_ease-out_both]">
-              {current.tagline}
-            </div>
-            <h1 className="mt-4 font-display text-4xl font-bold leading-[1.04] tracking-tight text-white animate-[fadeUp_800ms_120ms_ease-out_both] md:text-6xl lg:text-[4.5rem]">
+          {/* Headline overlay centered on product */}
+          <div
+            key={current.id}
+            className="pointer-events-none absolute inset-x-0 top-[18%] z-10 flex flex-col items-center px-4 text-center"
+          >
+            <h1 className="font-display text-4xl font-bold leading-[1.05] tracking-tight text-white drop-shadow-[0_6px_20px_rgba(0,0,0,0.6)] animate-[fadeUp_800ms_ease-out_both] md:text-5xl lg:text-6xl">
               {current.name}
             </h1>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-white/75 animate-[fadeUp_900ms_220ms_ease-out_both] md:text-lg">
+            <p className="mt-5 max-w-2xl text-sm leading-relaxed text-white/85 drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)] animate-[fadeUp_900ms_180ms_ease-out_both] md:text-base">
               {current.description}
             </p>
-
-            <div className="mt-9 flex flex-wrap gap-3 animate-[fadeUp_900ms_320ms_ease-out_both]">
+            <div className="pointer-events-auto mt-8 flex flex-wrap items-center justify-center gap-3 animate-[fadeUp_900ms_320ms_ease-out_both]">
               <Link
                 to="/products"
-                className="group relative inline-flex items-center gap-2 overflow-hidden rounded-md bg-white px-6 py-3.5 text-sm font-semibold text-[#082B59] shadow-[0_10px_40px_-10px_rgba(127,224,212,0.5)] transition hover:bg-[#D6DCE5]"
+                className="group inline-flex items-center gap-2 rounded-md bg-[#145DA0] px-6 py-3 text-sm font-semibold text-white shadow-[0_10px_40px_-10px_rgba(20,93,160,0.8)] transition hover:bg-[#176fbf]"
               >
                 Explore Products
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
                 to="/quote"
-                className="group inline-flex items-center gap-2 rounded-md border border-white/25 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/10"
+                className="group inline-flex items-center gap-2 rounded-md border border-white/40 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/10"
               >
                 Request a Quote
                 <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
             </div>
-
-            <div className="mt-10 flex flex-wrap gap-2.5 animate-[fadeUp_900ms_420ms_ease-out_both]">
-              {current.badges.map((b) => (
-                <span
-                  key={b}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/[0.06] px-3 py-1.5 text-xs font-medium text-white/85 backdrop-blur"
-                >
-                  <CheckCircle2 className="h-3.5 w-3.5 text-[#7FE0D4]" />
-                  {b}
-                </span>
-              ))}
-            </div>
           </div>
         </div>
 
+        {/* Slide counter + progress */}
+        <div className="mt-2 flex w-full max-w-md items-center gap-4 text-xs font-medium uppercase tracking-[0.22em] text-white/70">
+          <span className="tabular-nums text-white">{String(index + 1).padStart(2, "0")}</span>
+          <span className="tabular-nums">/ {String(count).padStart(2, "0")}</span>
+          <div className="relative h-px flex-1 bg-white/20">
+            <div
+              className="absolute inset-y-0 left-0 bg-white transition-[width] duration-150"
+              style={{ width: `${progress * 100}%` }}
+            />
+          </div>
+        </div>
       </div>
 
-      {/* Controls + thumbnails dock */}
-      <div className="absolute inset-x-0 bottom-0 z-30">
-        <div className="mx-auto max-w-7xl px-6 pb-6">
-          {/* Progress + arrows */}
-          <div className="flex items-center justify-between gap-4 pb-4">
-            <div className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.22em] text-white/65">
-              <span className="tabular-nums text-white">{String(index + 1).padStart(2, "0")}</span>
-              <span className="h-px w-10 bg-white/30" />
-              <span className="tabular-nums">{String(count).padStart(2, "0")}</span>
-            </div>
-            <div className="hidden flex-1 px-6 md:block">
-              <div className="relative h-px w-full bg-white/15">
+      {/* Scroll down hint */}
+      <div className="absolute right-6 bottom-[260px] z-20 hidden flex-col items-center gap-2 text-[10px] font-medium uppercase tracking-[0.2em] text-white/70 lg:flex">
+        <span>Scroll Down</span>
+        <Mouse className="h-5 w-5" />
+      </div>
+
+      {/* Thumbnail strip */}
+      <div className="relative z-20 mt-10 px-4">
+        <div className="mx-auto flex max-w-7xl items-end justify-center gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {slides.map((s, i) => {
+            const active = i === index;
+            return (
+              <button
+                key={s.id}
+                type="button"
+                aria-label={`Show ${s.name}`}
+                aria-current={active}
+                onClick={() => go(i)}
+                className="group flex shrink-0 flex-col items-center gap-2"
+              >
                 <div
-                  className="absolute inset-y-0 left-0 bg-[#7FE0D4] transition-[width] duration-150"
-                  style={{ width: `${progress * 100}%` }}
-                />
+                  className={`relative h-[88px] w-[120px] overflow-hidden rounded-md border transition-all duration-300 ${
+                    active
+                      ? "border-white shadow-[0_0_0_2px_rgba(255,255,255,0.2),0_15px_40px_-10px_rgba(0,0,0,0.6)]"
+                      : "border-white/15 opacity-60 group-hover:opacity-100 group-hover:border-white/40"
+                  }`}
+                >
+                  <img
+                    src={s.product}
+                    alt=""
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A1B33]/70 via-transparent to-transparent" />
+                </div>
+                <div
+                  className={`max-w-[120px] truncate text-[11px] font-semibold transition ${
+                    active ? "text-white" : "text-white/60 group-hover:text-white/90"
+                  }`}
+                >
+                  {s.name.replace(/Bags?$/, "").trim()} Bags
+                </div>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Stats bar */}
+      <div className="relative z-20 mt-8 border-t border-white/10 bg-[#06122A]/85 backdrop-blur">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-px overflow-hidden md:grid-cols-3 lg:grid-cols-6">
+          {[
+            { icon: Award, value: "20+", label: "Years of Experience" },
+            { icon: Package, value: "50M+", label: "Bags Manufactured" },
+            { icon: Users, value: "150+", label: "Happy Clients" },
+            { icon: Globe2, value: "15+", label: "Countries Served" },
+            { icon: ShieldCheck, value: "100%", label: "Quality Assurance" },
+            { icon: Leaf, value: "Sustainable", label: "Eco-Friendly Solutions" },
+          ].map(({ icon: Icon, value, label }) => (
+            <div
+              key={label}
+              className="flex items-center gap-4 bg-[#06122A] px-6 py-5 transition hover:bg-[#0A1B33]"
+            >
+              <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/15 bg-white/[0.04] text-[#7FE0D4]">
+                <Icon className="h-5 w-5" />
+              </div>
+              <div className="min-w-0">
+                <div className="font-display text-lg font-bold leading-none text-white">
+                  {value}
+                </div>
+                <div className="mt-1 truncate text-[11px] font-medium uppercase tracking-wider text-white/55">
+                  {label}
+                </div>
               </div>
             </div>
-            <div className="flex items-center gap-2">
-              <button
-                type="button"
-                aria-label="Previous slide"
-                onClick={() => go(index - 1)}
-                className="grid h-10 w-10 place-items-center rounded-full border border-white/20 bg-white/5 text-white backdrop-blur transition hover:border-white/40 hover:bg-white/10 hover:-translate-x-0.5"
-              >
-                <ChevronLeft className="h-4 w-4" />
-              </button>
-              <button
-                type="button"
-                aria-label="Next slide"
-                onClick={() => go(index + 1)}
-                className="grid h-10 w-10 place-items-center rounded-full border border-white/20 bg-white/5 text-white backdrop-blur transition hover:border-white/40 hover:bg-white/10 hover:translate-x-0.5"
-              >
-                <ChevronRight className="h-4 w-4" />
-              </button>
-            </div>
-          </div>
-
-          {/* Thumbnails */}
-          <div className="relative">
-            <div className="-mx-2 flex gap-2 overflow-x-auto px-2 pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-              {slides.map((s, i) => {
-                const active = i === index;
-                return (
-                  <button
-                    key={s.id}
-                    type="button"
-                    aria-label={`Show ${s.name}`}
-                    aria-current={active}
-                    onClick={() => go(i)}
-                    className={`group relative shrink-0 overflow-hidden rounded-xl border transition-all duration-300 ${
-                      active
-                        ? "h-20 w-28 border-[#7FE0D4] shadow-[0_0_0_3px_rgba(127,224,212,0.18),0_10px_30px_-10px_rgba(127,224,212,0.6)] scale-[1.04]"
-                        : "h-20 w-24 border-white/15 bg-white/[0.04] opacity-70 hover:opacity-100 hover:border-white/30"
-                    }`}
-                  >
-                    <img
-                      src={s.product}
-                      alt=""
-                      loading="lazy"
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#061F40]/80 via-[#061F40]/10 to-transparent" />
-                    <div className="absolute inset-x-0 bottom-0 truncate px-2 py-1 text-left text-[10px] font-semibold text-white/90">
-                      {s.name.split(" ").slice(0, 2).join(" ")}
-                    </div>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
