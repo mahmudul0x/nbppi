@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { ArrowRight, Menu, X, Phone, Mail, MapPin } from "lucide-react";
 import { NAV } from "@/lib/site-data";
 import logoAsset from "@/assets/nbppi-logo.png.asset.json";
-import logoLightAsset from "@/assets/nbppi-logo-white.png.asset.json";
+import logoLightAsset from "@/assets/nbppi-logo-white-final.png.asset.json";
 
 export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
