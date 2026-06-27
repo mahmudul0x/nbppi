@@ -32,11 +32,11 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
         }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <Link to="/" className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-3 sm:gap-4">
             <img
               src={logoAsset.url}
               alt="NBPPI logo"
-              className="h-11 w-11 object-contain"
+              className="h-12 w-12 object-contain sm:h-14 sm:w-14 lg:h-16 lg:w-16"
             />
             <div className="leading-tight">
               <div

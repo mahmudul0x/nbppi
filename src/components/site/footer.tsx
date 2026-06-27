@@ -45,7 +45,7 @@ export function SiteFooter() {
               <img
                 src={logoAsset.url}
                 alt="NBPPI logo"
-                className="h-12 w-12 rounded-md bg-white object-contain p-1"
+                className="h-14 w-14 rounded-md bg-white object-contain p-1.5 sm:h-16 sm:w-16 lg:h-20 lg:w-20"
               />
               <div className="leading-tight">
                 <div className="font-display text-base font-bold text-white">NBPPI</div>
