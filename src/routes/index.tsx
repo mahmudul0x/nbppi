@@ -24,6 +24,11 @@ import {
   Landmark,
   Recycle,
   Boxes,
+  MessageSquare,
+  PencilRuler,
+  CheckCircle2,
+  PackageCheck,
+  Rocket,
 } from "lucide-react";
 import { SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
@@ -150,17 +155,18 @@ function Hero() {
         <div className="lg:col-span-7">
           <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-white/80 backdrop-blur">
             <span className="h-1.5 w-1.5 rounded-full bg-[#2A9D8F]" />
-            Industrial Packaging · Est. 2008
+            Custom PP Woven Bag Manufacturer · B2B
           </div>
           <h1 className="mt-6 font-display text-5xl font-bold leading-[1.02] tracking-tight md:text-6xl lg:text-[5.25rem]">
-            Engineering stronger
+            Custom PP woven packaging
             <br />
-            <span className="text-[#7FE0D4]">packaging for tomorrow.</span>
+            <span className="text-[#7FE0D4]">engineered for your business.</span>
           </h1>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-white/75 md:text-lg">
-            North Bengal Poly &amp; Packaging Industries Ltd. manufactures premium polypropylene
-            woven packaging trusted across agriculture, food, construction and industrial sectors
-            worldwide.
+            North Bengal Poly &amp; Packaging Industries Ltd. manufactures premium custom
+            polypropylene woven bags tailored to the unique requirements of agriculture, poultry,
+            feed, food processing and industrial businesses across Bangladesh — with a vision for
+            future export markets.
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
             <Link
