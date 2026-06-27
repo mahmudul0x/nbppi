@@ -1,11 +1,6 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import {
-  ArrowRight,
-  Menu,
-  X,
-  Search,
-} from "lucide-react";
+import { ArrowRight, Menu, X } from "lucide-react";
 import { NAV } from "@/lib/site-data";
 
 export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: boolean }) {
@@ -90,14 +85,6 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
           </nav>
 
           <div className="flex items-center gap-2">
-            <button
-              aria-label="Search"
-              className={`hidden h-10 w-10 items-center justify-center rounded-md transition lg:flex ${
-                onDark ? "text-white/70 hover:bg-white/10 hover:text-white" : "text-foreground/60 hover:bg-muted"
-              }`}
-            >
-              <Search className="h-4 w-4" />
-            </button>
             <Link
               to="/quote"
               className="group hidden items-center gap-2 rounded-md bg-[linear-gradient(135deg,#F4C542_0%,#D9A520_50%,#B8860B_100%)] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_10px_28px_-10px_rgba(217,165,32,0.55)] transition hover:brightness-110 lg:inline-flex"
