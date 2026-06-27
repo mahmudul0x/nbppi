@@ -147,7 +147,7 @@ function TrustBar() {
   const lineRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    let ctx: import("gsap").Context | null = null;
+    let ctx: { revert: () => void } | null = null;
     (async () => {
       const gsap = (await import("gsap")).default;
       const { ScrollTrigger } = await import("gsap/ScrollTrigger");
