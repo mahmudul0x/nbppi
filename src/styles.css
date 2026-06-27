@@ -63,25 +63,36 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
+  --background: #F8FAFC;
+  --foreground: #0B2341;
+  --card: #ffffff;
+  --card-foreground: #0B2341;
+  --popover: #ffffff;
+  --popover-foreground: #0B2341;
+  --primary: #0B2341;
+  --primary-foreground: #ffffff;
+  --secondary: #145DA0;
+  --secondary-foreground: #ffffff;
+  --muted: #EEF2F7;
+  --muted-foreground: #4B5A72;
+  --accent: #D6DCE5;
+  --accent-foreground: #0B2341;
   --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  --destructive-foreground: #ffffff;
+  --border: #E2E8F0;
+  --input: #E2E8F0;
+  --ring: #145DA0;
+  --brand-navy: #0B2341;
+  --brand-blue: #145DA0;
+  --brand-silver: #D6DCE5;
+  --brand-dark: #111827;
+  --brand-success: #1E8E5A;
+  --gradient-hero: linear-gradient(135deg, #0B2341 0%, #145DA0 100%);
+  --gradient-deep: linear-gradient(180deg, rgba(11,35,65,0.92) 0%, rgba(11,35,65,0.7) 100%);
+  --shadow-elevated: 0 30px 60px -20px rgba(11,35,65,0.25);
+  --shadow-card: 0 10px 30px -12px rgba(11,35,65,0.15);
+  --font-display: "Manrope", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -98,25 +109,25 @@
 }
 
 .dark {
-  --background: oklch(0.129 0.042 264.695);
-  --foreground: oklch(0.984 0.003 247.858);
-  --card: oklch(0.208 0.042 265.755);
-  --card-foreground: oklch(0.984 0.003 247.858);
-  --popover: oklch(0.208 0.042 265.755);
-  --popover-foreground: oklch(0.984 0.003 247.858);
-  --primary: oklch(0.929 0.013 255.508);
-  --primary-foreground: oklch(0.208 0.042 265.755);
-  --secondary: oklch(0.279 0.041 260.031);
-  --secondary-foreground: oklch(0.984 0.003 247.858);
-  --muted: oklch(0.279 0.041 260.031);
-  --muted-foreground: oklch(0.704 0.04 256.788);
-  --accent: oklch(0.279 0.041 260.031);
-  --accent-foreground: oklch(0.984 0.003 247.858);
+  --background: #060B14;
+  --foreground: #F8FAFC;
+  --card: #0B2341;
+  --card-foreground: #F8FAFC;
+  --popover: #0B2341;
+  --popover-foreground: #F8FAFC;
+  --primary: #145DA0;
+  --primary-foreground: #ffffff;
+  --secondary: #1B355E;
+  --secondary-foreground: #F8FAFC;
+  --muted: #0F1B30;
+  --muted-foreground: #94A3B8;
+  --accent: #1B355E;
+  --accent-foreground: #F8FAFC;
   --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.551 0.027 264.364);
+  --destructive-foreground: #ffffff;
+  --border: rgba(255,255,255,0.08);
+  --input: rgba(255,255,255,0.12);
+  --ring: #145DA0;
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
@@ -140,5 +151,41 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+@theme inline {
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --color-brand-navy: var(--brand-navy);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-silver: var(--brand-silver);
+  --color-brand-dark: var(--brand-dark);
+  --color-brand-success: var(--brand-success);
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@utility animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@utility animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
 }
