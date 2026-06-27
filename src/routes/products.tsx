@@ -43,28 +43,28 @@ function ProductsPage() {
                 <img src={p.image} alt={p.name} loading="lazy" className="aspect-[4/3] w-full object-cover transition-transform duration-[1.4s] hover:scale-105" />
               </div>
               <div>
-                <div className="inline-flex rounded-full bg-[#2A9D8F]/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#2A9D8F]">
+                <div className="inline-flex rounded-full bg-[#0A6A38]/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#0A6A38]">
                   {p.category}
                 </div>
-                <h2 className="mt-4 font-display text-3xl font-bold text-[#082B59] md:text-4xl">{p.name}</h2>
+                <h2 className="mt-4 font-display text-3xl font-bold text-[#0B2D6B] md:text-4xl">{p.name}</h2>
                 <p className="mt-4 text-base leading-relaxed text-muted-foreground">{p.description}</p>
                 <div className="mt-8 grid gap-6 sm:grid-cols-2">
                   <div>
-                    <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[#082B59]">Applications</div>
+                    <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[#0B2D6B]">Applications</div>
                     <ul className="mt-3 space-y-2">
                       {p.applications.map((a) => (
                         <li key={a} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <CircleCheck className="mt-0.5 h-4 w-4 shrink-0 text-[#2A9D8F]" /> {a}
+                          <CircleCheck className="mt-0.5 h-4 w-4 shrink-0 text-[#0A6A38]" /> {a}
                         </li>
                       ))}
                     </ul>
                   </div>
                   <div>
-                    <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[#082B59]">Key Features</div>
+                    <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[#0B2D6B]">Key Features</div>
                     <ul className="mt-3 space-y-2">
                       {p.features.map((f) => (
                         <li key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <CircleCheck className="mt-0.5 h-4 w-4 shrink-0 text-[#2A9D8F]" /> {f}
+                          <CircleCheck className="mt-0.5 h-4 w-4 shrink-0 text-[#0A6A38]" /> {f}
                         </li>
                       ))}
                     </ul>
@@ -74,25 +74,25 @@ function ProductsPage() {
                   <div className="mt-6 grid gap-3 rounded-xl border border-border bg-card p-5 sm:grid-cols-2">
                     {p.sizes && (
                       <div>
-                        <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#2A9D8F]">Available Sizes</div>
+                        <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#0A6A38]">Available Sizes</div>
                         <div className="mt-1.5 text-sm text-muted-foreground">{p.sizes.join(" · ")}</div>
                       </div>
                     )}
                     {p.printing && (
                       <div>
-                        <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#2A9D8F]">Printing Options</div>
+                        <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#0A6A38]">Printing Options</div>
                         <div className="mt-1.5 text-sm text-muted-foreground">{p.printing.join(" · ")}</div>
                       </div>
                     )}
                     {p.lamination && (
                       <div>
-                        <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#2A9D8F]">Lamination Options</div>
+                        <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#0A6A38]">Lamination Options</div>
                         <div className="mt-1.5 text-sm text-muted-foreground">{p.lamination.join(" · ")}</div>
                       </div>
                     )}
                     {p.customization && (
                       <div>
-                        <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#2A9D8F]">Customization</div>
+                        <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#0A6A38]">Customization</div>
                         <div className="mt-1.5 text-sm text-muted-foreground">{p.customization.join(" · ")}</div>
                       </div>
                     )}
@@ -101,13 +101,13 @@ function ProductsPage() {
                 <div className="mt-10 flex flex-wrap gap-3">
                   <Link
                     to="/quote"
-                    className="inline-flex items-center gap-2 rounded-md bg-[#082B59] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#145DA0]"
+                    className="inline-flex items-center gap-2 rounded-md bg-[#0B2D6B] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#123E87]"
                   >
                     Request Quote <ArrowRight className="h-4 w-4" />
                   </Link>
                   <Link
                     to="/contact"
-                    className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-6 py-3 text-sm font-semibold text-[#082B59] transition hover:bg-muted"
+                    className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-6 py-3 text-sm font-semibold text-[#0B2D6B] transition hover:bg-muted"
                   >
                     Download datasheet
                   </Link>

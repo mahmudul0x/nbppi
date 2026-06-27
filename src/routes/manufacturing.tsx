@@ -40,14 +40,14 @@ function ManufacturingPage() {
             {PROCESS.map(([n, t, d]) => (
               <div
                 key={n}
-                className="group relative overflow-hidden rounded-xl border border-border bg-card p-7 transition hover:-translate-y-1 hover:border-[#2A9D8F]/40 hover:shadow-[var(--shadow-card)]"
+                className="group relative overflow-hidden rounded-xl border border-border bg-card p-7 transition hover:-translate-y-1 hover:border-[#0A6A38]/40 hover:shadow-[var(--shadow-card)]"
               >
-                <div className="font-display text-5xl font-bold text-[#D6DCE5] transition group-hover:text-[#2A9D8F]/40">
+                <div className="font-display text-5xl font-bold text-[#D9DEE8] transition group-hover:text-[#0A6A38]/40">
                   {n}
                 </div>
-                <div className="mt-4 font-display text-lg font-semibold text-[#082B59]">{t}</div>
+                <div className="mt-4 font-display text-lg font-semibold text-[#0B2D6B]">{t}</div>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{d}</p>
-                <div className="absolute bottom-0 left-0 h-1 w-0 bg-[#2A9D8F] transition-all duration-500 group-hover:w-full" />
+                <div className="absolute bottom-0 left-0 h-1 w-0 bg-[#0A6A38] transition-all duration-500 group-hover:w-full" />
               </div>
             ))}
           </div>

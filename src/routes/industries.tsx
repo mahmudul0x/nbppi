@@ -47,7 +47,7 @@ function IndustriesPage() {
                 <SectionHeading eyebrow={`Sector ${String(i + 1).padStart(2, "0")}`} title={r.t} intro={r.d} />
                 <div className="mt-6 flex flex-wrap gap-2">
                   {r.tags.map((t) => (
-                    <span key={t} className="rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-[#082B59]">
+                    <span key={t} className="rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-[#0B2D6B]">
                       {t}
                     </span>
                   ))}

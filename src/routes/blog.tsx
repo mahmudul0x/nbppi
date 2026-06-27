@@ -52,15 +52,15 @@ function BlogPage() {
                 </div>
                 <div className="flex flex-col justify-between p-8">
                   <div>
-                    <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#2A9D8F]">
+                    <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#0A6A38]">
                       <span>{p.c}</span>
                       <span className="h-1 w-1 rounded-full bg-muted-foreground/40" />
                       <span className="text-muted-foreground">{p.d}</span>
                     </div>
-                    <h2 className="mt-4 font-display text-2xl font-bold text-[#082B59]">{p.t}</h2>
+                    <h2 className="mt-4 font-display text-2xl font-bold text-[#0B2D6B]">{p.t}</h2>
                     <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.desc}</p>
                   </div>
-                  <div className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#082B59] transition group-hover:text-[#2A9D8F]">
+                  <div className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#0B2D6B] transition group-hover:text-[#0A6A38]">
                     Read article <ArrowUpRight className="h-4 w-4" />
                   </div>
                 </div>

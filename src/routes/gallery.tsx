@@ -65,7 +65,7 @@ function GalleryPage() {
                 className={`group relative overflow-hidden rounded-xl bg-muted ${t.h}`}
               >
                 <img src={t.src} alt={t.alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-[1.4s] group-hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#082B59]/70 via-transparent to-transparent opacity-0 transition group-hover:opacity-100" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B2D6B]/70 via-transparent to-transparent opacity-0 transition group-hover:opacity-100" />
                 <div className="absolute bottom-3 left-4 text-xs font-medium uppercase tracking-[0.18em] text-white opacity-0 transition group-hover:opacity-100">
                   {t.alt}
                 </div>
@@ -76,7 +76,7 @@ function GalleryPage() {
       </section>
 
       {open ? (
-        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-[#04132A]/95 p-6" onClick={() => setOpen(null)}>
+        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-[#07204E]/95 p-6" onClick={() => setOpen(null)}>
           <button aria-label="Close" className="absolute right-6 top-6 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20">
             <X className="h-5 w-5" />
           </button>

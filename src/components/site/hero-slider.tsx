@@ -243,7 +243,7 @@ export function HeroSlider() {
       onMouseMove={onMouseMove}
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
-      className="relative isolate h-[100svh] w-full overflow-hidden bg-[#0A1B33] text-white"
+      className="relative isolate h-[100svh] w-full overflow-hidden bg-[#0B2D6B] text-white"
       aria-roledescription="carousel"
       aria-label="NBPPI product showcase"
     >
@@ -315,7 +315,7 @@ export function HeroSlider() {
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3 animate-[scale-in_600ms_400ms_ease-out_both]">
             <Link
               to="/products"
-              className="group inline-flex items-center gap-2 rounded-md bg-[#145DA0] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_15px_45px_-10px_rgba(20,93,160,0.85)] transition hover:bg-[#176fbf]"
+              className="group inline-flex items-center gap-2 rounded-md bg-[#123E87] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_15px_45px_-10px_rgba(20,93,160,0.85)] transition hover:bg-[#1A4FA8]"
             >
               Explore Products
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

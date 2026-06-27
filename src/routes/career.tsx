@@ -48,8 +48,8 @@ function CareerPage() {
               { i: Users, t: "Inclusive Culture", d: "1,200+ teammates across engineering, ops and export." },
             ].map(({ i: Icon, t, d }) => (
               <div key={t} className="rounded-xl border border-border bg-card p-6">
-                <Icon className="h-6 w-6 text-[#2A9D8F]" />
-                <div className="mt-5 font-display text-base font-semibold text-[#082B59]">{t}</div>
+                <Icon className="h-6 w-6 text-[#0A6A38]" />
+                <div className="mt-5 font-display text-base font-semibold text-[#0B2D6B]">{t}</div>
                 <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{d}</p>
               </div>
             ))}
@@ -64,12 +64,12 @@ function CareerPage() {
             {JOBS.map((j) => (
               <div key={j.t} className="grid grid-cols-12 items-center gap-4 px-6 py-6 transition hover:bg-muted/40">
                 <div className="col-span-12 md:col-span-6">
-                  <div className="font-display text-lg font-semibold text-[#082B59]">{j.t}</div>
+                  <div className="font-display text-lg font-semibold text-[#0B2D6B]">{j.t}</div>
                   <div className="mt-1 text-xs uppercase tracking-[0.18em] text-muted-foreground">{j.d}</div>
                 </div>
                 <div className="col-span-6 md:col-span-3 text-sm text-muted-foreground">Experience · {j.x}</div>
                 <div className="col-span-6 md:col-span-3 md:text-right">
-                  <Link to="/contact" className="inline-flex items-center gap-2 rounded-md bg-[#082B59] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#145DA0]">
+                  <Link to="/contact" className="inline-flex items-center gap-2 rounded-md bg-[#0B2D6B] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#123E87]">
                     Apply <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>

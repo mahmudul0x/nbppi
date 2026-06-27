@@ -148,11 +148,11 @@ function TrustBar() {
         {TRUST_BAR.map((t, i) => (
           <div
             key={t}
-            className={`flex items-center justify-center gap-3 px-6 py-6 text-center text-sm font-semibold text-[#082B59] md:text-left ${
+            className={`flex items-center justify-center gap-3 px-6 py-6 text-center text-sm font-semibold text-[#0B2D6B] md:text-left ${
               i >= 2 ? "md:border-t-0" : ""
             }`}
           >
-            <CircleCheck className="h-5 w-5 shrink-0 text-[#2A9D8F]" />
+            <CircleCheck className="h-5 w-5 shrink-0 text-[#0A6A38]" />
             <span>{t}</span>
           </div>
         ))}
@@ -177,7 +177,7 @@ function About() {
               eyebrow="About NBPPI"
               title={
                 <>
-                  Multinational-scale <span className="text-[#2A9D8F]">industrial</span> packaging
+                  Multinational-scale <span className="text-[#0A6A38]">industrial</span> packaging
                   manufacturing.
                 </>
               }
@@ -189,8 +189,8 @@ function About() {
                   key={t}
                   className="rounded-xl border border-border bg-card p-5 transition hover:-translate-y-0.5 hover:shadow-[var(--shadow-card)]"
                 >
-                  <Icon className="h-6 w-6 text-[#2A9D8F]" />
-                  <div className="mt-4 font-display text-base font-semibold text-[#082B59]">
+                  <Icon className="h-6 w-6 text-[#0A6A38]" />
+                  <div className="mt-4 font-display text-base font-semibold text-[#0B2D6B]">
                     {t}
                   </div>
                   <div className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{d}</div>
@@ -199,7 +199,7 @@ function About() {
             </div>
             <Link
               to="/about"
-              className="mt-10 inline-flex items-center gap-2 text-sm font-semibold text-[#082B59] hover:text-[#2A9D8F]"
+              className="mt-10 inline-flex items-center gap-2 text-sm font-semibold text-[#0B2D6B] hover:text-[#0A6A38]"
             >
               Read our full story <ArrowRight className="h-4 w-4" />
             </Link>
@@ -215,7 +215,7 @@ function About() {
                 loading="lazy"
                 className="h-[420px] w-full object-cover transition-transform duration-[1.4s] hover:scale-105 md:h-[520px]"
               />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#082B59]/85 via-[#082B59]/30 to-transparent p-8 text-white">
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0B2D6B]/85 via-[#0B2D6B]/30 to-transparent p-8 text-white">
                 <div className="flex flex-wrap items-end justify-between gap-6">
                   <div>
                     <div className="text-xs uppercase tracking-[0.2em] text-white/60">
@@ -239,7 +239,7 @@ function About() {
                 ["2023", "Sustainability Line"],
               ].map(([y, l]) => (
                 <div key={y} className="p-6 text-center">
-                  <div className="font-display text-2xl font-bold text-[#082B59]">{y}</div>
+                  <div className="font-display text-2xl font-bold text-[#0B2D6B]">{y}</div>
                   <div className="mt-1 text-xs uppercase tracking-[0.18em] text-muted-foreground">
                     {l}
                   </div>
@@ -263,7 +263,7 @@ function WhyChooseUs() {
     { icon: Truck, t: "Reliable Delivery", d: "On-time dispatch across Bangladesh — customer-centric service end to end." },
   ];
   return (
-    <section className="relative bg-[#082B59] py-28 text-white">
+    <section className="relative bg-[#0B2D6B] py-28 text-white">
       <div
         className="absolute inset-0 opacity-[0.06]"
         style={{
@@ -291,8 +291,8 @@ function WhyChooseUs() {
         </div>
         <div className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/5 md:grid-cols-2 lg:grid-cols-3">
           {items.map(({ icon: Icon, t, d }) => (
-            <div key={t} className="group relative bg-[#082B59] p-8 transition hover:bg-[#0d3a73]">
-              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#2A9D8F]/15 text-[#7FE0D4] transition group-hover:bg-[#2A9D8F] group-hover:text-white">
+            <div key={t} className="group relative bg-[#0B2D6B] p-8 transition hover:bg-[#0d3a73]">
+              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#0A6A38]/15 text-[#7FE0D4] transition group-hover:bg-[#0A6A38] group-hover:text-white">
                 <Icon className="h-6 w-6" />
               </div>
               <div className="mt-6 font-display text-lg font-semibold">{t}</div>
@@ -322,7 +322,7 @@ function ProductsPreview() {
           />
           <Link
             to="/products"
-            className="group inline-flex items-center gap-2 text-sm font-semibold text-[#082B59] hover:text-[#2A9D8F]"
+            className="group inline-flex items-center gap-2 text-sm font-semibold text-[#0B2D6B] hover:text-[#0A6A38]"
           >
             View full catalogue
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -341,12 +341,12 @@ function ProductsPreview() {
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-[1.2s] group-hover:scale-110"
                 />
-                <div className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#082B59] backdrop-blur">
+                <div className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#0B2D6B] backdrop-blur">
                   {p.category}
                 </div>
               </div>
               <div className="p-7">
-                <h3 className="font-display text-xl font-semibold text-[#082B59]">{p.name}</h3>
+                <h3 className="font-display text-xl font-semibold text-[#0B2D6B]">{p.name}</h3>
                 <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">{p.short}</p>
                 <div className="mt-6 flex items-center justify-between border-t border-border pt-5">
                   <span className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
@@ -354,7 +354,7 @@ function ProductsPreview() {
                   </span>
                   <Link
                     to="/products"
-                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#2A9D8F] transition group-hover:gap-2.5"
+                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#0A6A38] transition group-hover:gap-2.5"
                   >
                     Read more <ChevronRight className="h-4 w-4" />
                   </Link>
@@ -389,7 +389,7 @@ function Industries() {
           />
           <Link
             to="/industries"
-            className="group inline-flex items-center gap-2 text-sm font-semibold text-[#082B59] hover:text-[#2A9D8F]"
+            className="group inline-flex items-center gap-2 text-sm font-semibold text-[#0B2D6B] hover:text-[#0A6A38]"
           >
             All industries
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -401,12 +401,12 @@ function Industries() {
             return (
               <div
                 key={i.name}
-                className="group rounded-xl border border-border bg-white p-6 transition hover:-translate-y-1 hover:border-[#2A9D8F]/40 hover:shadow-[var(--shadow-card)]"
+                className="group rounded-xl border border-border bg-white p-6 transition hover:-translate-y-1 hover:border-[#0A6A38]/40 hover:shadow-[var(--shadow-card)]"
               >
-                <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-[#082B59]/5 text-[#082B59] transition group-hover:bg-[#2A9D8F] group-hover:text-white">
+                <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-[#0B2D6B]/5 text-[#0B2D6B] transition group-hover:bg-[#0A6A38] group-hover:text-white">
                   <Icon className="h-5 w-5" />
                 </div>
-                <div className="mt-5 font-display text-base font-semibold text-[#082B59]">
+                <div className="mt-5 font-display text-base font-semibold text-[#0B2D6B]">
                   {i.name}
                 </div>
                 <div className="mt-1.5 text-xs leading-relaxed text-muted-foreground">
@@ -425,9 +425,9 @@ function Sustainability() {
   return (
     <section
       id="sustainability"
-      className="relative overflow-hidden bg-gradient-to-br from-[#0A2A1F] via-[#082B59] to-[#04132A] py-28 text-white"
+      className="relative overflow-hidden bg-gradient-to-br from-[#083F23] via-[#0B2D6B] to-[#07204E] py-28 text-white"
     >
-      <div className="absolute -right-32 top-1/2 h-[520px] w-[520px] -translate-y-1/2 rounded-full bg-[#2A9D8F]/20 blur-3xl" />
+      <div className="absolute -right-32 top-1/2 h-[520px] w-[520px] -translate-y-1/2 rounded-full bg-[#0A6A38]/20 blur-3xl" />
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="grid gap-16 lg:grid-cols-12">
           <div className="lg:col-span-6">
@@ -445,7 +445,7 @@ function Sustainability() {
             />
             <Link
               to="/sustainability"
-              className="mt-10 inline-flex items-center gap-2 rounded-md bg-white px-6 py-3 text-sm font-semibold text-[#082B59] transition hover:bg-[#D6DCE5]"
+              className="mt-10 inline-flex items-center gap-2 rounded-md bg-white px-6 py-3 text-sm font-semibold text-[#0B2D6B] transition hover:bg-[#D9DEE8]"
             >
               Sustainability programme <ArrowRight className="h-4 w-4" />
             </Link>
@@ -458,7 +458,7 @@ function Sustainability() {
                 { i: Boxes, t: "Waste Recovery", d: "Trims and rejects re-granulated for non-food use." },
                 { i: ShieldCheck, t: "Compliant", d: "Aligned with BSCI, Sedex and REACH guidelines." },
               ].map(({ i: Icon, t, d }) => (
-                <div key={t} className="bg-[#082B59]/70 p-7 transition hover:bg-[#082B59]/95">
+                <div key={t} className="bg-[#0B2D6B]/70 p-7 transition hover:bg-[#0B2D6B]/95">
                   <Icon className="h-7 w-7 text-[#7FE0D4]" />
                   <div className="mt-5 font-display text-lg font-semibold">{t}</div>
                   <div className="mt-1.5 text-sm leading-relaxed text-white/65">{d}</div>
@@ -491,7 +491,7 @@ function ClientsMarquee() {
           {row.map((c, i) => (
             <div
               key={`${c}-${i}`}
-              className="flex h-16 items-center justify-center rounded-md border border-border bg-white px-10 font-display text-lg font-bold tracking-wider text-[#082B59]/70 transition hover:text-[#082B59]"
+              className="flex h-16 items-center justify-center rounded-md border border-border bg-white px-10 font-display text-lg font-bold tracking-wider text-[#0B2D6B]/70 transition hover:text-[#0B2D6B]"
             >
               {c.toUpperCase()}
             </div>
@@ -521,7 +521,7 @@ function Testimonials() {
     },
   ];
   return (
-    <section className="bg-[#082B59] py-28 text-white">
+    <section className="bg-[#0B2D6B] py-28 text-white">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeading dark eyebrow="Testimonials" title="What our clients say." />
         <div className="mt-16 grid gap-6 md:grid-cols-3">
@@ -548,7 +548,7 @@ function CtaStrip() {
   return (
     <section className="bg-background py-20">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="overflow-hidden rounded-3xl bg-gradient-to-r from-[#082B59] via-[#0d3a73] to-[#145DA0] p-10 text-white md:p-16">
+        <div className="overflow-hidden rounded-3xl bg-gradient-to-r from-[#0B2D6B] via-[#0d3a73] to-[#123E87] p-10 text-white md:p-16">
           <div className="grid items-center gap-10 lg:grid-cols-2">
             <div>
               <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#7FE0D4]">
@@ -562,7 +562,7 @@ function CtaStrip() {
             <div className="flex flex-wrap gap-3 lg:justify-end">
               <Link
                 to="/quote"
-                className="inline-flex items-center gap-2 rounded-md bg-[#2A9D8F] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#22887b]"
+                className="inline-flex items-center gap-2 rounded-md bg-[#0A6A38] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#22887b]"
               >
                 Request Quote <ArrowRight className="h-4 w-4" />
               </Link>
@@ -607,14 +607,14 @@ function ManufacturingTeaser() {
               ].map(([t, img]) => (
                 <div key={t} className="group relative overflow-hidden rounded-xl">
                   <img src={img} alt="" loading="lazy" className="h-36 w-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#082B59]/85 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B2D6B]/85 to-transparent" />
                   <div className="absolute bottom-3 left-3 font-display text-sm font-semibold text-white">{t}</div>
                 </div>
               ))}
             </div>
             <Link
               to="/manufacturing"
-              className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[#082B59] hover:text-[#2A9D8F]"
+              className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[#0B2D6B] hover:text-[#0A6A38]"
             >
               View full manufacturing process <ArrowRight className="h-4 w-4" />
             </Link>
@@ -643,7 +643,7 @@ function CustomManufacturing() {
               eyebrow="Custom Manufacturing"
               title={
                 <>
-                  Built around <span className="text-[#2A9D8F]">your requirements.</span>
+                  Built around <span className="text-[#0A6A38]">your requirements.</span>
                 </>
               }
               intro="Every business has unique packaging needs. At NBPPI we manufacture custom PP woven bags based on each client's specifications — dimensions, weight capacity, lamination, printing, colors, branding, stitching style and packaging requirements."
@@ -651,7 +651,7 @@ function CustomManufacturing() {
           </div>
           <div className="lg:col-span-5">
             <div className="rounded-2xl border border-border bg-card p-6 text-sm leading-relaxed text-muted-foreground">
-              <span className="font-semibold text-[#082B59]">OEM &amp; B2B partners only.</span>{" "}
+              <span className="font-semibold text-[#0B2D6B]">OEM &amp; B2B partners only.</span>{" "}
               From feed mills and rice mills to seed companies and agri brands — NBPPI is engineered
               as a long-term manufacturing partner, not a generic supplier.
             </div>
@@ -661,14 +661,14 @@ function CustomManufacturing() {
         <div className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-border bg-border/60 md:grid-cols-2 lg:grid-cols-6">
           {steps.map(({ i: Icon, t, d }, idx) => (
             <div key={t} className="relative bg-card p-7 transition hover:bg-[#F1F4F9]">
-              <div className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#2A9D8F]">
+              <div className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#0A6A38]">
                 Step {String(idx + 1).padStart(2, "0")}
               </div>
-              <Icon className="mt-4 h-7 w-7 text-[#082B59]" />
-              <div className="mt-4 font-display text-sm font-semibold text-[#082B59]">{t}</div>
+              <Icon className="mt-4 h-7 w-7 text-[#0B2D6B]" />
+              <div className="mt-4 font-display text-sm font-semibold text-[#0B2D6B]">{t}</div>
               <div className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{d}</div>
               {idx < steps.length - 1 && (
-                <ArrowRight className="absolute right-3 top-1/2 hidden h-4 w-4 -translate-y-1/2 text-[#082B59]/30 lg:block" />
+                <ArrowRight className="absolute right-3 top-1/2 hidden h-4 w-4 -translate-y-1/2 text-[#0B2D6B]/30 lg:block" />
               )}
             </div>
           ))}
@@ -685,10 +685,10 @@ function FutureExpansion() {
         <div className="overflow-hidden rounded-3xl border border-border bg-[#F1F4F9]">
           <div className="grid items-center gap-10 p-10 md:grid-cols-2 md:p-16">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full bg-[#2A9D8F]/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#2A9D8F]">
+              <div className="inline-flex items-center gap-2 rounded-full bg-[#0A6A38]/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#0A6A38]">
                 <Rocket className="h-3.5 w-3.5" /> Growing Capabilities
               </div>
-              <h3 className="mt-4 font-display text-3xl font-bold leading-tight text-[#082B59] md:text-4xl">
+              <h3 className="mt-4 font-display text-3xl font-bold leading-tight text-[#0B2D6B] md:text-4xl">
                 On the roadmap: high-strength bags for cement &amp; construction.
               </h3>
               <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground">
@@ -704,7 +704,7 @@ function FutureExpansion() {
                 ["Future", "Export Programmes"],
               ].map(([y, l]) => (
                 <div key={l} className="rounded-xl border border-border bg-white p-5">
-                  <div className="font-display text-xl font-bold text-[#082B59]">{y}</div>
+                  <div className="font-display text-xl font-bold text-[#0B2D6B]">{y}</div>
                   <div className="mt-1 text-xs uppercase tracking-[0.18em] text-muted-foreground">
                     {l}
                   </div>

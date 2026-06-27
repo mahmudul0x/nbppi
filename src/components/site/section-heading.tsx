@@ -17,15 +17,15 @@ export function SectionHeading({
     <div className={`max-w-3xl ${align === "center" ? "mx-auto text-center" : ""}`}>
       <div
         className={`inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] ${
-          dark ? "text-[#7FE0D4]" : "text-[#2A9D8F]"
+          dark ? "text-[#7FE0D4]" : "text-[#0A6A38]"
         }`}
       >
-        <span className={`h-px w-8 ${dark ? "bg-[#7FE0D4]" : "bg-[#2A9D8F]"}`} />
+        <span className={`h-px w-8 ${dark ? "bg-[#7FE0D4]" : "bg-[#0A6A38]"}`} />
         {eyebrow}
       </div>
       <h2
         className={`mt-5 font-display text-4xl font-bold leading-[1.1] tracking-tight md:text-5xl ${
-          dark ? "text-white" : "text-[#082B59]"
+          dark ? "text-white" : "text-[#0B2D6B]"
         }`}
       >
         {title}

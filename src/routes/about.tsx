@@ -48,8 +48,8 @@ function AboutPage() {
             { i: HeartHandshake, t: "Promise", d: "Consistency at scale, certified quality, and partnerships measured in decades — not transactions." },
           ].map(({ i: Icon, t, d }) => (
             <div key={t} className="rounded-2xl border border-border bg-card p-8">
-              <Icon className="h-7 w-7 text-[#2A9D8F]" />
-              <div className="mt-5 font-display text-xl font-semibold text-[#082B59]">{t}</div>
+              <Icon className="h-7 w-7 text-[#0A6A38]" />
+              <div className="mt-5 font-display text-xl font-semibold text-[#0B2D6B]">{t}</div>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{d}</p>
             </div>
           ))}
@@ -67,8 +67,8 @@ function AboutPage() {
               { i: Leaf, t: "Sustainability", d: "Recyclable mono-material structures and waste recovery." },
             ].map(({ i: Icon, t, d }) => (
               <div key={t} className="rounded-xl border border-border bg-white p-6">
-                <Icon className="h-6 w-6 text-[#2A9D8F]" />
-                <div className="mt-5 font-display text-base font-semibold text-[#082B59]">{t}</div>
+                <Icon className="h-6 w-6 text-[#0A6A38]" />
+                <div className="mt-5 font-display text-base font-semibold text-[#0B2D6B]">{t}</div>
                 <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{d}</p>
               </div>
             ))}
@@ -85,10 +85,10 @@ function AboutPage() {
               {TIMELINE.map(([y, t, d], i) => (
                 <div key={y} className={`relative grid gap-6 md:grid-cols-2 md:gap-12 ${i % 2 ? "md:[&>*:first-child]:order-2" : ""}`}>
                   <div className="md:text-right">
-                    <div className="inline-block rounded-md bg-[#082B59] px-3 py-1 font-display text-sm font-bold text-white">
+                    <div className="inline-block rounded-md bg-[#0B2D6B] px-3 py-1 font-display text-sm font-bold text-white">
                       {y}
                     </div>
-                    <div className="mt-3 font-display text-2xl font-bold text-[#082B59]">{t}</div>
+                    <div className="mt-3 font-display text-2xl font-bold text-[#0B2D6B]">{t}</div>
                     <p className="mt-2 max-w-md text-sm leading-relaxed text-muted-foreground md:ml-auto">{d}</p>
                   </div>
                   <div className="hidden md:block" />
@@ -99,7 +99,7 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-[#082B59] py-24 text-white">
+      <section className="bg-[#0B2D6B] py-24 text-white">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:items-center">
           <div className="overflow-hidden rounded-2xl shadow-[var(--shadow-elevated)]">
             <img src={teamEngineer} alt="NBPPI leadership" loading="lazy" className="h-full w-full object-cover" />
