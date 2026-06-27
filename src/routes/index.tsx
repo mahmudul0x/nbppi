@@ -562,7 +562,7 @@ function CtaStrip() {
             <div className="flex flex-wrap gap-3 lg:justify-end">
               <Link
                 to="/quote"
-                className="inline-flex items-center gap-2 rounded-md bg-[#0A6A38] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#22887b]"
+                className="inline-flex items-center gap-2 rounded-[14px] bg-[linear-gradient(135deg,#F4C542_0%,#D9A520_50%,#B8860B_100%)] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_15px_45px_-10px_rgba(217,165,32,0.55)] transition hover:brightness-110"
               >
                 Request Quote <ArrowRight className="h-4 w-4" />
               </Link>
