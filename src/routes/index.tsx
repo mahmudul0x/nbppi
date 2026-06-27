@@ -695,6 +695,99 @@ function ManufacturingTeaser() {
   );
 }
 
+function CustomManufacturing() {
+  const steps = [
+    { i: MessageSquare, t: "Customer Requirement", d: "Share your specs — dimensions, weight, print, lamination." },
+    { i: PencilRuler, t: "Design Consultation", d: "Our engineers translate your brief into a manufacturable spec." },
+    { i: CheckCircle2, t: "Sample Approval", d: "Production-grade samples for sign-off before bulk." },
+    { i: Factory, t: "Manufacturing", d: "Dedicated production runs on calibrated lines." },
+    { i: ShieldCheck, t: "Quality Inspection", d: "Multi-point QC: GSM, burst, print and stitch checks." },
+    { i: PackageCheck, t: "Delivery", d: "Bundled, palletised and dispatched on schedule." },
+  ];
+  return (
+    <section className="bg-background py-28">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="grid gap-14 lg:grid-cols-12 lg:items-end">
+          <div className="lg:col-span-7">
+            <SectionHeading
+              eyebrow="Custom Manufacturing"
+              title={
+                <>
+                  Built around <span className="text-[#2A9D8F]">your requirements.</span>
+                </>
+              }
+              intro="Every business has unique packaging needs. At NBPPI we manufacture custom PP woven bags based on each client's specifications — dimensions, weight capacity, lamination, printing, colors, branding, stitching style and packaging requirements."
+            />
+          </div>
+          <div className="lg:col-span-5">
+            <div className="rounded-2xl border border-border bg-card p-6 text-sm leading-relaxed text-muted-foreground">
+              <span className="font-semibold text-[#082B59]">OEM &amp; B2B partners only.</span>{" "}
+              From feed mills and rice mills to seed companies and agri brands — NBPPI is engineered
+              as a long-term manufacturing partner, not a generic supplier.
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-border bg-border/60 md:grid-cols-2 lg:grid-cols-6">
+          {steps.map(({ i: Icon, t, d }, idx) => (
+            <div key={t} className="relative bg-card p-7 transition hover:bg-[#F1F4F9]">
+              <div className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#2A9D8F]">
+                Step {String(idx + 1).padStart(2, "0")}
+              </div>
+              <Icon className="mt-4 h-7 w-7 text-[#082B59]" />
+              <div className="mt-4 font-display text-sm font-semibold text-[#082B59]">{t}</div>
+              <div className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{d}</div>
+              {idx < steps.length - 1 && (
+                <ArrowRight className="absolute right-3 top-1/2 hidden h-4 w-4 -translate-y-1/2 text-[#082B59]/30 lg:block" />
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FutureExpansion() {
+  return (
+    <section className="bg-background py-24">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="overflow-hidden rounded-3xl border border-border bg-[#F1F4F9]">
+          <div className="grid items-center gap-10 p-10 md:grid-cols-2 md:p-16">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full bg-[#2A9D8F]/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#2A9D8F]">
+                <Rocket className="h-3.5 w-3.5" /> Growing Capabilities
+              </div>
+              <h3 className="mt-4 font-display text-3xl font-bold leading-tight text-[#082B59] md:text-4xl">
+                On the roadmap: high-strength bags for cement &amp; construction.
+              </h3>
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground">
+                Our future expansion roadmap includes the development of high-strength woven bags
+                for the cement and construction industries as production capacity continues to grow.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                ["2026", "Capacity Expansion"],
+                ["2026", "Cement Bag R&D"],
+                ["2027", "Construction Line"],
+                ["Future", "Export Programmes"],
+              ].map(([y, l]) => (
+                <div key={l} className="rounded-xl border border-border bg-white p-5">
+                  <div className="font-display text-xl font-bold text-[#082B59]">{y}</div>
+                  <div className="mt-1 text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                    {l}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Index() {
   return (
     <div className="min-h-screen bg-background">
