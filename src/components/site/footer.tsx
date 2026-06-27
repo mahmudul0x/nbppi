@@ -36,12 +36,12 @@ const cols = [
 
 export function SiteFooter() {
   return (
-    <footer className="bg-[#04132A] pt-20 text-white/70">
+    <footer className="bg-[#07204E] pt-20 text-white/70">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <Link to="/" className="flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-md bg-white font-display text-sm font-bold text-[#082B59]">
+              <div className="flex h-11 w-11 items-center justify-center rounded-md bg-white font-display text-sm font-bold text-[#0B2D6B]">
                 NB
               </div>
               <div className="leading-tight">
@@ -63,7 +63,7 @@ export function SiteFooter() {
                 placeholder="Subscribe to NBPPI updates"
                 className="flex-1 bg-transparent px-3 py-2 text-sm placeholder:text-white/40 focus:outline-none"
               />
-              <button className="inline-flex items-center gap-1.5 rounded-md bg-[#2A9D8F] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#22887b]">
+              <button className="inline-flex items-center gap-1.5 rounded-md bg-[#0A6A38] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#22887b]">
                 Subscribe <ArrowRight className="h-3.5 w-3.5" />
               </button>
             </form>

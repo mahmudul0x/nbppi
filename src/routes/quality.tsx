@@ -54,8 +54,8 @@ function QualityPage() {
                 { i: FlaskConical, t: "Sedex" },
               ].map(({ i: Icon, t }) => (
                 <div key={t} className="flex items-center gap-3 rounded-lg border border-border bg-card p-4">
-                  <Icon className="h-5 w-5 text-[#2A9D8F]" />
-                  <span className="font-display text-sm font-semibold text-[#082B59]">{t}</span>
+                  <Icon className="h-5 w-5 text-[#0A6A38]" />
+                  <span className="font-display text-sm font-semibold text-[#0B2D6B]">{t}</span>
                 </div>
               ))}
             </div>
@@ -69,8 +69,8 @@ function QualityPage() {
           <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {CHECKS.map(([t, d]) => (
               <div key={t} className="rounded-xl border border-border bg-white p-6">
-                <CircleCheck className="h-6 w-6 text-[#2A9D8F]" />
-                <div className="mt-4 font-display text-base font-semibold text-[#082B59]">{t}</div>
+                <CircleCheck className="h-6 w-6 text-[#0A6A38]" />
+                <div className="mt-4 font-display text-base font-semibold text-[#0B2D6B]">{t}</div>
                 <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{d}</p>
               </div>
             ))}

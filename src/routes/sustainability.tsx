@@ -41,10 +41,10 @@ function SustainabilityPage() {
               { i: ShieldCheck, t: "Compliant", d: "Aligned with BSCI, Sedex and REACH supply-chain frameworks." },
             ].map(({ i: Icon, t, d }) => (
               <div key={t} className="rounded-2xl border border-border bg-card p-7">
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#2A9D8F]/10 text-[#2A9D8F]">
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#0A6A38]/10 text-[#0A6A38]">
                   <Icon className="h-6 w-6" />
                 </div>
-                <div className="mt-6 font-display text-lg font-semibold text-[#082B59]">{t}</div>
+                <div className="mt-6 font-display text-lg font-semibold text-[#0B2D6B]">{t}</div>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{d}</p>
               </div>
             ))}
@@ -52,7 +52,7 @@ function SustainabilityPage() {
         </div>
       </section>
 
-      <section className="bg-gradient-to-br from-[#0A2A1F] via-[#082B59] to-[#04132A] py-24 text-white">
+      <section className="bg-gradient-to-br from-[#083F23] via-[#0B2D6B] to-[#07204E] py-24 text-white">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 md:grid-cols-4">
           {[
             ["18%", "Energy reduction vs 2020"],

@@ -31,7 +31,7 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
       <div
         className={`backdrop-blur-md transition-all duration-300 ${
           onDark
-            ? "border-b border-transparent bg-[#082B59]/95 lg:bg-[#082B59]"
+            ? "border-b border-transparent bg-[#0B2D6B]/95 lg:bg-[#0B2D6B]"
             : "border-b border-border bg-background/90 shadow-[0_1px_0_rgba(8,43,89,0.06)]"
         }`}
       >
@@ -39,7 +39,7 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
           <Link to="/" className="flex items-center gap-3">
             <div
               className={`flex h-10 w-10 items-center justify-center rounded-md font-display text-sm font-bold ${
-                onDark ? "bg-white text-[#082B59]" : "bg-[#082B59] text-white"
+                onDark ? "bg-white text-[#0B2D6B]" : "bg-[#0B2D6B] text-white"
               }`}
             >
               NB
@@ -47,7 +47,7 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
             <div className="leading-tight">
               <div
                 className={`font-display text-sm font-bold ${
-                  onDark ? "text-white" : "text-[#082B59]"
+                  onDark ? "text-white" : "text-[#0B2D6B]"
                 }`}
               >
                 NBPPI
@@ -73,14 +73,14 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
                   className={`relative rounded-md px-3 py-2 text-sm font-medium transition-colors ${
                     onDark
                       ? `${active ? "text-white" : "text-white/70 hover:text-white"}`
-                      : `${active ? "text-[#082B59]" : "text-foreground/70 hover:text-[#082B59]"}`
+                      : `${active ? "text-[#0B2D6B]" : "text-foreground/70 hover:text-[#0B2D6B]"}`
                   }`}
                 >
                   {n.label}
                   {active ? (
                     <span
                       className={`absolute inset-x-3 -bottom-0.5 h-0.5 ${
-                        onDark ? "bg-[#2A9D8F]" : "bg-[#2A9D8F]"
+                        onDark ? "bg-[#0A6A38]" : "bg-[#0A6A38]"
                       }`}
                     />
                   ) : null}
@@ -100,7 +100,7 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
             </button>
             <Link
               to="/quote"
-              className="group hidden items-center gap-2 rounded-md bg-[#2A9D8F] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-[#22887b] lg:inline-flex"
+              className="group hidden items-center gap-2 rounded-md bg-[linear-gradient(135deg,#F4C542_0%,#D9A520_50%,#B8860B_100%)] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_10px_28px_-10px_rgba(217,165,32,0.55)] transition hover:brightness-110 lg:inline-flex"
             >
               Request Quote
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -109,7 +109,7 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
               aria-label="Menu"
               onClick={() => setOpen((o) => !o)}
               className={`flex h-10 w-10 items-center justify-center rounded-md lg:hidden ${
-                onDark ? "text-white" : "text-[#082B59]"
+                onDark ? "text-white" : "text-[#0B2D6B]"
               }`}
             >
               {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -124,14 +124,14 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
                 <Link
                   key={n.to}
                   to={n.to}
-                  className="rounded-md px-3 py-3 text-sm font-medium text-foreground/80 hover:bg-muted hover:text-[#082B59]"
+                  className="rounded-md px-3 py-3 text-sm font-medium text-foreground/80 hover:bg-muted hover:text-[#0B2D6B]"
                 >
                   {n.label}
                 </Link>
               ))}
               <Link
                 to="/quote"
-                className="col-span-2 mt-2 inline-flex items-center justify-center gap-2 rounded-md bg-[#2A9D8F] px-5 py-3 text-sm font-semibold text-white"
+                className="col-span-2 mt-2 inline-flex items-center justify-center gap-2 rounded-md bg-[linear-gradient(135deg,#F4C542_0%,#D9A520_50%,#B8860B_100%)] px-5 py-3 text-sm font-semibold text-white"
               >
                 Request Quote <ArrowRight className="h-4 w-4" />
               </Link>

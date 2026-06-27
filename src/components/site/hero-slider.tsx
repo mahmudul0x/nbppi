@@ -243,7 +243,7 @@ export function HeroSlider() {
       onMouseMove={onMouseMove}
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
-      className="relative isolate h-[100svh] w-full overflow-hidden bg-[#0A1B33] text-white"
+      className="relative isolate h-[100svh] w-full overflow-hidden bg-[#0B2D6B] text-white"
       aria-roledescription="carousel"
       aria-label="NBPPI product showcase"
     >
@@ -268,15 +268,15 @@ export function HeroSlider() {
             />
           </div>
         ))}
-        {/* Cinematic dark overlay for text legibility */}
+        {/* Cinematic navy → green brand overlay for text legibility */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.45))",
+              "linear-gradient(135deg, rgba(11,45,107,0.78) 0%, rgba(11,45,107,0.55) 50%, rgba(10,106,56,0.65) 100%)",
           }}
         />
-        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-b from-transparent to-black/60" />
+        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-b from-transparent to-[#07204E]/80" />
       </div>
 
       {/* Side nav arrows */}
@@ -315,14 +315,14 @@ export function HeroSlider() {
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3 animate-[scale-in_600ms_400ms_ease-out_both]">
             <Link
               to="/products"
-              className="group inline-flex items-center gap-2 rounded-md bg-[#145DA0] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_15px_45px_-10px_rgba(20,93,160,0.85)] transition hover:bg-[#176fbf]"
+              className="group inline-flex items-center gap-2 rounded-[14px] bg-[#0B2D6B] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_15px_45px_-10px_rgba(11,45,107,0.85)] transition hover:bg-[#123E87]"
             >
               Explore Products
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
             <Link
               to="/quote"
-              className="group inline-flex items-center gap-2 rounded-md border border-white/45 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/10"
+              className="group inline-flex items-center gap-2 rounded-[14px] bg-[linear-gradient(135deg,#F4C542_0%,#D9A520_50%,#B8860B_100%)] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_15px_45px_-10px_rgba(217,165,32,0.55)] transition hover:brightness-110"
             >
               Request Quote
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
