@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { NAV } from "@/lib/site-data";
 import logoAsset from "@/assets/nbppi-logo.png.asset.json";
+import logoLightAsset from "@/assets/nbppi-logo-light.png.asset.json";
 
 export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
@@ -34,17 +35,9 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <Link to="/" className="flex items-center gap-3 sm:gap-4">
             <img
-              src={logoAsset.url}
+              src={onDark ? logoLightAsset.url : logoAsset.url}
               alt="NBPPI logo"
               className="h-10 w-10 object-contain sm:h-11 sm:w-11 lg:h-12 lg:w-12"
-              style={
-                onDark
-                  ? {
-                      filter:
-                        "drop-shadow(0 0 1px rgba(255,255,255,0.9)) drop-shadow(0 0 2px rgba(255,255,255,0.7)) drop-shadow(0 0 4px rgba(255,255,255,0.5))",
-                    }
-                  : undefined
-              }
             />
             <div className="leading-tight">
               <div
