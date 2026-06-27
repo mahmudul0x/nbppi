@@ -147,16 +147,19 @@ export const PRODUCTS: Product[] = [
 ];
 
 export const INDUSTRIES = [
-  { name: "Poultry Feed Manufacturers", desc: "Custom printed feed bags built for hatcheries and poultry brands.", icon: "Beef" },
-  { name: "Fish Feed Producers", desc: "Moisture-resistant lined and laminated bags for aquaculture feed.", icon: "Ship" },
-  { name: "Cattle Feed Companies", desc: "Heavy-duty woven sacks with brand-grade flexo printing.", icon: "Beef" },
   { name: "Agriculture", desc: "Breathable PP sacks for produce, vegetables and grain.", icon: "Sprout" },
-  { name: "Rice Mills", desc: "Premium BOPP and lined bags for branded rice programs.", icon: "Wheat" },
-  { name: "Flour Mills", desc: "Food-grade lined woven bags for flour and milled products.", icon: "Wheat" },
-  { name: "Food Processing", desc: "Lined and laminated bags for sugar, salt and food powders.", icon: "ShoppingBag" },
+  { name: "Feed Industry", desc: "Custom printed feed bags for the wider animal feed sector.", icon: "Beef" },
+  { name: "Poultry Industry", desc: "Brand-grade printed sacks for hatcheries and poultry feed mills.", icon: "Beef" },
+  { name: "Fish Feed", desc: "Moisture-resistant lined and laminated bags for aquaculture.", icon: "Ship" },
+  { name: "Cattle Feed", desc: "Reinforced woven sacks with multi-color flexo printing.", icon: "Beef" },
+  { name: "Food Processing", desc: "Lined and laminated bags for sugar, salt, flour and food powders.", icon: "ShoppingBag" },
+  { name: "Rice Mills", desc: "Premium BOPP and lined bags for branded rice programmes.", icon: "Wheat" },
   { name: "Seed Companies", desc: "High-impact printed packaging for branded seed lines.", icon: "Sprout" },
-  { name: "Fertilizer Suppliers", desc: "UV-stable laminated sacks for fertilizers and soil inputs.", icon: "Leaf" },
+  { name: "Chemical Industry", desc: "Lined and laminated sacks for fine powders and granules.", icon: "FlaskConical" },
+  { name: "Retail Packaging", desc: "Photo-grade BOPP bags engineered for shelf appeal.", icon: "ShoppingBag" },
   { name: "Industrial Packaging", desc: "OEM bulk packaging for industrial powders and granules.", icon: "FlaskConical" },
+  { name: "Export Packaging", desc: "Container-ready packaging built to international export specs.", icon: "Ship" },
+  { name: "Construction Materials", desc: "Laminated woven bags suited to moisture-sensitive industrial materials.", icon: "HardHat" },
 ];
 
 export const PROCESS = [
