@@ -32,7 +32,7 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
             : "border-b border-border bg-background/90 shadow-[0_1px_0_rgba(8,43,89,0.06)]"
         }`}
       >
-          <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5">
+          <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-3.5">
           <Link to="/" className="flex min-w-0 items-center gap-3">
             <img
               src={onDark ? logoLightAsset.url : logoAsset.url}
