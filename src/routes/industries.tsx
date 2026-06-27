@@ -20,9 +20,9 @@ export const Route = createFileRoute("/industries")({
 });
 
 const ROWS = [
-  { t: "Agriculture & Food Processing", d: "From breathable potato sacks to food-grade lined bags for rice, flour, sugar and salt — built around the regulatory standards of premium agri-food brands.", image: industryAgri, tags: ["Rice Mills", "Flour Mills", "Vegetables", "Grain"] },
-  { t: "Construction & Chemical", d: "UV-stabilised laminated sacks for cement, sand, fertilizer and bulk minerals — engineered for outdoor stockpiling and rough handling.", image: industryCement, tags: ["Cement", "Fertilizer", "Minerals", "Powders"] },
-  { t: "Export & Retail Programs", d: "Premium BOPP printed bags, FIBC and container liners shipped to 22+ countries via FCL/LCL logistics partners.", image: industryExport, tags: ["Premium Rice", "Pet Food", "Seed", "Export"] },
+  { t: "Feed Manufacturers", d: "Custom printed PP woven bags for poultry, fish and cattle feed producers — branded, durable and engineered for high-turnover mills.", image: industryAgri, tags: ["Poultry Feed", "Fish Feed", "Cattle Feed", "Feed Mills"] },
+  { t: "Agriculture, Rice & Flour Mills", d: "Breathable plain bags, lined food-grade bags and premium BOPP packaging for rice mills, flour mills, seed companies and produce traders.", image: industryExport, tags: ["Rice Mills", "Flour Mills", "Seed Companies", "Vegetables"] },
+  { t: "Fertilizer & Industrial Packaging", d: "Laminated and lined woven bags for fertilizer suppliers, food processors and industrial OEMs requiring consistent bulk packaging.", image: industryCement, tags: ["Fertilizer", "Food Processing", "Industrial", "OEM Bulk"] },
 ];
 
 function IndustriesPage() {
