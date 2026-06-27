@@ -41,7 +41,7 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
             />
             <span className="flex min-w-0 flex-col leading-tight">
               <span className={`font-display text-base font-bold tracking-tight sm:text-lg ${onDark ? "text-white" : "text-[#0B2D6B]"}`}>
-                NBPPI
+                North Bengal
               </span>
               <span className={`hidden text-[10px] font-medium uppercase tracking-[0.18em] sm:block ${onDark ? "text-white/70" : "text-foreground/60"}`}>
                 Poly & Packaging Ind. Ltd.
