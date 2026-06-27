@@ -39,7 +39,7 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
       <div
         className={`backdrop-blur-md transition-all duration-300 ${
           onDark
-            ? "border-b border-white/10 bg-[#0B2D6B]/40 lg:bg-[#0B2D6B]/35"
+            ? "border-b border-transparent bg-[#0B2D6B]/95 lg:bg-[#0B2D6B]"
             : "border-b border-border bg-background/90 shadow-[0_1px_0_rgba(8,43,89,0.06)]"
         }`}
       >
