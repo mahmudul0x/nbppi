@@ -100,7 +100,7 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
             </button>
             <Link
               to="/quote"
-              className="group hidden items-center gap-2 rounded-md bg-[#0A6A38] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-[#22887b] lg:inline-flex"
+              className="group hidden items-center gap-2 rounded-md bg-[linear-gradient(135deg,#F4C542_0%,#D9A520_50%,#B8860B_100%)] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_10px_28px_-10px_rgba(217,165,32,0.55)] transition hover:brightness-110 lg:inline-flex"
             >
               Request Quote
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -131,7 +131,7 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
               ))}
               <Link
                 to="/quote"
-                className="col-span-2 mt-2 inline-flex items-center justify-center gap-2 rounded-md bg-[#0A6A38] px-5 py-3 text-sm font-semibold text-white"
+                className="col-span-2 mt-2 inline-flex items-center justify-center gap-2 rounded-md bg-[linear-gradient(135deg,#F4C542_0%,#D9A520_50%,#B8860B_100%)] px-5 py-3 text-sm font-semibold text-white"
               >
                 Request Quote <ArrowRight className="h-4 w-4" />
               </Link>
