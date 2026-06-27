@@ -235,7 +235,7 @@ export function HeroSlider() {
         type="button"
         aria-label="Previous slide"
         onClick={() => go(index - 1)}
-        className="absolute left-4 top-1/2 z-30 hidden -translate-y-1/2 grid h-12 w-12 place-items-center rounded-full border border-white/25 bg-white/5 text-white/90 backdrop-blur transition hover:border-white/60 hover:bg-white/10 md:grid lg:left-8"
+        className="absolute left-4 top-1/2 z-30 hidden h-12 w-12 -translate-y-1/2 place-items-center rounded-full border border-white/25 bg-white/5 text-white/90 backdrop-blur transition hover:border-white/60 hover:bg-white/10 md:grid lg:left-8"
       >
         <ChevronLeft className="h-5 w-5" />
       </button>
@@ -243,7 +243,7 @@ export function HeroSlider() {
         type="button"
         aria-label="Next slide"
         onClick={() => go(index + 1)}
-        className="absolute right-4 top-1/2 z-30 hidden -translate-y-1/2 grid h-12 w-12 place-items-center rounded-full border border-white/25 bg-white/5 text-white/90 backdrop-blur transition hover:border-white/60 hover:bg-white/10 md:grid lg:right-8"
+        className="absolute right-4 top-1/2 z-30 hidden h-12 w-12 -translate-y-1/2 place-items-center rounded-full border border-white/25 bg-white/5 text-white/90 backdrop-blur transition hover:border-white/60 hover:bg-white/10 md:grid lg:right-8"
       >
         <ChevronRight className="h-5 w-5" />
       </button>
