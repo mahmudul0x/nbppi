@@ -34,6 +34,7 @@ import { SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
 import { FloatingActions } from "@/components/site/floating";
 import { SectionHeading } from "@/components/site/section-heading";
+import { HeroSlider } from "@/components/site/hero-slider";
 import { PRODUCTS, INDUSTRIES, CLIENTS, TRUST_BAR } from "@/lib/site-data";
 import heroFactory from "@/assets/hero-factory.jpg";
 import factoryAerial from "@/assets/factory-aerial.jpg";
@@ -137,78 +138,7 @@ function Stat({ value, suffix, label }: { value: number; suffix?: string; label:
 }
 
 function Hero() {
-  return (
-    <section id="home" className="relative isolate overflow-hidden bg-[#082B59] text-white">
-      <div className="absolute inset-0">
-        <img
-          src={heroFactory}
-          alt="NBPPI manufacturing facility"
-          width={1920}
-          height={1280}
-          className="h-full w-full object-cover opacity-50"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#082B59] via-[#082B59]/85 to-[#082B59]/40" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#082B59]" />
-      </div>
-
-      <div className="relative mx-auto grid max-w-7xl gap-16 px-6 pb-28 pt-20 md:pt-28 lg:grid-cols-12 lg:pb-36 lg:pt-36">
-        <div className="lg:col-span-7">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-white/80 backdrop-blur">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#2A9D8F]" />
-            Custom PP Woven Bag Manufacturer · B2B
-          </div>
-          <h1 className="mt-6 font-display text-5xl font-bold leading-[1.02] tracking-tight md:text-6xl lg:text-[5.25rem]">
-            Custom PP woven packaging
-            <br />
-            <span className="text-[#7FE0D4]">engineered for your business.</span>
-          </h1>
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-white/75 md:text-lg">
-            North Bengal Poly &amp; Packaging Industries Ltd. manufactures premium custom
-            polypropylene woven bags tailored to the unique requirements of agriculture, poultry,
-            feed, food processing and industrial businesses across Bangladesh — with a vision for
-            future export markets.
-          </p>
-          <div className="mt-10 flex flex-wrap gap-3">
-            <Link
-              to="/products"
-              className="group inline-flex items-center gap-2 rounded-md bg-white px-6 py-3.5 text-sm font-semibold text-[#082B59] transition hover:bg-[#D6DCE5]"
-            >
-              Explore Products
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-            <Link
-              to="/quote"
-              className="group inline-flex items-center gap-2 rounded-md border border-white/25 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/10"
-            >
-              Request Quote
-              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </Link>
-          </div>
-        </div>
-
-        <div className="lg:col-span-5">
-          <div className="relative rounded-2xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-md">
-            <div className="text-xs font-medium uppercase tracking-[0.2em] text-white/50">
-              Production at a glance
-            </div>
-            <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-8">
-              <Stat value={20} suffix="+" label="Years Experience" />
-              <Stat value={50} suffix="M+" label="Bags Produced" />
-              <Stat value={150} suffix="+" label="Business Clients" />
-              <Stat value={15} suffix="+" label="Product Categories" />
-            </div>
-            <div className="mt-8 flex items-center justify-between rounded-xl border border-white/10 bg-[#061F40] px-4 py-3 text-xs text-white/70">
-              <span className="flex items-center gap-2">
-                <ShieldCheck className="h-4 w-4 text-[#2A9D8F]" />
-                ISO 9001 · BSCI · Sedex
-              </span>
-              <span>Export Ready</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+  return <HeroSlider />;
 }
 
 function TrustBar() {
