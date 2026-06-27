@@ -132,10 +132,6 @@ function ManufacturingPage() {
                           Stage {s.n}
                         </div>
                       </div>
-                      {/* Center dot */}
-                      <div className="absolute left-1/2 top-1/2 hidden h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-background bg-[#0A6A38] lg:block"
-                        style={{ left: reversed ? "calc(0% - 2rem)" : "calc(100% + 2rem)" }}
-                      />
                     </div>
 
                     {/* Content */}
