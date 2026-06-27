@@ -4,6 +4,7 @@ import {
   ArrowRight,
   Menu,
   X,
+  Search,
 } from "lucide-react";
 import { NAV } from "@/lib/site-data";
 
