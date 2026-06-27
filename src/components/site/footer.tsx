@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Linkedin, Facebook, Youtube, ArrowRight } from "lucide-react";
-import logoLightAsset from "@/assets/nbppi-logo-light.png.asset.json";
+import logoImg from "@/assets/logoWebsite.png";
 
 const cols = [
   {
@@ -43,7 +43,7 @@ export function SiteFooter() {
           <div className="lg:col-span-5">
             <Link to="/" className="inline-flex items-center gap-3">
               <img
-                src={logoLightAsset.url}
+                src={logoImg}
                 alt="NBPPI logo"
                 className="h-12 w-auto object-contain sm:h-14 lg:h-16"
               />

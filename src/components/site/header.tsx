@@ -2,8 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowRight, Menu, X, Phone, Mail, MapPin } from "lucide-react";
 import { NAV } from "@/lib/site-data";
-import logoAsset from "@/assets/nbppi-logo.png.asset.json";
-import logoLightAsset from "@/assets/nbppi-logo-white-final.png.asset.json";
+import logoImg from "@/assets/logoWebsite.png";
 
 export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
@@ -46,9 +45,9 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
           <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3.5">
           <Link to="/" className="flex min-w-0 items-center gap-3">
             <img
-              src={onDark ? logoLightAsset.url : logoAsset.url}
+              src={logoImg}
               alt="NBPPI logo"
-              className="h-10 w-auto object-contain sm:h-11 lg:h-12"
+              className={`h-10 w-auto object-contain sm:h-11 lg:h-12 transition-all duration-300 ${onDark ? "brightness-0 invert" : ""}`}
             />
             <span className="flex min-w-0 flex-col leading-tight">
               <span className={`font-display text-base font-bold tracking-tight sm:text-lg ${onDark ? "text-white" : "text-[#0B2D6B]"}`}>
@@ -126,7 +125,7 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
       >
         <div className="flex items-center justify-between border-b border-border px-5 py-4">
           <Link to="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
-            <img src={logoAsset.url} alt="NBPPI logo" className="h-9 w-auto object-contain" />
+            <img src={logoImg} alt="NBPPI logo" className="h-9 w-auto object-contain" />
             <span className="flex flex-col leading-tight">
               <span className="font-display text-base font-bold tracking-tight text-[#0B2D6B]">
                 North Bengal
