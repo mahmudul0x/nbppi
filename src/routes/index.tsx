@@ -703,11 +703,13 @@ function Index() {
         <Hero />
         <TrustBar />
         <About />
+        <CustomManufacturing />
         <WhyChooseUs />
         <ProductsPreview />
         <ManufacturingTeaser />
         <Industries />
         <Sustainability />
+        <FutureExpansion />
         <ClientsMarquee />
         <Testimonials />
         <CtaStrip />
