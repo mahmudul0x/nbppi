@@ -39,7 +39,7 @@ export function SiteFooter() {
   return (
     <footer className="bg-[#07204E] pt-14 text-white/70 sm:pt-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-12 lg:grid-cols-11">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-12 lg:grid-cols-12 lg:gap-12">
           <div className="sm:col-span-2 lg:col-span-5">
             <Link to="/" className="inline-flex items-center gap-2.5 sm:gap-3">
               <img
@@ -89,9 +89,9 @@ export function SiteFooter() {
             </div>
           </div>
 
-          <div className="grid grid-cols-3 gap-6 sm:col-span-2 lg:col-span-6 lg:gap-0">
+          <div className="grid grid-cols-2 gap-6 sm:col-span-2 sm:grid-cols-3 lg:col-span-7 lg:gap-8">
             {cols.map((c) => (
-              <div key={c.t} className="min-w-0 lg:col-span-2">
+              <div key={c.t} className="min-w-0">
                 <div className="font-display text-xs font-semibold uppercase tracking-[0.22em] text-white">
                   {c.t}
                 </div>
