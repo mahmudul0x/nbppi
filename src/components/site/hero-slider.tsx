@@ -1,6 +1,18 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight, CheckCircle2 } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  ChevronLeft,
+  ChevronRight,
+  Award,
+  Package,
+  Users,
+  Globe2,
+  ShieldCheck,
+  Leaf,
+  Mouse,
+} from "lucide-react";
 import heroFactory from "@/assets/hero-factory.jpg";
 import factoryAerial from "@/assets/factory-aerial.jpg";
 import warehouseImg from "@/assets/warehouse.jpg";
