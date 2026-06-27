@@ -42,56 +42,6 @@ const SLIDES: Slide[] = [
     badges: ["Fully Custom", "OEM Manufacturing", "Bulk Capable"],
   },
   {
-    id: "poultry",
-    name: "Printed Poultry Feed Bags",
-    tagline: "Custom Printed PP Woven Packaging",
-    description:
-      "Durable, brand-grade printed sacks engineered for poultry feed manufacturers — built to protect product integrity across the supply chain.",
-    product: bagPoultry,
-    background: weavingImg,
-    badges: ["Custom Printing", "Heavy Duty", "Brand-Grade Flexo"],
-  },
-  {
-    id: "fish",
-    name: "Fish Feed Bags",
-    tagline: "Moisture-Resistant Aquaculture Packaging",
-    description:
-      "Laminated and lined woven bags formulated for the moisture, humidity and handling stress of the aquaculture industry.",
-    product: bagFish,
-    background: manufacturingExtrusion,
-    badges: ["Moisture Resistant", "Laminated", "Export Quality"],
-  },
-  {
-    id: "cattle",
-    name: "Cattle Feed Bags",
-    tagline: "Heavy-Duty Woven Feed Sacks",
-    description:
-      "Reinforced woven sacks with multi-color flexo printing — built to carry premium cattle feed brands from mill to farm.",
-    product: bagCattle,
-    background: warehouseImg,
-    badges: ["High GSM", "Reinforced Stitching", "Multi-Color Print"],
-  },
-  {
-    id: "seed",
-    name: "Custom Seed Bags",
-    tagline: "Brand-Grade Packaging for Seed Companies",
-    description:
-      "High-impact printed woven bags designed for branded seed lines — protecting germination quality across distribution and retail.",
-    product: bagSeed,
-    background: warehouseImg,
-    badges: ["Custom Branding", "Premium Print", "Tamper-Resistant"],
-  },
-  {
-    id: "animalfeed",
-    name: "Animal Feed Bags",
-    tagline: "Custom Packaging for the Feed Industry",
-    description:
-      "Heavy-duty woven sacks engineered for animal feed manufacturers — calibrated GSM, reinforced stitching and brand-grade printing built for mill-to-farm logistics.",
-    product: bagAnimalFeed,
-    background: factoryAerial,
-    badges: ["Heavy Duty", "Multi-Color Print", "Reinforced Seams"],
-  },
-  {
     id: "rice",
     name: "Premium BOPP Rice Bags",
     tagline: "Photo-Grade Retail Packaging",
@@ -100,16 +50,6 @@ const SLIDES: Slide[] = [
     product: bagRice,
     background: factoryAerial,
     badges: ["8-Color BOPP", "Retail Finish", "Scratch Resistant"],
-  },
-  {
-    id: "bopp",
-    name: "BOPP Laminated Bags",
-    tagline: "Retail-Grade Premium Packaging",
-    description:
-      "Photo-grade BOPP laminated bags with a luxurious gloss finish — engineered for premium rice, pet food, branded food products and export retail programmes.",
-    product: bagBopp,
-    background: factoryAerial,
-    badges: ["Photo-Grade Print", "Luxury Finish", "Retail Ready"],
   },
   {
     id: "laminated",
@@ -150,6 +90,66 @@ const SLIDES: Slide[] = [
     product: bagGusseted,
     background: factoryAerial,
     badges: ["Pallet Stable", "High Capacity", "Reinforced Seams"],
+  },
+  {
+    id: "bopp",
+    name: "BOPP Laminated Bags",
+    tagline: "Retail-Grade Premium Packaging",
+    description:
+      "Photo-grade BOPP laminated bags with a luxurious gloss finish — engineered for premium rice, pet food, branded food products and export retail programmes.",
+    product: bagBopp,
+    background: factoryAerial,
+    badges: ["Photo-Grade Print", "Luxury Finish", "Retail Ready"],
+  },
+  {
+    id: "seed",
+    name: "Custom Seed Bags",
+    tagline: "Brand-Grade Packaging for Seed Companies",
+    description:
+      "High-impact printed woven bags designed for branded seed lines — protecting germination quality across distribution and retail.",
+    product: bagSeed,
+    background: warehouseImg,
+    badges: ["Custom Branding", "Premium Print", "Tamper-Resistant"],
+  },
+  {
+    id: "poultry",
+    name: "Printed Poultry Feed Bags",
+    tagline: "Custom Printed PP Woven Packaging",
+    description:
+      "Durable, brand-grade printed sacks engineered for poultry feed manufacturers — built to protect product integrity across the supply chain.",
+    product: bagPoultry,
+    background: weavingImg,
+    badges: ["Custom Printing", "Heavy Duty", "Brand-Grade Flexo"],
+  },
+  {
+    id: "fish",
+    name: "Fish Feed Bags",
+    tagline: "Moisture-Resistant Aquaculture Packaging",
+    description:
+      "Laminated and lined woven bags formulated for the moisture, humidity and handling stress of the aquaculture industry.",
+    product: bagFish,
+    background: manufacturingExtrusion,
+    badges: ["Moisture Resistant", "Laminated", "Export Quality"],
+  },
+  {
+    id: "cattle",
+    name: "Cattle Feed Bags",
+    tagline: "Heavy-Duty Woven Feed Sacks",
+    description:
+      "Reinforced woven sacks with multi-color flexo printing — built to carry premium cattle feed brands from mill to farm.",
+    product: bagCattle,
+    background: warehouseImg,
+    badges: ["High GSM", "Reinforced Stitching", "Multi-Color Print"],
+  },
+  {
+    id: "animalfeed",
+    name: "Animal Feed Bags",
+    tagline: "Custom Packaging for the Feed Industry",
+    description:
+      "Heavy-duty woven sacks engineered for animal feed manufacturers — calibrated GSM, reinforced stitching and brand-grade printing built for mill-to-farm logistics.",
+    product: bagAnimalFeed,
+    background: factoryAerial,
+    badges: ["Heavy Duty", "Multi-Color Print", "Reinforced Seams"],
   },
   {
     id: "industrial",
