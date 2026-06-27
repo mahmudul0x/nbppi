@@ -28,31 +28,73 @@ export type Product = {
   features: string[];
   image: string;
   category: string;
+  sizes?: string[];
+  printing?: string[];
+  lamination?: string[];
+  customization?: string[];
 };
 
 export const PRODUCTS: Product[] = [
+  {
+    slug: "printed-pp-woven-bags",
+    name: "Printed PP Woven Bags",
+    category: "Custom Printed",
+    image: productBopp,
+    short:
+      "Custom-designed woven bags printed with your branding, logos, product information and artwork using high-quality flexo printing.",
+    description:
+      "Our flagship offering — fully custom printed PP woven bags engineered to each client's specification. Up to 8-color flexographic printing on a tailored woven substrate, sized and stitched to suit feed mills, rice mills, seed companies and agri brands across Bangladesh.",
+    applications: [
+      "Poultry Feed",
+      "Fish Feed",
+      "Cattle Feed",
+      "Rice Mills",
+      "Flour Mills",
+      "Seed Companies",
+      "Agricultural Products",
+    ],
+    features: [
+      "Multi-color Printing",
+      "Custom Branding",
+      "Durable Ink",
+      "High Visibility",
+      "Excellent Shelf Appearance",
+    ],
+    sizes: ["25 kg", "40 kg", "50 kg", "Custom dimensions on request"],
+    printing: ["Up to 8-color flexo", "Pantone-matched brand colors", "Logo & artwork registration", "Variable text / batch coding"],
+    lamination: ["Optional BOPP overlay", "PE inner liner add-on", "Plain (unlaminated) finish"],
+    customization: ["GSM 55–120", "Fabric color & weave", "Handle / valve options", "Hot-cut or stitched bottom"],
+  },
   {
     slug: "plain-pp-woven-bags",
     name: "Unlaminated (Plain) PP Woven Bags",
     category: "Standard",
     image: productWoven,
     short:
-      "Lightweight breathable polypropylene woven bags that allow airflow to reduce moisture accumulation.",
+      "Economical woven polypropylene bags with excellent breathability for produce and grain.",
     description:
-      "Engineered for ventilated storage of perishable produce, our plain PP woven bags balance high tensile strength with the breathability that root vegetables and coarse grain demand.",
-    applications: ["Potatoes", "Onions", "Garlic", "Vegetables", "Coarse Grain", "Agricultural Products"],
-    features: ["Breathable", "Lightweight", "Cost Effective", "Reusable", "Eco Friendly"],
+      "Cost-effective plain PP woven bags engineered for ventilated storage of perishable produce. High tensile strength with the airflow that root vegetables and coarse grain demand.",
+    applications: ["Potatoes", "Onion", "Garlic", "Vegetables", "Grain"],
+    features: ["Breathable", "Lightweight", "Cost-Effective", "Reusable"],
+    sizes: ["25 kg", "50 kg", "Custom"],
+    printing: ["Plain unprinted", "1–2 color stencil branding (optional)"],
+    lamination: ["None (breathable weave)"],
+    customization: ["GSM 50–80", "Fabric color", "Hot-cut or stitched mouth"],
   },
   {
     slug: "laminated-coated-bags",
-    name: "Laminated (Coated) Bags",
+    name: "Laminated (Coated) PP Woven Bags",
     category: "Industrial",
     image: weavingImg,
-    short: "Protective laminated woven bags resistant to moisture, humidity and rain.",
+    short: "Protective laminated woven bags resistant to moisture, humidity and rough handling.",
     description:
-      "A polypropylene lamination layer is fused over the woven structure to deliver a moisture barrier suited for outdoor stockpiling and demanding construction material logistics.",
-    applications: ["Cement", "Sand", "Fertilizer", "Construction Materials", "Minerals"],
-    features: ["Water Resistant", "Strong", "Durable", "Long Storage"],
+      "A polypropylene lamination layer is fused over the woven structure to deliver a moisture barrier suited for fertilizer, construction materials, industrial powders and outdoor stockpiling.",
+    applications: ["Fertilizer", "Construction Materials", "Industrial Products", "Animal Feed", "Agricultural Products"],
+    features: ["Water Resistant", "Durable", "Long Shelf Life", "Premium Finish"],
+    sizes: ["25 kg", "40 kg", "50 kg", "Custom"],
+    printing: ["Up to 6-color flexo over lamination", "Brand logo & specification panel"],
+    lamination: ["Inside BOPP", "Outside BOPP", "Two-side lamination"],
+    customization: ["Anti-slip coating", "UV-stable resin", "Heavy-duty stitching"],
   },
   {
     slug: "pp-bags-inner-liner",
@@ -60,11 +102,15 @@ export const PRODUCTS: Product[] = [
     category: "Food Grade",
     image: warehouseImg,
     short:
-      "Premium woven bags equipped with polyethylene liners to protect powders from moisture and leakage.",
+      "Premium woven bags with PE inner liners for moisture protection and leak prevention of fine powders.",
     description:
       "Inner PE liners create a sealed barrier ideal for fine powders, food-grade contents and hygroscopic chemicals — extending shelf life and shipping integrity.",
-    applications: ["Flour", "Sugar", "Salt", "Chemical Powder", "Animal Feed"],
-    features: ["Moisture Barrier", "Leak Proof", "Food Grade", "High Protection"],
+    applications: ["Flour", "Sugar", "Salt", "Chemical Powder", "Fine Animal Feed"],
+    features: ["Moisture Barrier", "Leak Resistant", "Food-Grade Option", "Fine Powder Protection"],
+    sizes: ["10 kg", "25 kg", "50 kg", "Custom"],
+    printing: ["Brand printing on outer woven layer"],
+    lamination: ["Inner PE liner", "Optional outer BOPP"],
+    customization: ["Liner micron thickness", "Heat-sealed or loose liner"],
   },
   {
     slug: "bopp-laminated-bags",
@@ -72,11 +118,15 @@ export const PRODUCTS: Product[] = [
     category: "Premium Retail",
     image: productBopp,
     short:
-      "Premium glossy printed packaging with superior branding and high-definition graphics.",
+      "Premium glossy bags with high-definition printing for retail packaging and premium branding.",
     description:
       "Up to 8-color BOPP printing on a laminated woven substrate produces retail-grade, scratch-resistant packaging worthy of premium consumer brands and export programs.",
-    applications: ["Premium Rice", "Seed", "Pet Food", "Retail Packaging", "Export Products"],
-    features: ["Photo Quality Printing", "Luxury Finish", "Scratch Resistant", "Retail Branding"],
+    applications: ["Premium Rice", "Pet Food", "Export Products", "Branded Food Products", "Retail Packaging"],
+    features: ["High-Resolution Printing", "Gloss Finish", "Premium Appearance", "Scratch Resistant"],
+    sizes: ["1 kg", "5 kg", "10 kg", "25 kg", "50 kg"],
+    printing: ["Up to 8-color photo-grade BOPP", "Pantone matching", "Matte / gloss finish"],
+    lamination: ["BOPP film laminated woven"],
+    customization: ["Window patch", "Tear notch", "Easy-open seal"],
   },
   {
     slug: "gusseted-bags",
@@ -84,36 +134,29 @@ export const PRODUCTS: Product[] = [
     category: "Bulk Storage",
     image: manufacturingExtrusion,
     short:
-      "Side-gusset engineered packaging designed for efficient stacking and warehouse storage.",
+      "Side-gusset bags engineered for efficient stacking, larger capacity and warehouse-friendly storage.",
     description:
       "The reinforced side-gusset geometry maximises pallet density and structural stability — purpose-built for bulk grain, feed and high-volume industrial flows.",
-    applications: ["Grain", "Animal Feed", "Bulk Products", "Industrial Packaging"],
-    features: ["Better Stacking", "Large Capacity", "Warehouse Friendly", "Stable Structure"],
-  },
-  {
-    slug: "bulk-custom-export",
-    name: "Bulk & Custom Export Packaging",
-    category: "Export",
-    image: factoryAerial,
-    short: "FIBC, container liners and bespoke industrial packaging engineered for export programs.",
-    description:
-      "Full custom development from substrate to print, including FIBC, container liners and program-specific specifications for international supply chains.",
-    applications: ["Export", "Container Logistics", "OEM Brands", "Distribution"],
-    features: ["Custom Engineering", "Export-Ready", "FIBC Capable", "Program Scale"],
+    applications: ["Grain", "Animal Feed", "Bulk Packaging", "Industrial Products"],
+    features: ["Better Pallet Stacking", "Stable Shape", "Large Capacity", "Warehouse Efficient"],
+    sizes: ["25 kg", "50 kg", "Custom bulk"],
+    printing: ["Branding on front & back panels"],
+    lamination: ["Laminated or unlaminated"],
+    customization: ["Gusset width", "Bottom stitching style", "Load rating"],
   },
 ];
 
 export const INDUSTRIES = [
-  { name: "Agriculture", desc: "Rice, grain, vegetables and produce.", icon: "Sprout" },
-  { name: "Food Processing", desc: "Flour, sugar, salt, food-grade powders.", icon: "Wheat" },
-  { name: "Rice & Flour Mills", desc: "Premium BOPP and lined bags for milling.", icon: "Wheat" },
-  { name: "Chemical Industry", desc: "Liner bags for powders and granules.", icon: "FlaskConical" },
-  { name: "Construction", desc: "Cement, sand, aggregates and minerals.", icon: "HardHat" },
-  { name: "Fertilizer", desc: "Laminated UV-stable industrial sacks.", icon: "Leaf" },
-  { name: "Feed Mills", desc: "Breathable bags for livestock feed.", icon: "Beef" },
-  { name: "Exporters", desc: "Export-grade FIBC and container liners.", icon: "Ship" },
-  { name: "Retail Packaging", desc: "Premium BOPP for shelf-ready retail.", icon: "ShoppingBag" },
-  { name: "Government", desc: "Tender-compliant industrial packaging.", icon: "Landmark" },
+  { name: "Poultry Feed Manufacturers", desc: "Custom printed feed bags built for hatcheries and poultry brands.", icon: "Beef" },
+  { name: "Fish Feed Producers", desc: "Moisture-resistant lined and laminated bags for aquaculture feed.", icon: "Ship" },
+  { name: "Cattle Feed Companies", desc: "Heavy-duty woven sacks with brand-grade flexo printing.", icon: "Beef" },
+  { name: "Agriculture", desc: "Breathable PP sacks for produce, vegetables and grain.", icon: "Sprout" },
+  { name: "Rice Mills", desc: "Premium BOPP and lined bags for branded rice programs.", icon: "Wheat" },
+  { name: "Flour Mills", desc: "Food-grade lined woven bags for flour and milled products.", icon: "Wheat" },
+  { name: "Food Processing", desc: "Lined and laminated bags for sugar, salt and food powders.", icon: "ShoppingBag" },
+  { name: "Seed Companies", desc: "High-impact printed packaging for branded seed lines.", icon: "Sprout" },
+  { name: "Fertilizer Suppliers", desc: "UV-stable laminated sacks for fertilizers and soil inputs.", icon: "Leaf" },
+  { name: "Industrial Packaging", desc: "OEM bulk packaging for industrial powders and granules.", icon: "FlaskConical" },
 ];
 
 export const PROCESS = [
@@ -136,10 +179,10 @@ export const CLIENTS = [
 ];
 
 export const TRUST_BAR = [
-  "ISO 9001 Certified",
-  "Premium Raw Materials",
-  "Export Quality",
   "Custom Manufacturing",
-  "Fast Delivery",
-  "Customer Satisfaction",
+  "Premium Raw Materials",
+  "Flexible Production",
+  "Strict Quality Control",
+  "Bulk Order Capability",
+  "Reliable Delivery",
 ];
