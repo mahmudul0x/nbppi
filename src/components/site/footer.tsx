@@ -49,7 +49,7 @@ export function SiteFooter() {
               />
               <span className="flex flex-col leading-tight">
                 <span className="font-display text-lg font-bold tracking-tight text-white sm:text-xl">
-                  NBPPI
+                  North Bengal
                 </span>
                 <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-white/60">
                   Poly & Packaging Ind. Ltd.
