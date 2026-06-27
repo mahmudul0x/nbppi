@@ -32,7 +32,7 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
             : "border-b border-border bg-background/90 shadow-[0_1px_0_rgba(8,43,89,0.06)]"
         }`}
       >
-          <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-3.5">
+          <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3.5">
           <Link to="/" className="flex min-w-0 items-center gap-3">
             <img
               src={onDark ? logoLightAsset.url : logoAsset.url}
@@ -43,7 +43,7 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
               <span className={`font-display text-base font-bold tracking-tight sm:text-lg ${onDark ? "text-white" : "text-[#0B2D6B]"}`}>
                 North Bengal
               </span>
-              <span className={`hidden text-[10px] font-medium uppercase tracking-[0.18em] sm:block ${onDark ? "text-white/70" : "text-foreground/60"}`}>
+              <span className={`hidden whitespace-nowrap text-[10px] font-medium uppercase tracking-[0.18em] sm:block ${onDark ? "text-white/70" : "text-foreground/60"}`}>
                 Poly & Packaging Ind. Ltd.
               </span>
             </span>
@@ -79,7 +79,7 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
           <div className="flex items-center gap-2">
             <Link
               to="/quote"
-              className="group hidden items-center gap-2 rounded-md bg-[linear-gradient(135deg,#F4C542_0%,#D9A520_50%,#B8860B_100%)] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_10px_28px_-10px_rgba(217,165,32,0.55)] transition hover:brightness-110 lg:inline-flex"
+              className="group hidden items-center gap-2 whitespace-nowrap rounded-md bg-[linear-gradient(135deg,#F4C542_0%,#D9A520_50%,#B8860B_100%)] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_10px_28px_-10px_rgba(217,165,32,0.55)] transition hover:brightness-110 lg:inline-flex"
             >
               Request Quote
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
