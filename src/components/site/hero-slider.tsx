@@ -203,7 +203,7 @@ export function HeroSlider() {
             }`}
           >
             <img
-              src={s.background}
+              src={s.product}
               alt=""
               className={`h-full w-full object-cover ${
                 i === index ? "animate-[kenburns_12s_ease-out_forwards]" : ""
@@ -214,9 +214,9 @@ export function HeroSlider() {
           </div>
         ))}
         {/* Dark navy overlay */}
-        <div className="absolute inset-0 bg-[#061F40]/55" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#061F40] via-[#061F40]/85 to-[#061F40]/30" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#061F40]" />
+        <div className="absolute inset-0 bg-[#061F40]/35" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#061F40] via-[#061F40]/70 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#061F40]/40 via-transparent to-[#061F40]" />
         {/* Subtle grid */}
         <div
           className="absolute inset-0 opacity-[0.05]"
