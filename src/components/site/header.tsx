@@ -62,7 +62,7 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
             </div>
           </Link>
 
-          <nav className="hidden items-center gap-0.5 xl:flex">
+          <nav className="hidden items-center gap-0.5 lg:flex">
             {NAV.map((n) => {
               const active =
                 n.to === "/" ? pathname === "/" : pathname === n.to || pathname.startsWith(n.to + "/");
@@ -108,7 +108,7 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
             <button
               aria-label="Menu"
               onClick={() => setOpen((o) => !o)}
-              className={`flex h-10 w-10 items-center justify-center rounded-md xl:hidden ${
+              className={`flex h-10 w-10 items-center justify-center rounded-md lg:hidden ${
                 onDark ? "text-white" : "text-[#082B59]"
               }`}
             >
@@ -118,7 +118,7 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
         </div>
 
         {open ? (
-          <div className="border-t border-border bg-background xl:hidden">
+          <div className="border-t border-border bg-background lg:hidden">
             <div className="mx-auto grid max-w-7xl grid-cols-2 gap-1 px-4 py-4">
               {NAV.map((n) => (
                 <Link
