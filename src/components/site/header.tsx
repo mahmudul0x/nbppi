@@ -1,6 +1,6 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowRight, Menu, X } from "lucide-react";
+import { ArrowRight, Menu, X, Phone, Mail, MapPin } from "lucide-react";
 import { NAV } from "@/lib/site-data";
 import logoAsset from "@/assets/nbppi-logo.png.asset.json";
 import logoLightAsset from "@/assets/nbppi-logo-light.png.asset.json";
@@ -20,6 +20,17 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
+
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
 
   const onDark = transparentOnTop && !scrolled;
 
@@ -96,28 +107,109 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
           </div>
         </div>
 
-        {open ? (
-          <div className="border-t border-border bg-background lg:hidden">
-            <div className="mx-auto grid max-w-7xl grid-cols-2 gap-1 px-4 py-4">
-              {NAV.map((n) => (
-                <Link
-                  key={n.to}
-                  to={n.to}
-                  className="rounded-md px-3 py-3 text-sm font-medium text-foreground/80 hover:bg-muted hover:text-[#0B2D6B]"
-                >
-                  {n.label}
-                </Link>
-              ))}
-              <Link
-                to="/quote"
-                className="col-span-2 mt-2 inline-flex items-center justify-center gap-2 rounded-md bg-[linear-gradient(135deg,#F4C542_0%,#D9A520_50%,#B8860B_100%)] px-5 py-3 text-sm font-semibold text-white"
-              >
-                Request Quote <ArrowRight className="h-4 w-4" />
-              </Link>
+      </div>
+
+      {/* Mobile menu overlay + drawer */}
+      <div
+        className={`fixed inset-0 z-40 bg-[#0B2D6B]/60 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
+          open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+        }`}
+        onClick={() => setOpen(false)}
+        aria-hidden={!open}
+      />
+      <aside
+        className={`fixed right-0 top-0 z-50 flex h-[100svh] w-[88%] max-w-sm flex-col bg-white shadow-2xl transition-transform duration-300 ease-out lg:hidden ${
+          open ? "translate-x-0" : "translate-x-full"
+        }`}
+        aria-label="Mobile navigation"
+        aria-hidden={!open}
+      >
+        <div className="flex items-center justify-between border-b border-border px-5 py-4">
+          <Link to="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
+            <img src={logoAsset.url} alt="NBPPI logo" className="h-9 w-auto object-contain" />
+            <span className="flex flex-col leading-tight">
+              <span className="font-display text-base font-bold tracking-tight text-[#0B2D6B]">
+                North Bengal
+              </span>
+              <span className="text-[9px] font-medium uppercase tracking-[0.18em] text-foreground/60">
+                Poly & Packaging Ind. Ltd.
+              </span>
+            </span>
+          </Link>
+          <button
+            aria-label="Close menu"
+            onClick={() => setOpen(false)}
+            className="flex h-10 w-10 items-center justify-center rounded-md text-[#0B2D6B] hover:bg-muted"
+          >
+            <X className="h-5 w-5" />
+          </button>
+        </div>
+
+        <nav className="flex-1 overflow-y-auto px-3 py-4">
+          <ul className="flex flex-col gap-1">
+            {NAV.map((n) => {
+              const active =
+                n.to === "/" ? pathname === "/" : pathname === n.to || pathname.startsWith(n.to + "/");
+              return (
+                <li key={n.to}>
+                  <Link
+                    to={n.to}
+                    onClick={() => setOpen(false)}
+                    className={`group flex items-center justify-between rounded-lg px-4 py-3.5 text-[15px] font-semibold transition ${
+                      active
+                        ? "bg-[#0B2D6B]/5 text-[#0B2D6B]"
+                        : "text-foreground/80 hover:bg-muted hover:text-[#0B2D6B]"
+                    }`}
+                  >
+                    <span className="flex items-center gap-3">
+                      {active ? (
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#0A6A38]" />
+                      ) : (
+                        <span className="h-1.5 w-1.5 rounded-full bg-transparent" />
+                      )}
+                      {n.label}
+                    </span>
+                    <ArrowRight
+                      className={`h-4 w-4 transition-transform ${
+                        active ? "text-[#0B2D6B]" : "text-foreground/30 group-hover:translate-x-0.5 group-hover:text-[#0B2D6B]"
+                      }`}
+                    />
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+
+          <div className="mt-6 space-y-3 rounded-xl border border-border bg-muted/30 p-4 text-sm">
+            <div className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#0B2D6B]">
+              Get in touch
+            </div>
+            <a href="tel:+8801700000000" className="flex items-center gap-3 text-foreground/80 hover:text-[#0B2D6B]">
+              <Phone className="h-4 w-4 text-[#0A6A38]" />
+              +880 1700 000 000
+            </a>
+            <a href="mailto:info@nbppi.com" className="flex items-center gap-3 text-foreground/80 hover:text-[#0B2D6B]">
+              <Mail className="h-4 w-4 text-[#0A6A38]" />
+              info@nbppi.com
+            </a>
+            <div className="flex items-start gap-3 text-foreground/70">
+              <MapPin className="mt-0.5 h-4 w-4 text-[#0A6A38]" />
+              <span>Rangpur Industrial Zone, Bangladesh</span>
             </div>
           </div>
-        ) : null}
-      </div>
+        </nav>
+
+        <div className="border-t border-border p-4">
+          <Link
+            to="/quote"
+            onClick={() => setOpen(false)}
+            className="flex w-full items-center justify-center gap-2 rounded-lg bg-[linear-gradient(135deg,#F4C542_0%,#D9A520_50%,#B8860B_100%)] px-5 py-3.5 text-sm font-semibold text-white shadow-[0_10px_28px_-10px_rgba(217,165,32,0.55)]"
+          >
+            Request Quote
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+      </aside>
     </header>
   );
 }
