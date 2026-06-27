@@ -14,6 +14,11 @@ import bagLaminated from "@/assets/hero-bag-laminated.jpg";
 import bagPlain from "@/assets/hero-bag-plain.jpg";
 import bagLiner from "@/assets/hero-bag-liner.jpg";
 import bagGusseted from "@/assets/hero-bag-gusseted.jpg";
+import bagSeed from "@/assets/hero-bag-seed.jpg";
+import bagAnimalFeed from "@/assets/hero-bag-animalfeed.jpg";
+import bagBopp from "@/assets/hero-bag-bopp.jpg";
+import bagPrinted from "@/assets/hero-bag-printed.jpg";
+import bagIndustrial from "@/assets/hero-bag-industrial.jpg";
 
 type Slide = {
   id: string;
@@ -26,6 +31,16 @@ type Slide = {
 };
 
 const SLIDES: Slide[] = [
+  {
+    id: "printed",
+    name: "Printed PP Woven Bags",
+    tagline: "Custom PP Woven Bag Manufacturer",
+    description:
+      "Tailor-made woven polypropylene packaging engineered to your branding, size, weight capacity, lamination and stitching specification — for agriculture, food, feed, industrial and retail brands.",
+    product: bagPrinted,
+    background: weavingImg,
+    badges: ["Fully Custom", "OEM Manufacturing", "Bulk Capable"],
+  },
   {
     id: "poultry",
     name: "Printed Poultry Feed Bags",
@@ -57,6 +72,26 @@ const SLIDES: Slide[] = [
     badges: ["High GSM", "Reinforced Stitching", "Multi-Color Print"],
   },
   {
+    id: "seed",
+    name: "Custom Seed Bags",
+    tagline: "Brand-Grade Packaging for Seed Companies",
+    description:
+      "High-impact printed woven bags designed for branded seed lines — protecting germination quality across distribution and retail.",
+    product: bagSeed,
+    background: warehouseImg,
+    badges: ["Custom Branding", "Premium Print", "Tamper-Resistant"],
+  },
+  {
+    id: "animalfeed",
+    name: "Animal Feed Bags",
+    tagline: "Custom Packaging for the Feed Industry",
+    description:
+      "Heavy-duty woven sacks engineered for animal feed manufacturers — calibrated GSM, reinforced stitching and brand-grade printing built for mill-to-farm logistics.",
+    product: bagAnimalFeed,
+    background: factoryAerial,
+    badges: ["Heavy Duty", "Multi-Color Print", "Reinforced Seams"],
+  },
+  {
     id: "rice",
     name: "Premium BOPP Rice Bags",
     tagline: "Photo-Grade Retail Packaging",
@@ -65,6 +100,16 @@ const SLIDES: Slide[] = [
     product: bagRice,
     background: factoryAerial,
     badges: ["8-Color BOPP", "Retail Finish", "Scratch Resistant"],
+  },
+  {
+    id: "bopp",
+    name: "BOPP Laminated Bags",
+    tagline: "Retail-Grade Premium Packaging",
+    description:
+      "Photo-grade BOPP laminated bags with a luxurious gloss finish — engineered for premium rice, pet food, branded food products and export retail programmes.",
+    product: bagBopp,
+    background: factoryAerial,
+    badges: ["Photo-Grade Print", "Luxury Finish", "Retail Ready"],
   },
   {
     id: "laminated",
@@ -105,6 +150,16 @@ const SLIDES: Slide[] = [
     product: bagGusseted,
     background: factoryAerial,
     badges: ["Pallet Stable", "High Capacity", "Reinforced Seams"],
+  },
+  {
+    id: "industrial",
+    name: "Custom Industrial Packaging Bags",
+    tagline: "Engineered Bulk Packaging Solutions",
+    description:
+      "Custom-engineered woven packaging for chemical powders, granules and bulk industrial materials — built to OEM specification and container-scale volumes.",
+    product: bagIndustrial,
+    background: manufacturingExtrusion,
+    badges: ["OEM Spec", "Heavy Load", "Bulk Production"],
   },
 ];
 
