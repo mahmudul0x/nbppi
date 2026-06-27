@@ -203,7 +203,7 @@ export function HeroSlider() {
             }`}
           >
             <img
-              src={s.background}
+              src={s.product}
               alt=""
               className={`h-full w-full object-cover ${
                 i === index ? "animate-[kenburns_12s_ease-out_forwards]" : ""
@@ -214,9 +214,9 @@ export function HeroSlider() {
           </div>
         ))}
         {/* Dark navy overlay */}
-        <div className="absolute inset-0 bg-[#061F40]/55" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#061F40] via-[#061F40]/85 to-[#061F40]/30" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#061F40]" />
+        <div className="absolute inset-0 bg-[#061F40]/35" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#061F40] via-[#061F40]/70 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#061F40]/40 via-transparent to-[#061F40]" />
         {/* Subtle grid */}
         <div
           className="absolute inset-0 opacity-[0.05]"
@@ -279,65 +279,6 @@ export function HeroSlider() {
           </div>
         </div>
 
-        {/* Right: product stage */}
-        <div className="lg:col-span-6 xl:col-span-5">
-          <div className="relative mx-auto aspect-[4/5] w-full max-w-[520px]">
-            {/* Soft glow */}
-            <div className="absolute inset-x-10 bottom-6 top-10 rounded-[40%] bg-[#2A9D8F]/25 blur-3xl" />
-            {/* Specification badges */}
-            <div className="pointer-events-none absolute -left-4 top-12 z-20 hidden rounded-xl border border-white/15 bg-white/[0.08] px-3.5 py-2.5 text-xs font-semibold text-white backdrop-blur-md animate-[fadeRight_900ms_500ms_ease-out_both] md:block">
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="h-3.5 w-3.5 text-[#7FE0D4]" /> Custom Printing
-              </div>
-            </div>
-            <div className="pointer-events-none absolute -right-2 top-1/3 z-20 hidden rounded-xl border border-white/15 bg-white/[0.08] px-3.5 py-2.5 text-xs font-semibold text-white backdrop-blur-md animate-[fadeLeft_900ms_650ms_ease-out_both] md:block">
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="h-3.5 w-3.5 text-[#7FE0D4]" /> Export Quality
-              </div>
-            </div>
-            <div className="pointer-events-none absolute -left-2 bottom-16 z-20 hidden rounded-xl border border-white/15 bg-white/[0.08] px-3.5 py-2.5 text-xs font-semibold text-white backdrop-blur-md animate-[fadeRight_900ms_800ms_ease-out_both] md:block">
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="h-3.5 w-3.5 text-[#7FE0D4]" /> Heavy Duty
-              </div>
-            </div>
-
-            {/* Product stack — only active visible, others preloaded but hidden */}
-            <div
-              className="relative h-full w-full"
-              style={{
-                transform: `translate3d(${parallax.x * -14}px, ${parallax.y * -14}px, 0)`,
-                transition: "transform 400ms ease-out",
-              }}
-            >
-              {slides.map((s, i) => (
-                <div
-                  key={s.id}
-                  aria-hidden={i !== index}
-                  className={`absolute inset-0 flex items-end justify-center transition-all duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
-                    i === index
-                      ? "translate-x-0 opacity-100"
-                      : i < index
-                        ? "-translate-x-12 opacity-0"
-                        : "translate-x-12 opacity-0"
-                  }`}
-                >
-                  <img
-                    src={s.product}
-                    alt={s.name}
-                    width={1024}
-                    height={1280}
-                    loading={i === 0 ? "eager" : "lazy"}
-                    fetchPriority={i === 0 ? "high" : "auto"}
-                    draggable={false}
-                    className={`h-full w-auto max-w-full select-none object-contain drop-shadow-[0_30px_50px_rgba(0,0,0,0.55)] ${
-                      i === index ? "animate-[floatY_6s_ease-in-out_infinite]" : ""
-                    }`}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
       </div>
 
       {/* Controls + thumbnails dock */}
