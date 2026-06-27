@@ -24,7 +24,7 @@ export function SectionHeading({
         {eyebrow}
       </div>
       <h2
-        className={`mt-5 font-display text-4xl font-bold leading-[1.1] tracking-tight md:text-5xl ${
+        className={`mt-5 font-display text-2xl font-bold leading-[1.1] tracking-tight sm:text-3xl md:text-4xl lg:text-5xl ${
           dark ? "text-white" : "text-[#0B2D6B]"
         }`}
       >
@@ -32,7 +32,7 @@ export function SectionHeading({
       </h2>
       {intro ? (
         <p
-          className={`mt-5 text-base leading-relaxed md:text-lg ${
+          className={`mt-5 text-sm leading-relaxed sm:text-base md:text-lg ${
             dark ? "text-white/70" : "text-muted-foreground"
           }`}
         >

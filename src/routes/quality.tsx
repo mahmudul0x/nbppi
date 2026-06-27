@@ -85,8 +85,8 @@ function QualityPage() {
       />
 
       {/* ── Certifications ─────────────────────────────────────────────────── */}
-      <section className="bg-background py-20">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="bg-background py-12 sm:py-16 lg:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <SectionHeading
             eyebrow="Our Credentials"
             title="Fully licensed, audited and certified."
@@ -115,7 +115,7 @@ function QualityPage() {
                 </div>
 
                 {/* Cert tiles */}
-                <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                <div className="grid gap-2.5 sm:grid-cols-2 sm:gap-3 md:grid-cols-3 lg:grid-cols-4">
                   {certs.map((cert) => (
                     <div
                       key={cert.name}
@@ -158,8 +158,8 @@ function QualityPage() {
       </section>
 
       {/* ── QC Lab ─────────────────────────────────────────────────────────── */}
-      <section className="bg-[#F1F4F9] py-20">
-        <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-2 lg:items-center">
+      <section className="bg-[#F1F4F9] py-12 sm:py-16 lg:py-20">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:items-center">
           <div className="overflow-hidden rounded-2xl shadow-[0_20px_60px_-15px_rgba(11,45,107,0.18)]">
             <img src={qualityLab} alt="NBPPI QC Laboratory" loading="lazy" className="h-full w-full object-cover" />
           </div>
@@ -189,13 +189,13 @@ function QualityPage() {
       </section>
 
       {/* ── 8 Testing Checkpoints ──────────────────────────────────────────── */}
-      <section className="bg-background py-20">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="bg-background py-12 sm:py-16 lg:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <SectionHeading
             eyebrow="Testing Protocols"
             title="8 checkpoints. Every product. Every batch."
           />
-          <div className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-border bg-border/50 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-border bg-border/50 sm:mt-12 sm:grid-cols-2 lg:grid-cols-4">
             {CHECKS.map(([t, d], i) => (
               <div key={t} className="flex flex-col gap-3 bg-white p-6 transition hover:bg-[#F8F9FB]">
                 <div className="flex items-center justify-between">
@@ -213,9 +213,9 @@ function QualityPage() {
       </section>
 
       {/* ── CTA ────────────────────────────────────────────────────────────── */}
-      <section className="bg-[#0B2D6B] py-20 text-white">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+      <section className="bg-[#0B2D6B] py-12 text-white sm:py-16 lg:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="grid gap-10 lg:gap-12 lg:grid-cols-2 lg:items-center">
             <div>
               <SectionHeading
                 dark

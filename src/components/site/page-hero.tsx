@@ -22,7 +22,7 @@ export function PageHero({
         <div className="absolute inset-0 bg-gradient-to-r from-[#0B2D6B] via-[#0B2D6B]/90 to-[#0B2D6B]/40" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0B2D6B]" />
       </div>
-      <div className="relative mx-auto max-w-7xl px-6 pb-24 pt-20 md:pb-32 md:pt-28">
+      <div className="relative mx-auto max-w-7xl px-4 pb-16 pt-14 sm:px-6 sm:pb-20 sm:pt-20 md:pb-28 md:pt-24 lg:pb-32 lg:pt-28">
         {crumbs ? (
           <nav className="mb-8 flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-white/55">
             {crumbs.map((c, i) => (
@@ -43,11 +43,11 @@ export function PageHero({
           <span className="h-1.5 w-1.5 rounded-full bg-[#0A6A38]" />
           {eyebrow}
         </div>
-        <h1 className="mt-6 max-w-3xl font-display text-5xl font-bold leading-[1.05] tracking-tight md:text-6xl lg:text-7xl">
+        <h1 className="mt-6 max-w-3xl font-display text-3xl font-bold leading-[1.1] tracking-tight sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
           {title}
         </h1>
         {intro ? (
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/75 md:text-lg">
+          <p className="mt-5 max-w-2xl text-sm leading-relaxed text-white/75 sm:text-base md:text-lg">
             {intro}
           </p>
         ) : null}

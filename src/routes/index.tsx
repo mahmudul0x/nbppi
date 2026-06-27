@@ -142,18 +142,82 @@ function Hero() {
 }
 
 function TrustBar() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const lineRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    let ctx: import("gsap").Context | null = null;
+    (async () => {
+      const gsap = (await import("gsap")).default;
+      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
+      gsap.registerPlugin(ScrollTrigger);
+      ctx = gsap.context(() => {
+        // Stagger items up from below
+        gsap.fromTo(
+          itemRefs.current.filter(Boolean),
+          { opacity: 0, y: 28, scale: 0.94 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.55,
+            ease: "power3.out",
+            stagger: 0.08,
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top 88%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+        // Shimmer line sweeps across
+        if (lineRef.current) {
+          gsap.fromTo(
+            lineRef.current,
+            { scaleX: 0, transformOrigin: "left center" },
+            {
+              scaleX: 1,
+              duration: 0.9,
+              ease: "power2.inOut",
+              scrollTrigger: {
+                trigger: sectionRef.current,
+                start: "top 88%",
+                toggleActions: "play none none none",
+              },
+            }
+          );
+        }
+      }, sectionRef);
+    })();
+    return () => ctx?.revert();
+  }, []);
+
   return (
-    <section className="border-y border-border bg-white">
-      <div className="mx-auto grid max-w-7xl grid-cols-2 divide-border md:grid-cols-3 md:divide-x lg:grid-cols-6">
+    <section ref={sectionRef} className="relative overflow-hidden border-y border-border bg-white">
+      {/* animated bottom accent line */}
+      <div
+        ref={lineRef}
+        className="absolute bottom-0 left-0 h-0.5 w-full bg-linear-to-r from-[#0A6A38]/60 via-[#0B2D6B]/40 to-[#0A6A38]/60"
+      />
+
+      <div className="mx-auto grid max-w-7xl grid-cols-2 divide-x divide-border md:grid-cols-3 lg:grid-cols-6">
         {TRUST_BAR.map((t, i) => (
           <div
             key={t}
-            className={`flex items-center justify-center gap-3 px-6 py-6 text-center text-sm font-semibold text-[#0B2D6B] md:text-left ${
-              i >= 2 ? "md:border-t-0" : ""
-            }`}
+            ref={(el) => { itemRefs.current[i] = el; }}
+            className="group flex flex-col items-center justify-center gap-2 px-3 py-5 text-center sm:px-6 sm:py-6"
           >
-            <CircleCheck className="h-5 w-5 shrink-0 text-[#0A6A38]" />
-            <span>{t}</span>
+            {/* Icon with ring */}
+            <div className="flex h-9 w-9 items-center justify-center rounded-full border border-[#0A6A38]/20 bg-[#0A6A38]/6 transition-all duration-300 group-hover:border-[#0A6A38]/50 group-hover:bg-[#0A6A38]/12 group-hover:scale-110">
+              <CircleCheck className="h-4 w-4 text-[#0A6A38]" />
+            </div>
+            {/* Label */}
+            <span className="text-[11px] font-semibold leading-snug text-[#0B2D6B] transition-colors duration-200 group-hover:text-[#0A6A38] sm:text-xs">
+              {t}
+            </span>
+            {/* Active dot */}
+            <span className="h-1 w-1 rounded-full bg-[#0A6A38]/40 transition-all duration-300 group-hover:bg-[#0A6A38] group-hover:w-4" />
           </div>
         ))}
       </div>
@@ -169,9 +233,9 @@ function About() {
     { icon: Leaf, t: "Sustainability", d: "Recyclable mono-material, energy-efficient lines." },
   ];
   return (
-    <section id="about" className="bg-background py-28">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="grid gap-16 lg:grid-cols-12">
+    <section id="about" className="bg-background py-16 md:py-24 lg:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <SectionHeading
               eyebrow="About NBPPI"
@@ -183,17 +247,17 @@ function About() {
               }
               intro="From a single weaving line in 2008 to one of the region's most advanced polypropylene operations, NBPPI engineers durable, food-grade and export-ready bags for the world's most demanding supply chains."
             />
-            <div className="mt-10 grid grid-cols-2 gap-6">
+            <div className="mt-8 grid grid-cols-2 gap-4 sm:gap-6 lg:mt-10">
               {values.map(({ icon: Icon, t, d }) => (
                 <div
                   key={t}
-                  className="rounded-xl border border-border bg-card p-5 transition hover:-translate-y-0.5 hover:shadow-[var(--shadow-card)]"
+                  className="rounded-xl border border-border bg-card p-4 transition hover:-translate-y-0.5 hover:shadow-[var(--shadow-card)] sm:p-5"
                 >
-                  <Icon className="h-6 w-6 text-[#0A6A38]" />
-                  <div className="mt-4 font-display text-base font-semibold text-[#0B2D6B]">
+                  <Icon className="h-5 w-5 text-[#0A6A38] sm:h-6 sm:w-6" />
+                  <div className="mt-3 font-display text-sm font-semibold text-[#0B2D6B] sm:mt-4 sm:text-base">
                     {t}
                   </div>
-                  <div className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{d}</div>
+                  <div className="mt-1 text-xs leading-relaxed text-muted-foreground sm:mt-1.5 sm:text-sm">{d}</div>
                 </div>
               ))}
             </div>
@@ -213,7 +277,7 @@ function About() {
                 width={1600}
                 height={1000}
                 loading="lazy"
-                className="h-[420px] w-full object-cover transition-transform duration-[1.4s] hover:scale-105 md:h-[520px]"
+                className="h-56 w-full object-cover transition-transform duration-[1.4s] hover:scale-105 sm:h-80 md:h-105 lg:h-130"
               />
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0B2D6B]/85 via-[#0B2D6B]/30 to-transparent p-8 text-white">
                 <div className="flex flex-wrap items-end justify-between gap-6">
@@ -263,7 +327,7 @@ function WhyChooseUs() {
     { icon: Truck, t: "Reliable Delivery", d: "On-time dispatch across Bangladesh — customer-centric service end to end." },
   ];
   return (
-    <section className="relative bg-[#0B2D6B] py-28 text-white">
+    <section className="relative bg-[#0B2D6B] py-16 text-white md:py-24 lg:py-28">
       <div
         className="absolute inset-0 opacity-[0.06]"
         style={{
@@ -272,8 +336,8 @@ function WhyChooseUs() {
           backgroundSize: "64px 64px",
         }}
       />
-      <div className="relative mx-auto max-w-7xl px-6">
-        <div className="flex flex-wrap items-end justify-between gap-8">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="flex flex-wrap items-end justify-between gap-6 sm:gap-8">
           <SectionHeading
             dark
             eyebrow="Why Choose Us"
@@ -289,9 +353,9 @@ function WhyChooseUs() {
             industrial roof.
           </p>
         </div>
-        <div className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/5 sm:mt-14 md:grid-cols-2 lg:mt-16 lg:grid-cols-3">
           {items.map(({ icon: Icon, t, d }) => (
-            <div key={t} className="group relative bg-[#0B2D6B] p-8 transition hover:bg-[#0d3a73]">
+            <div key={t} className="group relative bg-[#0B2D6B] p-6 transition hover:bg-[#0d3a73] sm:p-8">
               <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#0A6A38]/15 text-[#7FE0D4] transition group-hover:bg-[#0A6A38] group-hover:text-white">
                 <Icon className="h-6 w-6" />
               </div>
@@ -308,9 +372,9 @@ function WhyChooseUs() {
 
 function ProductsPreview() {
   return (
-    <section id="products" className="bg-background py-28">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="flex flex-wrap items-end justify-between gap-8">
+    <section id="products" className="bg-background py-16 md:py-24 lg:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="flex flex-wrap items-end justify-between gap-6 sm:gap-8">
           <SectionHeading
             eyebrow="Our Products"
             title={
@@ -328,7 +392,7 @@ function ProductsPreview() {
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
-        <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-5 sm:gap-8 sm:mt-14 md:grid-cols-2 lg:mt-16 lg:grid-cols-3">
           {PRODUCTS.slice(0, 6).map((p) => (
             <article
               key={p.slug}
@@ -374,9 +438,9 @@ const INDUSTRY_ICONS: Record<string, React.ComponentType<{ className?: string }>
 
 function Industries() {
   return (
-    <section className="bg-[#F1F4F9] py-28">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="flex flex-wrap items-end justify-between gap-8">
+    <section className="bg-[#F1F4F9] py-16 md:py-24 lg:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="flex flex-wrap items-end justify-between gap-6 sm:gap-8">
           <SectionHeading
             eyebrow="Industries We Serve"
             title={
@@ -395,7 +459,7 @@ function Industries() {
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
-        <div className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:mt-14 sm:gap-4 md:grid-cols-2 lg:mt-16 lg:grid-cols-5">
           {INDUSTRIES.map((i) => {
             const Icon = INDUSTRY_ICONS[i.icon] ?? Sprout;
             return (
@@ -425,11 +489,11 @@ function Sustainability() {
   return (
     <section
       id="sustainability"
-      className="relative overflow-hidden bg-gradient-to-br from-[#083F23] via-[#0B2D6B] to-[#07204E] py-28 text-white"
+      className="relative overflow-hidden bg-gradient-to-br from-[#083F23] via-[#0B2D6B] to-[#07204E] py-16 text-white md:py-24 lg:py-28"
     >
       <div className="absolute -right-32 top-1/2 h-[520px] w-[520px] -translate-y-1/2 rounded-full bg-[#0A6A38]/20 blur-3xl" />
-      <div className="relative mx-auto max-w-7xl px-6">
-        <div className="grid gap-16 lg:grid-cols-12">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="grid gap-10 lg:gap-16 lg:grid-cols-12">
           <div className="lg:col-span-6">
             <SectionHeading
               dark
@@ -475,8 +539,8 @@ function Sustainability() {
 function ClientsMarquee() {
   const row = [...CLIENTS, ...CLIENTS];
   return (
-    <section className="border-y border-border bg-white py-16">
-      <div className="mx-auto max-w-7xl px-6">
+    <section className="border-y border-border bg-white py-12 md:py-16">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <SectionHeading eyebrow="Our Clients" title="Trusted by industry leaders." />
           <span className="text-sm text-muted-foreground">
@@ -521,10 +585,10 @@ function Testimonials() {
     },
   ];
   return (
-    <section className="bg-[#0B2D6B] py-28 text-white">
-      <div className="mx-auto max-w-7xl px-6">
+    <section className="bg-[#0B2D6B] py-16 text-white md:py-24 lg:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionHeading dark eyebrow="Testimonials" title="What our clients say." />
-        <div className="mt-16 grid gap-6 md:grid-cols-3">
+        <div className="mt-10 grid gap-4 sm:mt-14 sm:gap-6 md:grid-cols-3 lg:mt-16">
           {items.map((t, i) => (
             <div
               key={i}
@@ -546,16 +610,16 @@ function Testimonials() {
 
 function CtaStrip() {
   return (
-    <section className="bg-background py-20">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="overflow-hidden rounded-3xl bg-gradient-to-r from-[#0B2D6B] via-[#0d3a73] to-[#123E87] p-10 text-white md:p-16">
-          <div className="grid items-center gap-10 lg:grid-cols-2">
+    <section className="bg-background py-14 md:py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="overflow-hidden rounded-2xl bg-gradient-to-r from-[#0B2D6B] via-[#0d3a73] to-[#123E87] p-7 text-white sm:rounded-3xl sm:p-10 md:p-16">
+          <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-10">
             <div>
               <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#7FE0D4]">
                 <span className="h-px w-8 bg-[#7FE0D4]" />
                 Ready to scale your packaging?
               </div>
-              <h3 className="mt-4 font-display text-3xl font-bold leading-tight md:text-5xl">
+              <h3 className="mt-4 font-display text-2xl font-bold leading-tight sm:text-3xl md:text-4xl lg:text-5xl">
                 Get a tailored industrial quotation in 24 hours.
               </h3>
             </div>
@@ -582,21 +646,21 @@ function CtaStrip() {
 
 function ManufacturingTeaser() {
   return (
-    <section id="manufacturing" className="bg-[#F1F4F9] py-28">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="manufacturing" className="bg-[#F1F4F9] py-16 md:py-24 lg:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionHeading
           eyebrow="Manufacturing"
           title="From polymer pellet to palletized container."
           intro="A fully integrated production line — every stage engineered, monitored and quality-checked under one roof."
         />
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
+        <div className="mt-10 grid gap-6 lg:mt-12 lg:grid-cols-3">
           <div className="lg:col-span-1">
             <div className="overflow-hidden rounded-2xl shadow-[var(--shadow-card)]">
-              <img src={manufacturingExtrusion} alt="" loading="lazy" className="h-full w-full object-cover" />
+              <img src={manufacturingExtrusion} alt="" loading="lazy" className="h-48 w-full object-cover lg:h-full" />
             </div>
           </div>
           <div className="lg:col-span-2">
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
+            <div className="grid grid-cols-3 gap-3 sm:gap-4 md:grid-cols-3">
               {[
                 ["Extrusion", weavingImg],
                 ["Weaving", productWoven],
@@ -606,7 +670,7 @@ function ManufacturingTeaser() {
                 ["Warehousing", warehouseImg],
               ].map(([t, img]) => (
                 <div key={t} className="group relative overflow-hidden rounded-xl">
-                  <img src={img} alt="" loading="lazy" className="h-36 w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <img src={img} alt="" loading="lazy" className="h-24 w-full object-cover transition-transform duration-700 group-hover:scale-110 sm:h-32 md:h-36" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0B2D6B]/85 to-transparent" />
                   <div className="absolute bottom-3 left-3 font-display text-sm font-semibold text-white">{t}</div>
                 </div>
@@ -635,9 +699,9 @@ function CustomManufacturing() {
     { i: PackageCheck, t: "Delivery", d: "Bundled, palletised and dispatched on schedule." },
   ];
   return (
-    <section className="bg-background py-28">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="grid gap-14 lg:grid-cols-12 lg:items-end">
+    <section className="bg-background py-16 md:py-24 lg:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="grid gap-10 lg:gap-14 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
             <SectionHeading
               eyebrow="Custom Manufacturing"
@@ -658,9 +722,9 @@ function CustomManufacturing() {
           </div>
         </div>
 
-        <div className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-border bg-border/60 md:grid-cols-2 lg:grid-cols-6">
+        <div className="mt-10 grid gap-px overflow-hidden rounded-2xl border border-border bg-border/60 sm:mt-14 md:grid-cols-2 lg:mt-16 lg:grid-cols-6">
           {steps.map(({ i: Icon, t, d }, idx) => (
-            <div key={t} className="relative bg-card p-7 transition hover:bg-[#F1F4F9]">
+            <div key={t} className="relative bg-card p-5 transition hover:bg-[#F1F4F9] sm:p-7">
               <div className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#0A6A38]">
                 Step {String(idx + 1).padStart(2, "0")}
               </div>
@@ -680,15 +744,15 @@ function CustomManufacturing() {
 
 function FutureExpansion() {
   return (
-    <section className="bg-background py-24">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="overflow-hidden rounded-3xl border border-border bg-[#F1F4F9]">
-          <div className="grid items-center gap-10 p-10 md:grid-cols-2 md:p-16">
+    <section className="bg-background py-14 md:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="overflow-hidden rounded-2xl border border-border bg-[#F1F4F9] sm:rounded-3xl">
+          <div className="grid items-center gap-8 p-7 sm:p-10 md:grid-cols-2 md:p-16 md:gap-10">
             <div>
               <div className="inline-flex items-center gap-2 rounded-full bg-[#0A6A38]/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#0A6A38]">
                 <Rocket className="h-3.5 w-3.5" /> Growing Capabilities
               </div>
-              <h3 className="mt-4 font-display text-3xl font-bold leading-tight text-[#0B2D6B] md:text-4xl">
+              <h3 className="mt-4 font-display text-2xl font-bold leading-tight text-[#0B2D6B] sm:text-3xl md:text-4xl">
                 On the roadmap: high-strength bags for cement &amp; construction.
               </h3>
               <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground">

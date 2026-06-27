@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Linkedin, Facebook, Youtube, ArrowRight } from "lucide-react";
+import { Linkedin, Facebook, Youtube } from "lucide-react";
 import logoImg from "@/assets/logoWebsite.png";
 
 const cols = [
@@ -37,15 +37,15 @@ const cols = [
 
 export function SiteFooter() {
   return (
-    <footer className="bg-[#07204E] pt-20 text-white/70">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-5">
-            <Link to="/" className="inline-flex items-center gap-3">
+    <footer className="bg-[#07204E] pt-14 text-white/70 sm:pt-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="grid grid-cols-2 gap-10 sm:gap-12 md:grid-cols-4 lg:grid-cols-11">
+          <div className="col-span-2 md:col-span-4 lg:col-span-5">
+            <Link to="/" className="inline-flex items-center gap-2.5 sm:gap-3">
               <img
                 src={logoImg}
                 alt="NBPPI logo"
-                className="h-12 w-auto object-contain sm:h-14 lg:h-16"
+                className="h-10 w-auto object-contain brightness-0 invert sm:h-12 lg:h-16"
               />
               <span className="flex flex-col leading-tight">
                 <span className="font-display text-lg font-bold tracking-tight text-white sm:text-xl">
@@ -60,22 +60,37 @@ export function SiteFooter() {
               A vertically integrated manufacturer of polypropylene woven packaging serving
               agriculture, food, construction, chemical and export markets across 22+ countries.
             </p>
-            <form
-              className="mt-8 flex max-w-md items-center gap-2 rounded-lg border border-white/10 bg-white/5 p-1.5"
-              onSubmit={(e) => e.preventDefault()}
-            >
-              <input
-                placeholder="Subscribe to NBPPI updates"
-                className="flex-1 bg-transparent px-3 py-2 text-sm placeholder:text-white/40 focus:outline-none"
-              />
-              <button className="inline-flex items-center gap-1.5 rounded-md bg-[#0A6A38] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#22887b]">
-                Subscribe <ArrowRight className="h-3.5 w-3.5" />
-              </button>
-            </form>
+
+            {/* Social icons */}
+            <div className="mt-8">
+              <div className="font-display text-[10px] font-semibold uppercase tracking-[0.22em] text-white/50">
+                Follow us
+              </div>
+              <div className="mt-4 flex gap-3">
+                <a
+                  aria-label="LinkedIn"
+                  className="group flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 transition-all duration-200 hover:border-[#0A6A38]/60 hover:bg-[#0A6A38] hover:scale-110"
+                >
+                  <Linkedin className="h-4 w-4 text-white/60 transition group-hover:text-white" />
+                </a>
+                <a
+                  aria-label="Facebook"
+                  className="group flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 transition-all duration-200 hover:border-[#0A6A38]/60 hover:bg-[#0A6A38] hover:scale-110"
+                >
+                  <Facebook className="h-4 w-4 text-white/60 transition group-hover:text-white" />
+                </a>
+                <a
+                  aria-label="YouTube"
+                  className="group flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 transition-all duration-200 hover:border-[#0A6A38]/60 hover:bg-[#0A6A38] hover:scale-110"
+                >
+                  <Youtube className="h-4 w-4 text-white/60 transition group-hover:text-white" />
+                </a>
+              </div>
+            </div>
           </div>
 
           {cols.map((c) => (
-            <div key={c.t} className="lg:col-span-2">
+            <div key={c.t} className="min-w-0 lg:col-span-2">
               <div className="font-display text-xs font-semibold uppercase tracking-[0.22em] text-white">
                 {c.t}
               </div>
@@ -90,37 +105,9 @@ export function SiteFooter() {
               </ul>
             </div>
           ))}
-
-          <div className="lg:col-span-1">
-            <div className="font-display text-xs font-semibold uppercase tracking-[0.22em] text-white">
-              Follow
-            </div>
-            <div className="mt-5 flex gap-3">
-              <a aria-label="LinkedIn" className="flex h-9 w-9 items-center justify-center rounded-md border border-white/10 transition hover:bg-white/10">
-                <Linkedin className="h-4 w-4" />
-              </a>
-              <a aria-label="Facebook" className="flex h-9 w-9 items-center justify-center rounded-md border border-white/10 transition hover:bg-white/10">
-                <Facebook className="h-4 w-4" />
-              </a>
-              <a aria-label="YouTube" className="flex h-9 w-9 items-center justify-center rounded-md border border-white/10 transition hover:bg-white/10">
-                <Youtube className="h-4 w-4" />
-              </a>
-            </div>
-          </div>
         </div>
 
-        <div className="mt-16 border-t border-white/10 pt-6 pb-4">
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 pb-4">
-            {["Trade Licensed", "BIDA Registered", "DIFE Factory License", "ISO 9001:2015", "ERC Authorized", "BSTI Certified"].map((cert) => (
-              <span
-                key={cert}
-                className="inline-flex items-center gap-1.5 rounded border border-white/10 bg-white/5 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.15em] text-white/50"
-              >
-                <span className="h-1.5 w-1.5 rounded-full bg-[#0A6A38]" />
-                {cert}
-              </span>
-            ))}
-          </div>
+        <div className="mt-12 border-t border-white/10 pt-6 pb-4 sm:mt-16">
           <div className="flex flex-wrap items-center justify-between gap-4 text-xs text-white/50">
             <div>
               © {new Date().getFullYear()} North Bengal Poly &amp; Packaging Industries Ltd. All rights reserved.
