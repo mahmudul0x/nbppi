@@ -101,7 +101,7 @@ function ProductsPage() {
                 <div className="mt-10 flex flex-wrap gap-3">
                   <Link
                     to="/quote"
-                    className="inline-flex items-center gap-2 rounded-md bg-[#0B2D6B] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#123E87]"
+                    className="inline-flex items-center gap-2 rounded-[14px] bg-[linear-gradient(135deg,#F4C542_0%,#D9A520_50%,#B8860B_100%)] px-6 py-3 text-sm font-semibold text-white shadow-[0_12px_30px_-12px_rgba(217,165,32,0.55)] transition hover:brightness-110"
                   >
                     Request Quote <ArrowRight className="h-4 w-4" />
                   </Link>
