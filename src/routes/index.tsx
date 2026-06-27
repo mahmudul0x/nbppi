@@ -879,7 +879,7 @@ function Contact() {
                 ].map(({ i: Icon, l, v }) => (
                   <div key={l} className="flex gap-4">
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/10">
-                      <Icon className="h-4.5 w-4.5 text-[#7FB1E8]" />
+                      <Icon className="h-4 w-4 text-[#7FB1E8]" />
                     </div>
                     <div>
                       <div className="text-xs uppercase tracking-[0.18em] text-white/50">{l}</div>
