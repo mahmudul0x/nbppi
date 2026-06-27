@@ -353,9 +353,9 @@ function WhyChooseUs() {
             industrial roof.
           </p>
         </div>
-        <div className="mt-10 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/5 sm:mt-14 md:grid-cols-2 lg:mt-16 lg:grid-cols-3">
+        <div className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/5 sm:mt-14 md:grid-cols-2 lg:mt-16 lg:grid-cols-3">
           {items.map(({ icon: Icon, t, d }) => (
-            <div key={t} className="group relative bg-[#0B2D6B] p-6 transition hover:bg-[#0d3a73] sm:p-8">
+            <div key={t} className="group relative bg-[#0B2D6B] p-4 transition hover:bg-[#0d3a73] sm:p-6 lg:p-8">
               <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#0A6A38]/15 text-[#7FE0D4] transition group-hover:bg-[#0A6A38] group-hover:text-white">
                 <Icon className="h-6 w-6" />
               </div>
@@ -515,7 +515,7 @@ function Sustainability() {
             </Link>
           </div>
           <div className="lg:col-span-6">
-            <div className="grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/5 sm:grid-cols-2">
+            <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/5">
               {[
                 { i: Recycle, t: "100% Recyclable", d: "Mono-material PP supports closed-loop recycling." },
                 { i: Leaf, t: "Lower Footprint", d: "Solar-assisted operations, high-efficiency motors." },
@@ -566,42 +566,95 @@ function ClientsMarquee() {
   );
 }
 
+const TESTIMONIALS = [
+  {
+    q: "NBPPI has been the backbone of our packaging supply for nearly a decade — their consistency at scale is what differentiates them in this industry.",
+    n: "Procurement Director",
+    c: "Leading FMCG Group, Dhaka",
+  },
+  {
+    q: "From custom BOPP print to on-time export documentation, NBPPI operates with the discipline of a multinational manufacturer.",
+    n: "Import Manager",
+    c: "Agri Exporter, East Africa",
+  },
+  {
+    q: "Zero quality complaints across 14 container shipments. That speaks louder than any certificate.",
+    n: "Supply Chain Lead",
+    c: "Cement Manufacturer, GCC",
+  },
+];
+
 function Testimonials() {
-  const items = [
-    {
-      q: "NBPPI has been the backbone of our packaging supply for nearly a decade — their consistency at scale is what differentiates them in this industry.",
-      n: "Procurement Director",
-      c: "Leading FMCG Group, Dhaka",
-    },
-    {
-      q: "From custom BOPP print to on-time export documentation, NBPPI operates with the discipline of a multinational manufacturer.",
-      n: "Import Manager",
-      c: "Agri Exporter, East Africa",
-    },
-    {
-      q: "Zero quality complaints across 14 container shipments. That speaks louder than any certificate.",
-      n: "Supply Chain Lead",
-      c: "Cement Manufacturer, GCC",
-    },
-  ];
+  const [active, setActive] = useState(0);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const autoRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const goTo = (idx: number) => {
+    setActive((idx + TESTIMONIALS.length) % TESTIMONIALS.length);
+  };
+
+  useEffect(() => {
+    autoRef.current = setTimeout(() => goTo(active + 1), 4000);
+    return () => { if (autoRef.current) clearTimeout(autoRef.current); };
+  }, [active]);
+
+  useEffect(() => {
+    if (!cardRef.current) return;
+    (async () => {
+      const gsap = (await import("gsap")).default;
+      gsap.fromTo(
+        cardRef.current,
+        { opacity: 0, y: 24 },
+        { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }
+      );
+    })();
+  }, [active]);
+
+  const t = TESTIMONIALS[active];
+
   return (
     <section className="bg-[#0B2D6B] py-16 text-white md:py-24 lg:py-28">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <SectionHeading dark eyebrow="Testimonials" title="What our clients say." />
-        <div className="mt-10 grid gap-4 sm:mt-14 sm:gap-6 md:grid-cols-3 lg:mt-16">
-          {items.map((t, i) => (
-            <div
-              key={i}
-              className="rounded-2xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur transition hover:border-white/20 hover:bg-white/[0.06]"
-            >
-              <Quote className="h-7 w-7 text-[#7FE0D4]" />
-              <p className="mt-6 text-base leading-relaxed text-white/85">{t.q}</p>
-              <div className="mt-8 border-t border-white/10 pt-5">
-                <div className="font-display text-sm font-semibold">{t.n}</div>
-                <div className="text-xs text-white/55">{t.c}</div>
-              </div>
+      <div className="mx-auto max-w-3xl px-4 sm:px-6">
+        <SectionHeading dark eyebrow="Testimonials" title="What our clients say." align="center" />
+
+        <div
+          ref={cardRef}
+          className="mt-10 rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur sm:mt-14 sm:p-10"
+        >
+          <Quote className="h-8 w-8 text-[#7FE0D4]" />
+          <p className="mt-6 text-base leading-relaxed text-white/85 sm:text-lg">{t.q}</p>
+          <div className="mt-8 flex items-center justify-between border-t border-white/10 pt-5">
+            <div>
+              <div className="font-display text-sm font-semibold text-white">{t.n}</div>
+              <div className="mt-0.5 text-xs text-white/50">{t.c}</div>
             </div>
-          ))}
+            <div className="flex gap-2">
+              {TESTIMONIALS.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => goTo(i)}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    i === active ? "w-6 bg-[#7FE0D4]" : "w-2 bg-white/25 hover:bg-white/50"
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-5 flex justify-center gap-3">
+          <button
+            onClick={() => goTo(active - 1)}
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/60 transition hover:border-white/40 hover:bg-white/10 hover:text-white"
+          >
+            <ChevronRight className="h-4 w-4 rotate-180" />
+          </button>
+          <button
+            onClick={() => goTo(active + 1)}
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/60 transition hover:border-white/40 hover:bg-white/10 hover:text-white"
+          >
+            <ChevronRight className="h-4 w-4" />
+          </button>
         </div>
       </div>
     </section>
@@ -722,7 +775,7 @@ function CustomManufacturing() {
           </div>
         </div>
 
-        <div className="mt-10 grid gap-px overflow-hidden rounded-2xl border border-border bg-border/60 sm:mt-14 md:grid-cols-2 lg:mt-16 lg:grid-cols-6">
+        <div className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border/60 sm:mt-14 md:grid-cols-2 lg:mt-16 lg:grid-cols-6">
           {steps.map(({ i: Icon, t, d }, idx) => (
             <div key={t} className="relative bg-card p-5 transition hover:bg-[#F1F4F9] sm:p-7">
               <div className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#0A6A38]">

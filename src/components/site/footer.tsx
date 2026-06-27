@@ -39,8 +39,8 @@ export function SiteFooter() {
   return (
     <footer className="bg-[#07204E] pt-14 text-white/70 sm:pt-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="grid grid-cols-2 gap-10 sm:gap-12 md:grid-cols-4 lg:grid-cols-11">
-          <div className="col-span-2 md:col-span-4 lg:col-span-5">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-12 lg:grid-cols-11">
+          <div className="sm:col-span-2 lg:col-span-5">
             <Link to="/" className="inline-flex items-center gap-2.5 sm:gap-3">
               <img
                 src={logoImg}
@@ -89,22 +89,24 @@ export function SiteFooter() {
             </div>
           </div>
 
-          {cols.map((c) => (
-            <div key={c.t} className="min-w-0 lg:col-span-2">
-              <div className="font-display text-xs font-semibold uppercase tracking-[0.22em] text-white">
-                {c.t}
+          <div className="grid grid-cols-3 gap-6 sm:col-span-2 lg:col-span-6 lg:gap-0">
+            {cols.map((c) => (
+              <div key={c.t} className="min-w-0 lg:col-span-2">
+                <div className="font-display text-xs font-semibold uppercase tracking-[0.22em] text-white">
+                  {c.t}
+                </div>
+                <ul className="mt-5 space-y-3 text-sm">
+                  {c.l.map(([label, href]) => (
+                    <li key={label}>
+                      <Link to={href} className="transition hover:text-white">
+                        {label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul className="mt-5 space-y-3 text-sm">
-                {c.l.map(([label, href]) => (
-                  <li key={label}>
-                    <Link to={href} className="transition hover:text-white">
-                      {label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         <div className="mt-12 border-t border-white/10 pt-6 pb-4 sm:mt-16">

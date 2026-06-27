@@ -4,7 +4,7 @@ import { PageShell } from "@/components/site/page-shell";
 import { PageHero } from "@/components/site/page-hero";
 import { SectionHeading } from "@/components/site/section-heading";
 import factoryAerial from "@/assets/factory-aerial.jpg";
-import teamEngineer from "@/assets/team-engineer.jpg";
+import teamEngineer from "@/assets/smnayonmahmud1.png";
 import { Award, Leaf, ShieldCheck, Settings2, Target, Eye, HeartHandshake } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
@@ -266,6 +266,187 @@ function JourneyTimeline() {
   );
 }
 
+const MVP_ITEMS = [
+  {
+    i: Target,
+    t: "Mission",
+    d: "To engineer durable, sustainable polypropylene packaging that secures the world's most demanding supply chains.",
+    accent: "#0A6A38",
+  },
+  {
+    i: Eye,
+    t: "Vision",
+    d: "To become South Asia's most trusted manufacturer of industrial woven packaging, recognised globally for engineering excellence.",
+    accent: "#0B2D6B",
+  },
+  {
+    i: HeartHandshake,
+    t: "Promise",
+    d: "Consistency at scale, certified quality, and partnerships measured in decades — not transactions.",
+    accent: "#1f618d",
+  },
+];
+
+function MissionVisionPromise() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    let ctx: { revert: () => void } | null = null;
+    (async () => {
+      const gsap = (await import("gsap")).default;
+      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
+      gsap.registerPlugin(ScrollTrigger);
+      ctx = gsap.context(() => {
+        cardRefs.current.forEach((card, i) => {
+          if (!card) return;
+          gsap.fromTo(
+            card,
+            { opacity: 0, y: 48, scale: 0.96 },
+            {
+              opacity: 1, y: 0, scale: 1,
+              duration: 0.65,
+              ease: "power3.out",
+              delay: i * 0.12,
+              scrollTrigger: {
+                trigger: card,
+                start: "top 87%",
+                toggleActions: "play none none none",
+              },
+            }
+          );
+          // icon counter-rotate in
+          const icon = card.querySelector(".mvp-icon");
+          if (icon) {
+            gsap.fromTo(
+              icon,
+              { rotate: -15, opacity: 0, scale: 0.6 },
+              {
+                rotate: 0, opacity: 1, scale: 1,
+                duration: 0.5,
+                ease: "back.out(1.7)",
+                delay: i * 0.12 + 0.2,
+                scrollTrigger: {
+                  trigger: card,
+                  start: "top 87%",
+                  toggleActions: "play none none none",
+                },
+              }
+            );
+          }
+        });
+      }, sectionRef);
+    })();
+    return () => ctx?.revert();
+  }, []);
+
+  return (
+    <section ref={sectionRef} className="bg-background py-16 sm:py-20 lg:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="grid gap-5 sm:grid-cols-3 sm:gap-6 lg:gap-8">
+          {MVP_ITEMS.map(({ i: Icon, t, d, accent }, idx) => (
+            <div
+              key={t}
+              ref={(el) => { cardRefs.current[idx] = el; }}
+              className="group relative overflow-hidden rounded-2xl border border-border bg-white p-7 shadow-[0_2px_16px_-6px_rgba(11,45,107,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_-10px_rgba(11,45,107,0.16)] sm:p-8"
+            >
+              {/* top accent bar */}
+              <div
+                className="absolute inset-x-0 top-0 h-1 rounded-t-2xl transition-all duration-500 group-hover:h-1.5"
+                style={{ backgroundColor: accent }}
+              />
+              {/* bg glow */}
+              <div
+                className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-10"
+                style={{ backgroundColor: accent }}
+              />
+              <div
+                className="mvp-icon flex h-12 w-12 items-center justify-center rounded-xl"
+                style={{ backgroundColor: accent + "15" }}
+              >
+                <Icon className="h-6 w-6" style={{ color: accent }} />
+              </div>
+              <div
+                className="mt-5 font-display text-xl font-bold"
+                style={{ color: accent }}
+              >
+                {t}
+              </div>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{d}</p>
+              <div
+                className="mt-6 h-px w-0 transition-all duration-500 group-hover:w-full"
+                style={{ backgroundColor: accent + "40" }}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const CV_ITEMS = [
+  { i: Settings2, t: "Engineering Excellence", d: "Precision specs, certified machinery, measurable results." },
+  { i: Award, t: "Quality", d: "ISO-aligned QC at every production checkpoint." },
+  { i: ShieldCheck, t: "Integrity", d: "Transparent contracts and full supply-chain traceability." },
+  { i: Leaf, t: "Sustainability", d: "Recyclable mono-material structures and waste recovery." },
+];
+
+function CoreValues() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    let ctx: { revert: () => void } | null = null;
+    (async () => {
+      const gsap = (await import("gsap")).default;
+      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
+      gsap.registerPlugin(ScrollTrigger);
+      ctx = gsap.context(() => {
+        gsap.fromTo(
+          itemRefs.current.filter(Boolean),
+          { opacity: 0, x: -32 },
+          {
+            opacity: 1, x: 0,
+            duration: 0.55,
+            ease: "power3.out",
+            stagger: 0.1,
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top 82%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }, sectionRef);
+    })();
+    return () => ctx?.revert();
+  }, []);
+
+  return (
+    <section ref={sectionRef} className="bg-[#F1F4F9] py-14 sm:py-20 lg:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <SectionHeading eyebrow="Core Values" title="The four principles behind every NBPPI bag." />
+        <div className="mt-10 grid grid-cols-2 gap-4 sm:mt-14 md:grid-cols-4 sm:gap-6">
+          {CV_ITEMS.map(({ i: Icon, t, d }, idx) => (
+            <div
+              key={t}
+              ref={(el) => { itemRefs.current[idx] = el; }}
+              className="group rounded-xl border border-border bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[#0A6A38]/30 hover:shadow-[0_8px_32px_-8px_rgba(10,106,56,0.15)] sm:p-6"
+            >
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#0A6A38]/8 transition-all duration-300 group-hover:bg-[#0A6A38] group-hover:scale-110">
+                <Icon className="h-5 w-5 text-[#0A6A38] transition group-hover:text-white" />
+              </div>
+              <div className="mt-4 font-display text-sm font-bold text-[#0B2D6B] sm:text-base">{t}</div>
+              <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground sm:text-sm">{d}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function AboutPage() {
   return (
     <PageShell>
@@ -277,59 +458,31 @@ function AboutPage() {
         crumbs={[{ label: "Home", to: "/" }, { label: "About" }]}
       />
 
-      <section className="bg-background py-24">
-        <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-3">
-          {[
-            { i: Target, t: "Mission", d: "To engineer durable, sustainable polypropylene packaging that secures the world's most demanding supply chains." },
-            { i: Eye, t: "Vision", d: "To become South Asia's most trusted manufacturer of industrial woven packaging, recognised globally for engineering excellence." },
-            { i: HeartHandshake, t: "Promise", d: "Consistency at scale, certified quality, and partnerships measured in decades — not transactions." },
-          ].map(({ i: Icon, t, d }) => (
-            <div key={t} className="rounded-2xl border border-border bg-card p-8">
-              <Icon className="h-7 w-7 text-[#0A6A38]" />
-              <div className="mt-5 font-display text-xl font-semibold text-[#0B2D6B]">{t}</div>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{d}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="bg-[#F1F4F9] py-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <SectionHeading eyebrow="Core Values" title="The four principles behind every NBPPI bag." />
-          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {[
-              { i: Settings2, t: "Engineering Excellence", d: "Precision specs, certified machinery, measurable results." },
-              { i: Award, t: "Quality", d: "ISO-aligned QC at every production checkpoint." },
-              { i: ShieldCheck, t: "Integrity", d: "Transparent contracts and full supply-chain traceability." },
-              { i: Leaf, t: "Sustainability", d: "Recyclable mono-material structures and waste recovery." },
-            ].map(({ i: Icon, t, d }) => (
-              <div key={t} className="rounded-xl border border-border bg-white p-6">
-                <Icon className="h-6 w-6 text-[#0A6A38]" />
-                <div className="mt-5 font-display text-base font-semibold text-[#0B2D6B]">{t}</div>
-                <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{d}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <MissionVisionPromise />
+      <CoreValues />
 
       <JourneyTimeline />
 
       <section className="bg-[#0B2D6B] py-24 text-white">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:items-center">
-          <div className="overflow-hidden rounded-2xl shadow-[var(--shadow-elevated)]">
-            <img src={teamEngineer} alt="NBPPI leadership" loading="lazy" className="h-full w-full object-cover" />
+          <div className="flex items-center justify-center">
+            <img
+              src={teamEngineer}
+              alt="SM Nayon Mahmood — Managing Director, NBPPI"
+              loading="lazy"
+              className="h-auto w-auto max-h-130 max-w-full rounded-2xl object-contain shadow-(--shadow-elevated)"
+            />
           </div>
           <div>
-            <SectionHeading dark eyebrow="Message From Leadership" title="A note from our CEO." />
+            <SectionHeading dark eyebrow="Message From Leadership" title="A note from our Chairman." />
             <p className="mt-6 text-lg leading-relaxed text-white/80">
               &ldquo;We didn't set out to be the largest. We set out to be the most reliable — the
               kind of manufacturer whose name on a shipment means the supply chain doesn't need to
               worry. Two decades later, that principle still defines every line we run.&rdquo;
             </p>
             <div className="mt-8 border-t border-white/10 pt-6">
-              <div className="font-display text-lg font-semibold">Md. Rezaul Karim</div>
-              <div className="text-sm text-white/60">Managing Director · NBPPI</div>
+              <div className="font-display text-lg font-semibold">SM Nayon Mahmood</div>
+              <div className="text-sm text-white/60">Chairman · NBPPI</div>
             </div>
           </div>
         </div>
