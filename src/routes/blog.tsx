@@ -1,0 +1,74 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { PageShell } from "@/components/site/page-shell";
+import { PageHero } from "@/components/site/page-hero";
+import factoryAerial from "@/assets/factory-aerial.jpg";
+import productBopp from "@/assets/product-bopp.jpg";
+import qualityLab from "@/assets/quality-lab.jpg";
+import warehouseImg from "@/assets/warehouse.jpg";
+import { ArrowUpRight } from "lucide-react";
+
+export const Route = createFileRoute("/blog")({
+  head: () => ({
+    meta: [
+      { title: "News & Insights — NBPPI" },
+      { name: "description", content: "Latest news, manufacturing insights and industry analysis from NBPPI." },
+      { property: "og:title", content: "News & Insights — NBPPI" },
+      { property: "og:url", content: "/blog" },
+    ],
+    links: [{ rel: "canonical", href: "/blog" }],
+  }),
+  component: BlogPage,
+});
+
+const POSTS = [
+  { t: "Inside NBPPI's new circular-economy line", c: "Sustainability", d: "Jun 24, 2026", img: factoryAerial, desc: "How our mono-material PP programme is reshaping recyclable industrial packaging across South Asia." },
+  { t: "Why BOPP lamination is winning premium retail", c: "Insights", d: "Jun 02, 2026", img: productBopp, desc: "From rice to pet food — premium brands are turning to BOPP-laminated woven bags for shelf-grade graphics." },
+  { t: "Inside the NBPPI quality laboratory", c: "Manufacturing", d: "May 18, 2026", img: qualityLab, desc: "A tour through our in-house testing protocols: tensile, GSM, burst, moisture and print accuracy." },
+  { t: "Scaling export logistics in 2026", c: "Operations", d: "Apr 30, 2026", img: warehouseImg, desc: "How NBPPI is reducing FCL turnaround times across 22+ export markets." },
+];
+
+function BlogPage() {
+  return (
+    <PageShell>
+      <PageHero
+        eyebrow="News & Insights"
+        title={<>Stories from inside the factory.</>}
+        intro="Manufacturing updates, sustainability progress and industry analysis from the NBPPI team."
+        image={factoryAerial}
+        crumbs={[{ label: "Home", to: "/" }, { label: "Blog" }]}
+      />
+      <section className="bg-background py-24">
+        <div className="mx-auto grid max-w-7xl gap-8 px-6 md:grid-cols-2">
+          {POSTS.map((p, i) => (
+            <article
+              key={p.t}
+              className={`group overflow-hidden rounded-2xl border border-border bg-card transition hover:-translate-y-1 hover:shadow-[var(--shadow-elevated)] ${
+                i === 0 ? "md:col-span-2" : ""
+              }`}
+            >
+              <div className="grid md:grid-cols-2">
+                <div className="relative aspect-[4/3] overflow-hidden bg-muted md:aspect-auto">
+                  <img src={p.img} alt="" loading="lazy" className="h-full w-full object-cover transition-transform duration-[1.2s] group-hover:scale-110" />
+                </div>
+                <div className="flex flex-col justify-between p-8">
+                  <div>
+                    <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#2A9D8F]">
+                      <span>{p.c}</span>
+                      <span className="h-1 w-1 rounded-full bg-muted-foreground/40" />
+                      <span className="text-muted-foreground">{p.d}</span>
+                    </div>
+                    <h2 className="mt-4 font-display text-2xl font-bold text-[#082B59]">{p.t}</h2>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.desc}</p>
+                  </div>
+                  <div className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#082B59] transition group-hover:text-[#2A9D8F]">
+                    Read article <ArrowUpRight className="h-4 w-4" />
+                  </div>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    </PageShell>
+  );
+}
