@@ -178,10 +178,20 @@
   --font-body: var(--font-body);
   --color-brand-navy: var(--brand-navy);
   --color-brand-blue: var(--brand-blue);
+  --color-brand-green: var(--brand-green);
+  --color-brand-gold: var(--brand-gold);
+  --color-brand-surface: var(--brand-surface);
   --color-brand-silver: var(--brand-silver);
   --color-brand-dark: var(--brand-dark);
   --color-brand-success: var(--brand-success);
 }
+
+/* Branded scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #F5F7FA; }
+::-webkit-scrollbar-thumb { background: #0B2D6B; border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: #0A6A38; }
+html { scrollbar-color: #0B2D6B #F5F7FA; scrollbar-width: thin; }
 
 @keyframes marquee {
   from { transform: translateX(0); }
