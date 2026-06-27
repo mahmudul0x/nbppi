@@ -2,7 +2,8 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { NAV } from "@/lib/site-data";
-import logoWordmarkAsset from "@/assets/nbppi-logo-wordmark-clean.png.asset.json";
+import logoAsset from "@/assets/nbppi-logo.png.asset.json";
+import logoLightAsset from "@/assets/nbppi-logo-light.png.asset.json";
 
 export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
@@ -32,12 +33,20 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
         }`}
       >
           <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5">
-          <Link to="/" className="flex min-w-0 items-center">
+          <Link to="/" className="flex min-w-0 items-center gap-3">
             <img
-              src={logoWordmarkAsset.url}
-              alt="NBPPI Poly & Packaging Industries Ltd. logo"
-              className="h-10 w-auto max-w-[190px] object-contain sm:h-11 sm:max-w-[230px] lg:h-12 lg:max-w-[260px]"
+              src={onDark ? logoLightAsset.url : logoAsset.url}
+              alt="NBPPI logo"
+              className="h-10 w-auto object-contain sm:h-11 lg:h-12"
             />
+            <span className="flex min-w-0 flex-col leading-tight">
+              <span className={`font-display text-base font-bold tracking-tight sm:text-lg ${onDark ? "text-white" : "text-[#0B2D6B]"}`}>
+                NBPPI
+              </span>
+              <span className={`hidden text-[10px] font-medium uppercase tracking-[0.18em] sm:block ${onDark ? "text-white/70" : "text-foreground/60"}`}>
+                Poly & Packaging Ind. Ltd.
+              </span>
+            </span>
           </Link>
 
           <nav className="hidden items-center gap-0.5 lg:flex">
