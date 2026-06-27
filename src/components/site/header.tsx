@@ -2,8 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { NAV } from "@/lib/site-data";
-import logoAsset from "@/assets/nbppi-logo.png.asset.json";
-import logoLightAsset from "@/assets/nbppi-logo-light.png.asset.json";
+import logoWordmarkAsset from "@/assets/nbppi-logo-wordmark-clean.png.asset.json";
 
 export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
@@ -32,29 +31,13 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
             : "border-b border-border bg-background/90 shadow-[0_1px_0_rgba(8,43,89,0.06)]"
         }`}
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <Link to="/" className="flex items-center gap-3 sm:gap-4">
+          <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5">
+          <Link to="/" className="flex min-w-0 items-center">
             <img
-              src={onDark ? logoLightAsset.url : logoAsset.url}
-              alt="NBPPI logo"
-              className="h-10 w-10 object-contain sm:h-11 sm:w-11 lg:h-12 lg:w-12"
+              src={logoWordmarkAsset.url}
+              alt="NBPPI Poly & Packaging Industries Ltd. logo"
+              className="h-10 w-auto max-w-[190px] object-contain sm:h-11 sm:max-w-[230px] lg:h-12 lg:max-w-[260px]"
             />
-            <div className="leading-tight">
-              <div
-                className={`font-display text-sm font-bold ${
-                  onDark ? "text-white" : "text-[#0B2D6B]"
-                }`}
-              >
-                NBPPI
-              </div>
-              <div
-                className={`text-[10px] uppercase tracking-[0.18em] ${
-                  onDark ? "text-white/60" : "text-muted-foreground"
-                }`}
-              >
-                Poly &amp; Packaging Ind. Ltd.
-              </div>
-            </div>
           </Link>
 
           <nav className="hidden items-center gap-0.5 lg:flex">
