@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Linkedin, Facebook, Youtube, ArrowRight } from "lucide-react";
-import logoWordmarkAsset from "@/assets/nbppi-logo-wordmark-clean.png.asset.json";
+import logoLightAsset from "@/assets/nbppi-logo-light.png.asset.json";
 
 const cols = [
   {
@@ -41,12 +41,20 @@ export function SiteFooter() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <Link to="/" className="inline-flex items-center">
+            <Link to="/" className="inline-flex items-center gap-3">
               <img
-                src={logoWordmarkAsset.url}
-                alt="NBPPI Poly & Packaging Industries Ltd. logo"
-                className="h-12 w-auto max-w-[230px] object-contain sm:h-14 sm:max-w-[270px] lg:h-16 lg:max-w-[320px]"
+                src={logoLightAsset.url}
+                alt="NBPPI logo"
+                className="h-12 w-auto object-contain sm:h-14 lg:h-16"
               />
+              <span className="flex flex-col leading-tight">
+                <span className="font-display text-lg font-bold tracking-tight text-white sm:text-xl">
+                  NBPPI
+                </span>
+                <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-white/60">
+                  Poly & Packaging Ind. Ltd.
+                </span>
+              </span>
             </Link>
             <p className="mt-6 max-w-md text-sm leading-relaxed">
               A vertically integrated manufacturer of polypropylene woven packaging serving
