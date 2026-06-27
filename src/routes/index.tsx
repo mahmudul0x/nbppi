@@ -325,12 +325,12 @@ function About() {
 
 function WhyChooseUs() {
   const items = [
-    { icon: Factory, t: "Advanced Manufacturing", d: "Starlinger & Lohia lines with automated quality monitoring." },
-    { icon: Layers, t: "Premium Raw Materials", d: "Virgin polypropylene granules from certified petrochemical partners." },
-    { icon: Wrench, t: "Custom Engineering", d: "Bespoke GSM, denier, sizing and lamination for every use case." },
-    { icon: ShieldCheck, t: "Quality Assurance", d: "100% pre-shipment inspection and full batch traceability." },
-    { icon: Truck, t: "Global Logistics", d: "FCL/LCL export to 22+ countries with on-time delivery SLAs." },
-    { icon: CircleCheck, t: "Compliant & Certified", d: "ISO 9001, BSCI, Sedex and food-grade compliance." },
+    { icon: Wrench, t: "Custom Manufacturing", d: "Every bag engineered to your dimensions, weight, print and lamination spec." },
+    { icon: Factory, t: "Flexible Production", d: "Trial runs to bulk programmes — scaled to your order volume and timeline." },
+    { icon: Layers, t: "Premium Printing", d: "Multi-color flexo and BOPP printing with Pantone-matched brand fidelity." },
+    { icon: ShieldCheck, t: "Strict Quality Control", d: "GSM, burst, load and print checks at every production stage." },
+    { icon: Boxes, t: "Bulk Order Capability", d: "Container-scale production with consistent quality across large lots." },
+    { icon: Truck, t: "Reliable Delivery", d: "On-time dispatch across Bangladesh — customer-centric service end to end." },
   ];
   return (
     <section className="relative bg-[#082B59] py-28 text-white">
