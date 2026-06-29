@@ -4,7 +4,8 @@ import { PageShell } from "@/components/site/page-shell";
 import { PageHero } from "@/components/site/page-hero";
 import { SectionHeading } from "@/components/site/section-heading";
 import factoryAerial from "@/assets/factory-aerial.jpg";
-import teamEngineer from "@/assets/smnayonmahmud1.png";
+import teamEngineer from "@/assets/smnayonmahmud.png";
+import mdMashiur from "@/assets/md-mashiur-rahman.png";
 import { Award, Leaf, ShieldCheck, Settings2, Target, Eye, HeartHandshake } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
@@ -461,47 +462,130 @@ function AboutPage() {
       <MissionVisionPromise />
 
       <section className="bg-[#F1F4F9] py-16 sm:py-20 lg:py-28">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="grid items-center gap-10 lg:grid-cols-[360px_1fr] lg:gap-16">
-            {/* Photo */}
-            <div className="flex justify-center lg:justify-start">
-              <div className="relative">
-                <div className="absolute -inset-3 rounded-3xl bg-linear-to-br from-[#0B2D6B]/10 to-[#0A6A38]/10 blur-2xl" />
-                <img
-                  src={teamEngineer}
-                  alt="SM Nayon Mahmood — Chairman, NBPPI"
-                  loading="lazy"
-                  className="relative h-80 w-64 rounded-2xl object-cover object-top shadow-[0_24px_70px_-16px_rgba(11,45,107,0.28)] sm:h-96 sm:w-72 lg:h-110 lg:w-80"
-                />
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          {/* Section heading */}
+          <div className="mb-10 text-center sm:mb-14">
+            <div className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.25em] text-[#0A6A38]">
+              <span className="h-px w-8 bg-[#0A6A38]" />
+              Message From Leadership
+              <span className="h-px w-8 bg-[#0A6A38]" />
+            </div>
+            <h2 className="mt-4 font-display text-2xl font-bold leading-tight text-[#0B2D6B] sm:text-3xl lg:text-4xl">
+              Voices behind NBPPI.
+            </h2>
+          </div>
+
+          <div className="flex flex-col gap-10">
+
+            {/* ── Chairman ── */}
+            <div className="grid items-center gap-10 lg:grid-cols-[360px_1fr] lg:gap-16">
+              <div className="flex justify-center lg:justify-start">
+                <div className="relative">
+                  <div className="absolute -inset-3 rounded-3xl bg-linear-to-br from-[#0B2D6B]/10 to-[#0A6A38]/10 blur-2xl" />
+                  <img
+                    src={teamEngineer}
+                    alt="SM Nayon Mahmood — Chairman, NBPPI"
+                    loading="lazy"
+                    className="relative h-80 w-64 rounded-2xl object-cover object-top shadow-[0_24px_70px_-16px_rgba(11,45,107,0.28)] sm:h-96 sm:w-72 lg:h-110 lg:w-80"
+                  />
+                </div>
+              </div>
+              <div className="rounded-2xl border border-border bg-white p-8 shadow-[0_4px_24px_-8px_rgba(11,45,107,0.10)] sm:p-10">
+                <div className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.25em] text-[#0A6A38]">
+                  <span className="h-px w-8 bg-[#0A6A38]" />
+                  Chairman's Message
+                </div>
+                <h3 className="mt-4 font-display text-2xl font-bold leading-tight text-[#0B2D6B] sm:text-3xl lg:text-4xl">
+                  A note from our Chairman.
+                </h3>
+                <div className="mt-6 space-y-4 border-l-2 border-[#0B2D6B]/20 pl-5">
+                  <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
+                    At North Bengal Poly &amp; Packaging Industries Ltd., we believe manufacturing is more
+                    than producing packaging — it is about creating value, building trust, and acting
+                    responsibly.
+                  </p>
+                  <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
+                    Our commitment has always been simple: to deliver products of consistent quality,
+                    operate with integrity, invest in our people, and embrace sustainable manufacturing
+                    practices that contribute to a better future.
+                  </p>
+                  <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
+                    We do not aspire merely to become the largest manufacturer. We aspire to become one
+                    of the most trusted names in the packaging industry — recognized for reliability,
+                    innovation, and long-term partnerships.
+                  </p>
+                  <p className="font-display text-base font-semibold italic text-[#0B2D6B] sm:text-lg">
+                    &ldquo;We create value for people, protect our planet, and earn trust through every
+                    product we deliver.&rdquo;
+                  </p>
+                  <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
+                    Thank you for being part of our journey — your confidence in us drives everything we do.
+                  </p>
+                </div>
+                <div className="mt-8 flex items-center gap-4 border-t border-border pt-6">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#0B2D6B]/8">
+                    <span className="font-display text-base font-bold text-[#0B2D6B]">SN</span>
+                  </div>
+                  <div>
+                    <div className="font-display text-base font-bold text-[#0B2D6B]">S.M. Nayon Mahmood</div>
+                    <div className="text-sm text-muted-foreground">Chairman · NBPPI</div>
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* Quote card */}
-            <div className="rounded-2xl border border-border bg-white p-8 shadow-[0_4px_24px_-8px_rgba(11,45,107,0.10)] sm:p-10">
-              <div className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.25em] text-[#0A6A38]">
-                <span className="h-px w-8 bg-[#0A6A38]" />
-                Message From Leadership
-              </div>
-              <h2 className="mt-4 font-display text-2xl font-bold leading-tight text-[#0B2D6B] sm:text-3xl lg:text-4xl">
-                A note from our Chairman.
-              </h2>
-              <div className="mt-6 border-l-2 border-[#0B2D6B]/20 pl-5">
-                <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
-                  &ldquo;We didn't set out to be the largest. We set out to be the most reliable — the
-                  kind of manufacturer whose name on a shipment means the supply chain doesn't need to
-                  worry. Two decades later, that principle still defines every line we run.&rdquo;
-                </p>
-              </div>
-              <div className="mt-8 flex items-center gap-4 border-t border-border pt-6">
-                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#0B2D6B]/8">
-                  <span className="font-display text-base font-bold text-[#0B2D6B]">SN</span>
+            {/* Divider */}
+            <div className="flex items-center gap-4">
+              <div className="h-px flex-1 bg-border" />
+              <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground">Leadership</span>
+              <div className="h-px flex-1 bg-border" />
+            </div>
+
+            {/* ── Managing Director ── */}
+            <div className="grid items-center gap-10 lg:grid-cols-[1fr_360px] lg:gap-16">
+              <div className="rounded-2xl border border-border bg-white p-8 shadow-[0_4px_24px_-8px_rgba(11,45,107,0.10)] sm:p-10">
+                <div className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.25em] text-[#0A6A38]">
+                  <span className="h-px w-8 bg-[#0A6A38]" />
+                  Managing Director's Message
                 </div>
-                <div>
-                  <div className="font-display text-base font-bold text-[#0B2D6B]">SM Nayon Mahmood</div>
-                  <div className="text-sm text-muted-foreground">Chairman · NBPPI</div>
+                <h3 className="mt-4 font-display text-2xl font-bold leading-tight text-[#0B2D6B] sm:text-3xl lg:text-4xl">
+                  A note from our Managing Director.
+                </h3>
+                <div className="mt-6 border-l-2 border-[#0A6A38]/30 pl-5">
+                  <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
+                    &ldquo;At North Bengal Poly Packaging Industries Ltd, we are committed to creating
+                    packaging that protects both products and the environment. By using recyclable and
+                    biodegradable raw materials, we deliver sustainable packaging solutions without
+                    compromising quality or performance. We believe sustainability is a shared
+                    responsibility — through responsible manufacturing and continuous innovation, we are
+                    helping build a cleaner, greener future, one package at a time.&rdquo;
+                  </p>
+                </div>
+                <div className="mt-8 flex items-center gap-4 border-t border-border pt-6">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#0A6A38]/8">
+                    <span className="font-display text-base font-bold text-[#0A6A38]">MR</span>
+                  </div>
+                  <div>
+                    <div className="font-display text-base font-bold text-[#0B2D6B]">Md. Mashiur Rahman</div>
+                    <div className="text-sm text-muted-foreground">Managing Director · NBPPI</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Photo frame — right side */}
+              <div className="flex justify-center lg:justify-end">
+                <div className="relative">
+                  <div className="absolute -inset-3 rounded-3xl bg-linear-to-br from-[#0A6A38]/10 to-[#0B2D6B]/10 blur-2xl" />
+                  <img
+                    src={mdMashiur}
+                    alt="Md. Mashiur Rahman — Managing Director, NBPPI"
+                    loading="lazy"
+                    className="relative h-80 w-64 rounded-2xl object-cover object-top shadow-[0_24px_70px_-16px_rgba(11,45,107,0.28)] sm:h-96 sm:w-72 lg:h-110 lg:w-80"
+                  />
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </section>
