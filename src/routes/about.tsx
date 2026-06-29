@@ -6,7 +6,10 @@ import { SectionHeading } from "@/components/site/section-heading";
 import factoryAerial from "@/assets/factory-aerial.jpg";
 import teamEngineer from "@/assets/smnayonmahmud.png";
 import mdMashiur from "@/assets/md-mashiur-rahman.png";
-import { Award, Leaf, ShieldCheck, Settings2, Target, Eye, HeartHandshake } from "lucide-react";
+import {
+  Award, Leaf, ShieldCheck, Settings2, Target, Eye,
+  HeartHandshake, Lightbulb, Users, Star,
+} from "lucide-react";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -45,7 +48,6 @@ function JourneyTimeline() {
       const { ScrollTrigger } = await import("gsap/ScrollTrigger");
       gsap.registerPlugin(ScrollTrigger);
       ctx = gsap.context(() => {
-        // Animate the vertical line growing downward
         if (lineRef.current) {
           gsap.fromTo(
             lineRef.current,
@@ -62,8 +64,6 @@ function JourneyTimeline() {
             }
           );
         }
-
-        // Stagger cards in from alternating sides
         cardRefs.current.forEach((card, i) => {
           if (!card) return;
           const fromLeft = i % 2 === 0;
@@ -71,56 +71,33 @@ function JourneyTimeline() {
             card,
             { opacity: 0, x: fromLeft ? -60 : 60, y: 20 },
             {
-              opacity: 1,
-              x: 0,
-              y: 0,
-              duration: 0.7,
-              ease: "power3.out",
-              scrollTrigger: {
-                trigger: card,
-                start: "top 85%",
-                toggleActions: "play none none none",
-              },
+              opacity: 1, x: 0, y: 0,
+              duration: 0.7, ease: "power3.out",
+              scrollTrigger: { trigger: card, start: "top 85%", toggleActions: "play none none none" },
             }
           );
         });
-
-        // Year badges pop in with scale
         yearRefs.current.forEach((el) => {
           if (!el) return;
           gsap.fromTo(
             el,
             { scale: 0.5, opacity: 0 },
             {
-              scale: 1,
-              opacity: 1,
-              duration: 0.5,
-              ease: "back.out(1.7)",
-              scrollTrigger: {
-                trigger: el,
-                start: "top 88%",
-                toggleActions: "play none none none",
-              },
+              scale: 1, opacity: 1,
+              duration: 0.5, ease: "back.out(1.7)",
+              scrollTrigger: { trigger: el, start: "top 88%", toggleActions: "play none none none" },
             }
           );
         });
-
-        // Dots pulse in
         dotRefs.current.forEach((dot) => {
           if (!dot) return;
           gsap.fromTo(
             dot,
             { scale: 0, opacity: 0 },
             {
-              scale: 1,
-              opacity: 1,
-              duration: 0.4,
-              ease: "elastic.out(1,0.5)",
-              scrollTrigger: {
-                trigger: dot,
-                start: "top 88%",
-                toggleActions: "play none none none",
-              },
+              scale: 1, opacity: 1,
+              duration: 0.4, ease: "elastic.out(1,0.5)",
+              scrollTrigger: { trigger: dot, start: "top 88%", toggleActions: "play none none none" },
             }
           );
         });
@@ -131,7 +108,6 @@ function JourneyTimeline() {
 
   return (
     <section ref={sectionRef} className="relative overflow-hidden bg-background py-20 sm:py-28">
-      {/* Faint blueprint dot grid */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
@@ -139,9 +115,7 @@ function JourneyTimeline() {
           backgroundSize: "32px 32px",
         }}
       />
-
       <div className="relative mx-auto max-w-5xl px-4 sm:px-6">
-        {/* Header */}
         <div className="text-center">
           <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#0A6A38]">
             <span className="h-px w-8 bg-[#0A6A38]" />
@@ -156,9 +130,7 @@ function JourneyTimeline() {
           </p>
         </div>
 
-        {/* Timeline */}
         <div className="relative mt-16 sm:mt-20">
-          {/* Vertical spine */}
           <div className="absolute left-1/2 top-0 hidden h-full -translate-x-1/2 md:block">
             <div className="mx-auto w-px bg-[#0B2D6B]/10" style={{ height: "100%" }}>
               <div ref={lineRef} className="h-full w-full origin-top bg-gradient-to-b from-[#0B2D6B]/60 via-[#0A6A38]/70 to-[#0B2D6B]/60" />
@@ -170,18 +142,13 @@ function JourneyTimeline() {
               const isLeft = i % 2 === 0;
               return (
                 <div key={y} className="relative flex flex-col md:flex-row md:items-center md:gap-0">
-
-                  {/* Left side content */}
                   <div className={`flex flex-1 md:pr-10 lg:pr-14 ${isLeft ? "md:justify-end" : "md:invisible"}`}>
                     {isLeft && (
                       <div
                         ref={(el) => { cardRefs.current[i] = el; }}
                         className="group w-full max-w-sm rounded-2xl border border-border bg-white p-6 shadow-[0_4px_24px_-8px_rgba(11,45,107,0.10)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_-10px_rgba(11,45,107,0.18)] md:w-auto"
                       >
-                        <div
-                          ref={(el) => { yearRefs.current[i] = el; }}
-                          className="inline-flex items-center gap-2 rounded-full bg-[#0B2D6B] px-3 py-1"
-                        >
+                        <div ref={(el) => { yearRefs.current[i] = el; }} className="inline-flex items-center gap-2 rounded-full bg-[#0B2D6B] px-3 py-1">
                           <span className="h-1.5 w-1.5 rounded-full bg-[#7FE0D4]" />
                           <span className="font-display text-xs font-bold text-white tracking-wider">{y}</span>
                         </div>
@@ -192,27 +159,19 @@ function JourneyTimeline() {
                     )}
                   </div>
 
-                  {/* Centre dot */}
                   <div className="relative z-10 hidden md:flex md:flex-col md:items-center">
-                    <div
-                      ref={(el) => { dotRefs.current[i] = el; }}
-                      className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#0A6A38] bg-white shadow-[0_0_0_5px_rgba(10,106,56,0.12)]"
-                    >
+                    <div ref={(el) => { dotRefs.current[i] = el; }} className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#0A6A38] bg-white shadow-[0_0_0_5px_rgba(10,106,56,0.12)]">
                       <span className="h-2.5 w-2.5 rounded-full bg-[#0A6A38]" />
                     </div>
                   </div>
 
-                  {/* Right side content */}
                   <div className={`flex flex-1 md:pl-10 lg:pl-14 ${!isLeft ? "md:justify-start" : "md:invisible"}`}>
                     {!isLeft && (
                       <div
                         ref={(el) => { cardRefs.current[i] = el; }}
                         className="group w-full max-w-sm rounded-2xl border border-border bg-white p-6 shadow-[0_4px_24px_-8px_rgba(11,45,107,0.10)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_-10px_rgba(11,45,107,0.18)] md:w-auto"
                       >
-                        <div
-                          ref={(el) => { yearRefs.current[i] = el; }}
-                          className="inline-flex items-center gap-2 rounded-full bg-[#0B2D6B] px-3 py-1"
-                        >
+                        <div ref={(el) => { yearRefs.current[i] = el; }} className="inline-flex items-center gap-2 rounded-full bg-[#0B2D6B] px-3 py-1">
                           <span className="h-1.5 w-1.5 rounded-full bg-[#7FE0D4]" />
                           <span className="font-display text-xs font-bold text-white tracking-wider">{y}</span>
                         </div>
@@ -223,7 +182,6 @@ function JourneyTimeline() {
                     )}
                   </div>
 
-                  {/* Mobile-only card (stacked, full width) */}
                   <div className="md:hidden">
                     <div className="flex items-start gap-4">
                       <div className="mt-1 flex flex-col items-center">
@@ -242,14 +200,12 @@ function JourneyTimeline() {
                       </div>
                     </div>
                   </div>
-
                 </div>
               );
             })}
           </div>
         </div>
 
-        {/* Bottom stats */}
         <div className="mt-16 grid grid-cols-3 gap-3 rounded-2xl border border-border bg-[#F1F4F9] p-4 sm:mt-20 sm:gap-6 sm:p-8">
           {[
             ["2008", "Founded"],
@@ -267,117 +223,132 @@ function JourneyTimeline() {
   );
 }
 
-const MVP_ITEMS = [
-  {
-    i: Target,
-    t: "Mission",
-    d: "To engineer durable, sustainable polypropylene packaging that secures the world's most demanding supply chains.",
-    accent: "#0A6A38",
-  },
-  {
-    i: Eye,
-    t: "Vision",
-    d: "To become South Asia's most trusted manufacturer of industrial woven packaging, recognised globally for engineering excellence.",
-    accent: "#0B2D6B",
-  },
-  {
-    i: HeartHandshake,
-    t: "Promise",
-    d: "Consistency at scale, certified quality, and partnerships measured in decades — not transactions.",
-    accent: "#1f618d",
-  },
-];
+/* ── Our Purpose ──────────────────────────────────────────────────────── */
+function OurPurpose() {
+  return (
+    <section className="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-28">
+      {/* Subtle dot grid background */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-40"
+        style={{
+          backgroundImage: "radial-gradient(circle, #0B2D6B0F 1.5px, transparent 1.5px)",
+          backgroundSize: "28px 28px",
+        }}
+      />
 
-function MissionVisionPromise() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+      {/* Top green accent bar */}
+      <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#0A6A38]/0 via-[#0A6A38] to-[#0A6A38]/0" />
 
-  useEffect(() => {
-    let ctx: { revert: () => void } | null = null;
-    (async () => {
-      const gsap = (await import("gsap")).default;
-      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
-      gsap.registerPlugin(ScrollTrigger);
-      ctx = gsap.context(() => {
-        cardRefs.current.forEach((card, i) => {
-          if (!card) return;
-          gsap.fromTo(
-            card,
-            { opacity: 0, y: 48, scale: 0.96 },
-            {
-              opacity: 1, y: 0, scale: 1,
-              duration: 0.65,
-              ease: "power3.out",
-              delay: i * 0.12,
-              scrollTrigger: {
-                trigger: card,
-                start: "top 87%",
-                toggleActions: "play none none none",
-              },
-            }
-          );
-          // icon counter-rotate in
-          const icon = card.querySelector(".mvp-icon");
-          if (icon) {
-            gsap.fromTo(
-              icon,
-              { rotate: -15, opacity: 0, scale: 0.6 },
-              {
-                rotate: 0, opacity: 1, scale: 1,
-                duration: 0.5,
-                ease: "back.out(1.7)",
-                delay: i * 0.12 + 0.2,
-                scrollTrigger: {
-                  trigger: card,
-                  start: "top 87%",
-                  toggleActions: "play none none none",
-                },
-              }
-            );
-          }
-        });
-      }, sectionRef);
-    })();
-    return () => ctx?.revert();
-  }, []);
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
+
+          {/* Left — label + statement */}
+          <div>
+            <div className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.28em] text-[#0A6A38]">
+              <span className="h-px w-8 bg-[#0A6A38]" />
+              Our Purpose
+            </div>
+            <h2 className="mt-5 font-display text-3xl font-bold leading-tight text-[#0B2D6B] sm:text-4xl lg:text-5xl">
+              Why we exist.
+            </h2>
+            <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
+              At North Bengal Poly &amp; Packaging Industries Ltd., manufacturing is more than producing
+              packaging — it is about creating value, building trust, and acting responsibly for a
+              better future.
+            </p>
+
+            {/* Three pillars */}
+            <div className="mt-8 grid grid-cols-3 gap-3">
+              {[
+                { n: "People", d: "Creating value for every stakeholder." },
+                { n: "Planet", d: "Protecting the environment we share." },
+                { n: "Trust", d: "Earned through every product we make." },
+              ].map(({ n, d }) => (
+                <div key={n} className="rounded-xl border border-[#0A6A38]/15 bg-[#0A6A38]/4 p-4 text-center">
+                  <div className="font-display text-sm font-bold text-[#0A6A38]">{n}</div>
+                  <div className="mt-1 text-[10px] leading-snug text-muted-foreground">{d}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right — large quote card */}
+          <div className="relative">
+            {/* Decorative blob */}
+            <div className="absolute -right-10 -top-10 h-48 w-48 rounded-full bg-[#0A6A38]/8 blur-3xl" />
+            <div className="absolute -bottom-10 -left-10 h-48 w-48 rounded-full bg-[#0B2D6B]/8 blur-3xl" />
+
+            <div className="relative rounded-3xl border border-border bg-gradient-to-br from-[#0B2D6B] to-[#07204E] p-8 shadow-[0_30px_80px_-20px_rgba(11,45,107,0.35)] sm:p-12">
+              {/* Large quote mark */}
+              <div className="font-display text-8xl font-black leading-none text-[#7FE0D4]/20 sm:text-9xl">&ldquo;</div>
+              <p className="mt-2 font-display text-lg font-semibold leading-relaxed text-white sm:text-xl lg:text-2xl">
+                We create value for people, protect our planet, and earn trust through every product we deliver.
+              </p>
+              <div className="mt-8 flex items-center gap-3">
+                <div className="h-px flex-1 bg-white/15" />
+                <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#7FE0D4]">
+                  North Bengal Poly &amp; Packaging Industries Ltd.
+                </span>
+                <div className="h-px flex-1 bg-white/15" />
+              </div>
+
+              {/* Bottom accent dots */}
+              <div className="mt-6 flex justify-center gap-2">
+                <span className="h-1.5 w-6 rounded-full bg-[#7FE0D4]" />
+                <span className="h-1.5 w-1.5 rounded-full bg-white/30" />
+                <span className="h-1.5 w-1.5 rounded-full bg-white/30" />
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ── Vision & Mission ─────────────────────────────────────────────────── */
+function VisionMission() {
+  const items = [
+    {
+      icon: Eye,
+      label: "Vision",
+      accent: "#0B2D6B",
+      bg: "#0B2D6B",
+      text: "To become South Asia's most trusted manufacturer of sustainable packaging solutions.",
+    },
+    {
+      icon: Target,
+      label: "Mission",
+      accent: "#0A6A38",
+      bg: "#0A6A38",
+      text: "To deliver world-class packaging products through innovation, quality, operational excellence, and responsible manufacturing.",
+    },
+    {
+      icon: HeartHandshake,
+      label: "Promise",
+      accent: "#1f618d",
+      bg: "#1f618d",
+      text: "Consistency at scale, certified quality, and partnerships measured in decades — not transactions.",
+    },
+  ];
 
   return (
-    <section ref={sectionRef} className="bg-background py-10 sm:py-12 lg:py-16">
+    <section className="bg-[#F1F4F9] py-14 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="grid gap-4 sm:grid-cols-3 sm:gap-5 lg:gap-6">
-          {MVP_ITEMS.map(({ i: Icon, t, d, accent }, idx) => (
+        <div className="grid gap-5 sm:grid-cols-3 lg:gap-6">
+          {items.map(({ icon: Icon, label, accent, bg, text }) => (
             <div
-              key={t}
-              ref={(el) => { cardRefs.current[idx] = el; }}
-              className="group relative overflow-hidden rounded-2xl border border-border bg-white p-5 shadow-[0_2px_16px_-6px_rgba(11,45,107,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_-10px_rgba(11,45,107,0.16)] sm:p-6"
+              key={label}
+              className="group relative overflow-hidden rounded-2xl border border-border bg-white p-6 shadow-[0_2px_16px_-6px_rgba(11,45,107,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_-10px_rgba(11,45,107,0.16)] sm:p-8"
             >
-              {/* top accent bar */}
-              <div
-                className="absolute inset-x-0 top-0 h-1 rounded-t-2xl transition-all duration-500 group-hover:h-1.5"
-                style={{ backgroundColor: accent }}
-              />
-              {/* bg glow */}
-              <div
-                className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-10"
-                style={{ backgroundColor: accent }}
-              />
-              <div
-                className="mvp-icon flex h-10 w-10 items-center justify-center rounded-xl"
-                style={{ backgroundColor: accent + "15" }}
-              >
-                <Icon className="h-5 w-5" style={{ color: accent }} />
+              <div className="absolute inset-x-0 top-0 h-1 rounded-t-2xl transition-all duration-500 group-hover:h-1.5" style={{ backgroundColor: accent }} />
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl" style={{ backgroundColor: accent + "15" }}>
+                <Icon className="h-6 w-6" style={{ color: accent }} />
               </div>
-              <div
-                className="mt-4 font-display text-base font-bold"
-                style={{ color: accent }}
-              >
-                {t}
-              </div>
-              <p className="mt-2 text-xs leading-relaxed text-muted-foreground sm:text-sm">{d}</p>
-              <div
-                className="mt-4 h-px w-0 transition-all duration-500 group-hover:w-full"
-                style={{ backgroundColor: accent + "40" }}
-              />
+              <div className="mt-5 font-display text-lg font-bold" style={{ color: accent }}>{label}</div>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">{text}</p>
+              <div className="mt-5 h-px w-0 transition-all duration-500 group-hover:w-full" style={{ backgroundColor: accent + "40" }} />
             </div>
           ))}
         </div>
@@ -386,11 +357,150 @@ function MissionVisionPromise() {
   );
 }
 
+/* ── Leadership Messages ──────────────────────────────────────────────── */
+function Leadership() {
+  return (
+    <section className="bg-white py-16 sm:py-20 lg:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+
+        {/* Heading */}
+        <div className="mb-12 text-center sm:mb-16">
+          <div className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.25em] text-[#0A6A38]">
+            <span className="h-px w-8 bg-[#0A6A38]" />
+            Message From Leadership
+            <span className="h-px w-8 bg-[#0A6A38]" />
+          </div>
+          <h2 className="mt-4 font-display text-2xl font-bold leading-tight text-[#0B2D6B] sm:text-3xl lg:text-4xl">
+            Voices behind NBPPI.
+          </h2>
+        </div>
+
+        <div className="flex flex-col gap-14">
+
+          {/* ── Chairman ── */}
+          <div className="grid items-center gap-10 lg:grid-cols-[360px_1fr] lg:gap-16">
+            <div className="flex justify-center lg:justify-start">
+              <div className="relative">
+                <div className="absolute -inset-3 rounded-3xl bg-linear-to-br from-[#0B2D6B]/10 to-[#0A6A38]/10 blur-2xl" />
+                <img
+                  src={teamEngineer}
+                  alt="S.M. Nayon Mahmood — Chairman, NBPPI"
+                  loading="lazy"
+                  className="relative h-80 w-64 rounded-2xl object-cover object-top shadow-[0_24px_70px_-16px_rgba(11,45,107,0.28)] sm:h-96 sm:w-72 lg:h-110 lg:w-80"
+                />
+              </div>
+            </div>
+            <div className="rounded-2xl border border-border bg-[#F8F9FB] p-8 shadow-[0_4px_24px_-8px_rgba(11,45,107,0.08)] sm:p-10">
+              <div className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.25em] text-[#0A6A38]">
+                <span className="h-px w-8 bg-[#0A6A38]" />
+                Chairman's Message
+              </div>
+              <h3 className="mt-4 font-display text-xl font-bold leading-tight text-[#0B2D6B] sm:text-2xl lg:text-3xl">
+                A note from our Chairman.
+              </h3>
+              <div className="mt-6 space-y-4 border-l-2 border-[#0B2D6B]/20 pl-5">
+                <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+                  At North Bengal Poly &amp; Packaging Industries Ltd., we believe manufacturing is more
+                  than producing packaging — it is about creating value, building trust, and acting
+                  responsibly.
+                </p>
+                <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+                  Our commitment has always been simple: to deliver products of consistent quality,
+                  operate with integrity, invest in our people, and embrace sustainable manufacturing
+                  practices that contribute to a better future.
+                </p>
+                <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+                  We do not aspire merely to become the largest manufacturer. We aspire to become one
+                  of the most trusted names in the packaging industry — recognized for reliability,
+                  innovation, and long-term partnerships.
+                </p>
+                <p className="font-display text-sm font-semibold italic text-[#0B2D6B] sm:text-base">
+                  &ldquo;We create value for people, protect our planet, and earn trust through every
+                  product we deliver.&rdquo;
+                </p>
+                <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+                  Thank you for being part of our journey — your confidence in us drives everything we do.
+                </p>
+              </div>
+              <div className="mt-8 flex items-center gap-4 border-t border-border pt-6">
+                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#0B2D6B]/8">
+                  <span className="font-display text-base font-bold text-[#0B2D6B]">SN</span>
+                </div>
+                <div>
+                  <div className="font-display text-base font-bold text-[#0B2D6B]">S.M. Nayon Mahmood</div>
+                  <div className="text-sm text-muted-foreground">Chairman · NBPPI</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="flex items-center gap-4">
+            <div className="h-px flex-1 bg-border" />
+            <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground">Leadership</span>
+            <div className="h-px flex-1 bg-border" />
+          </div>
+
+          {/* ── Managing Director ── */}
+          <div className="grid items-center gap-10 lg:grid-cols-[1fr_360px] lg:gap-16">
+            <div className="rounded-2xl border border-border bg-[#F8F9FB] p-8 shadow-[0_4px_24px_-8px_rgba(11,45,107,0.08)] sm:p-10">
+              <div className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.25em] text-[#0A6A38]">
+                <span className="h-px w-8 bg-[#0A6A38]" />
+                Managing Director's Message
+              </div>
+              <h3 className="mt-4 font-display text-xl font-bold leading-tight text-[#0B2D6B] sm:text-2xl lg:text-3xl">
+                A note from our Managing Director.
+              </h3>
+              <div className="mt-6 space-y-4 border-l-2 border-[#0A6A38]/30 pl-5">
+                <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+                  At North Bengal Poly Packaging Industries Ltd, we are committed to creating
+                  packaging that protects both products and the environment. By using recyclable and
+                  biodegradable raw materials, we deliver sustainable packaging solutions without
+                  compromising quality or performance.
+                </p>
+                <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+                  We believe sustainability is a shared responsibility. Through responsible
+                  manufacturing and continuous innovation, we are helping build a cleaner, greener
+                  future — one package at a time.
+                </p>
+              </div>
+              <div className="mt-8 flex items-center gap-4 border-t border-border pt-6">
+                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#0A6A38]/8">
+                  <span className="font-display text-base font-bold text-[#0A6A38]">MR</span>
+                </div>
+                <div>
+                  <div className="font-display text-base font-bold text-[#0B2D6B]">Md. Mashiur Rahman</div>
+                  <div className="text-sm text-muted-foreground">Managing Director · NBPPI</div>
+                </div>
+              </div>
+            </div>
+            <div className="flex justify-center lg:justify-end">
+              <div className="relative">
+                <div className="absolute -inset-3 rounded-3xl bg-linear-to-br from-[#0A6A38]/10 to-[#0B2D6B]/10 blur-2xl" />
+                <img
+                  src={mdMashiur}
+                  alt="Md. Mashiur Rahman — Managing Director, NBPPI"
+                  loading="lazy"
+                  className="relative h-80 w-64 rounded-2xl object-cover object-top shadow-[0_24px_70px_-16px_rgba(11,45,107,0.28)] sm:h-96 sm:w-72 lg:h-110 lg:w-80"
+                />
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ── Core Values (6 values) ───────────────────────────────────────────── */
 const CV_ITEMS = [
-  { i: Settings2, t: "Engineering Excellence", d: "Precision specs, certified machinery, measurable results." },
-  { i: Award, t: "Quality", d: "ISO-aligned QC at every production checkpoint." },
-  { i: ShieldCheck, t: "Integrity", d: "Transparent contracts and full supply-chain traceability." },
-  { i: Leaf, t: "Sustainability", d: "Recyclable mono-material structures and waste recovery." },
+  { i: ShieldCheck,     t: "Integrity",            d: "Transparent contracts, honest dealings, and full supply-chain traceability." },
+  { i: Award,           t: "Quality",              d: "ISO-aligned QC at every production checkpoint — no compromise." },
+  { i: Lightbulb,       t: "Innovation",           d: "Continuous improvement in materials, process and product design." },
+  { i: Leaf,            t: "Sustainability",        d: "Recyclable mono-material structures and responsible waste recovery." },
+  { i: Star,            t: "Customer Commitment",  d: "Tailored solutions, on-time delivery, and long-term partnerships." },
+  { i: Users,           t: "Respect for People",   d: "Investing in our 1,200+ team members and the communities we serve." },
 ];
 
 function CoreValues() {
@@ -406,17 +516,12 @@ function CoreValues() {
       ctx = gsap.context(() => {
         gsap.fromTo(
           itemRefs.current.filter(Boolean),
-          { opacity: 0, x: -32 },
+          { opacity: 0, y: 28 },
           {
-            opacity: 1, x: 0,
-            duration: 0.55,
-            ease: "power3.out",
-            stagger: 0.1,
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              start: "top 82%",
-              toggleActions: "play none none none",
-            },
+            opacity: 1, y: 0,
+            duration: 0.55, ease: "power3.out",
+            stagger: 0.08,
+            scrollTrigger: { trigger: sectionRef.current, start: "top 82%", toggleActions: "play none none none" },
           }
         );
       }, sectionRef);
@@ -427,19 +532,19 @@ function CoreValues() {
   return (
     <section ref={sectionRef} className="bg-[#F1F4F9] py-14 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <SectionHeading eyebrow="Core Values" title="The four principles behind every NBPPI bag." />
-        <div className="mt-10 grid grid-cols-2 gap-4 sm:mt-14 md:grid-cols-4 sm:gap-6">
+        <SectionHeading eyebrow="Core Values" title="Six principles behind every NBPPI bag." />
+        <div className="mt-10 grid grid-cols-2 gap-4 sm:mt-14 sm:gap-5 md:grid-cols-3 lg:grid-cols-6">
           {CV_ITEMS.map(({ i: Icon, t, d }, idx) => (
             <div
               key={t}
               ref={(el) => { itemRefs.current[idx] = el; }}
-              className="group rounded-xl border border-border bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[#0A6A38]/30 hover:shadow-[0_8px_32px_-8px_rgba(10,106,56,0.15)] sm:p-6"
+              className="group rounded-xl border border-border bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[#0A6A38]/30 hover:shadow-[0_8px_32px_-8px_rgba(10,106,56,0.15)]"
             >
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#0A6A38]/8 transition-all duration-300 group-hover:bg-[#0A6A38] group-hover:scale-110">
                 <Icon className="h-5 w-5 text-[#0A6A38] transition group-hover:text-white" />
               </div>
-              <div className="mt-4 font-display text-sm font-bold text-[#0B2D6B] sm:text-base">{t}</div>
-              <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground sm:text-sm">{d}</p>
+              <div className="mt-4 font-display text-sm font-bold text-[#0B2D6B]">{t}</div>
+              <p className="mt-1.5 text-[11px] leading-relaxed text-muted-foreground">{d}</p>
             </div>
           ))}
         </div>
@@ -448,6 +553,44 @@ function CoreValues() {
   );
 }
 
+/* ── Our Commitments ──────────────────────────────────────────────────── */
+const COMMITMENTS = [
+  { i: Award,       t: "Quality Excellence",          d: "Every product meets rigorous quality standards before leaving our facility." },
+  { i: Settings2,   t: "On-time Delivery",            d: "Reliable dispatch schedules and container-ready packaging — always on schedule." },
+  { i: Leaf,        t: "Environmental Responsibility", d: "Sustainable processes, recyclable materials, and continuous footprint reduction." },
+  { i: Users,       t: "Employee Development",         d: "Training, certification, and growth opportunities for every team member." },
+  { i: HeartHandshake, t: "Community Growth",         d: "Supporting local livelihoods and contributing to the communities around us." },
+];
+
+function OurCommitments() {
+  return (
+    <section className="bg-background py-14 sm:py-20 lg:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <SectionHeading
+          eyebrow="Our Commitments"
+          title="What we stand behind — every day."
+          intro="Five commitments that guide how we operate, how we manufacture, and how we treat the people we work with."
+        />
+        <div className="mt-10 grid gap-4 sm:mt-14 sm:grid-cols-2 sm:gap-5 lg:grid-cols-5">
+          {COMMITMENTS.map(({ i: Icon, t, d }) => (
+            <div
+              key={t}
+              className="group rounded-xl border border-border bg-card p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[#0B2D6B]/20 hover:shadow-[0_8px_32px_-8px_rgba(11,45,107,0.12)]"
+            >
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#0B2D6B]/6 transition-all duration-300 group-hover:bg-[#0B2D6B] group-hover:scale-110">
+                <Icon className="h-5 w-5 text-[#0B2D6B] transition group-hover:text-white" />
+              </div>
+              <div className="mt-4 font-display text-sm font-bold text-[#0B2D6B]">{t}</div>
+              <p className="mt-1.5 text-[11px] leading-relaxed text-muted-foreground">{d}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ── Page ─────────────────────────────────────────────────────────────── */
 function AboutPage() {
   return (
     <PageShell>
@@ -459,140 +602,24 @@ function AboutPage() {
         crumbs={[{ label: "Home", to: "/" }, { label: "About" }]}
       />
 
-      <MissionVisionPromise />
+      {/* 1. Our Purpose */}
+      <OurPurpose />
 
-      <section className="bg-[#F1F4F9] py-16 sm:py-20 lg:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          {/* Section heading */}
-          <div className="mb-10 text-center sm:mb-14">
-            <div className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.25em] text-[#0A6A38]">
-              <span className="h-px w-8 bg-[#0A6A38]" />
-              Message From Leadership
-              <span className="h-px w-8 bg-[#0A6A38]" />
-            </div>
-            <h2 className="mt-4 font-display text-2xl font-bold leading-tight text-[#0B2D6B] sm:text-3xl lg:text-4xl">
-              Voices behind NBPPI.
-            </h2>
-          </div>
+      {/* 2. Vision / Mission / Promise */}
+      <VisionMission />
 
-          <div className="flex flex-col gap-10">
+      {/* 3. Leadership Messages */}
+      <Leadership />
 
-            {/* ── Chairman ── */}
-            <div className="grid items-center gap-10 lg:grid-cols-[360px_1fr] lg:gap-16">
-              <div className="flex justify-center lg:justify-start">
-                <div className="relative">
-                  <div className="absolute -inset-3 rounded-3xl bg-linear-to-br from-[#0B2D6B]/10 to-[#0A6A38]/10 blur-2xl" />
-                  <img
-                    src={teamEngineer}
-                    alt="SM Nayon Mahmood — Chairman, NBPPI"
-                    loading="lazy"
-                    className="relative h-80 w-64 rounded-2xl object-cover object-top shadow-[0_24px_70px_-16px_rgba(11,45,107,0.28)] sm:h-96 sm:w-72 lg:h-110 lg:w-80"
-                  />
-                </div>
-              </div>
-              <div className="rounded-2xl border border-border bg-white p-8 shadow-[0_4px_24px_-8px_rgba(11,45,107,0.10)] sm:p-10">
-                <div className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.25em] text-[#0A6A38]">
-                  <span className="h-px w-8 bg-[#0A6A38]" />
-                  Chairman's Message
-                </div>
-                <h3 className="mt-4 font-display text-2xl font-bold leading-tight text-[#0B2D6B] sm:text-3xl lg:text-4xl">
-                  A note from our Chairman.
-                </h3>
-                <div className="mt-6 space-y-4 border-l-2 border-[#0B2D6B]/20 pl-5">
-                  <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
-                    At North Bengal Poly &amp; Packaging Industries Ltd., we believe manufacturing is more
-                    than producing packaging — it is about creating value, building trust, and acting
-                    responsibly.
-                  </p>
-                  <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
-                    Our commitment has always been simple: to deliver products of consistent quality,
-                    operate with integrity, invest in our people, and embrace sustainable manufacturing
-                    practices that contribute to a better future.
-                  </p>
-                  <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
-                    We do not aspire merely to become the largest manufacturer. We aspire to become one
-                    of the most trusted names in the packaging industry — recognized for reliability,
-                    innovation, and long-term partnerships.
-                  </p>
-                  <p className="font-display text-base font-semibold italic text-[#0B2D6B] sm:text-lg">
-                    &ldquo;We create value for people, protect our planet, and earn trust through every
-                    product we deliver.&rdquo;
-                  </p>
-                  <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
-                    Thank you for being part of our journey — your confidence in us drives everything we do.
-                  </p>
-                </div>
-                <div className="mt-8 flex items-center gap-4 border-t border-border pt-6">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#0B2D6B]/8">
-                    <span className="font-display text-base font-bold text-[#0B2D6B]">SN</span>
-                  </div>
-                  <div>
-                    <div className="font-display text-base font-bold text-[#0B2D6B]">S.M. Nayon Mahmood</div>
-                    <div className="text-sm text-muted-foreground">Chairman · NBPPI</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Divider */}
-            <div className="flex items-center gap-4">
-              <div className="h-px flex-1 bg-border" />
-              <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground">Leadership</span>
-              <div className="h-px flex-1 bg-border" />
-            </div>
-
-            {/* ── Managing Director ── */}
-            <div className="grid items-center gap-10 lg:grid-cols-[1fr_360px] lg:gap-16">
-              <div className="rounded-2xl border border-border bg-white p-8 shadow-[0_4px_24px_-8px_rgba(11,45,107,0.10)] sm:p-10">
-                <div className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.25em] text-[#0A6A38]">
-                  <span className="h-px w-8 bg-[#0A6A38]" />
-                  Managing Director's Message
-                </div>
-                <h3 className="mt-4 font-display text-2xl font-bold leading-tight text-[#0B2D6B] sm:text-3xl lg:text-4xl">
-                  A note from our Managing Director.
-                </h3>
-                <div className="mt-6 border-l-2 border-[#0A6A38]/30 pl-5">
-                  <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
-                    &ldquo;At North Bengal Poly Packaging Industries Ltd, we are committed to creating
-                    packaging that protects both products and the environment. By using recyclable and
-                    biodegradable raw materials, we deliver sustainable packaging solutions without
-                    compromising quality or performance. We believe sustainability is a shared
-                    responsibility — through responsible manufacturing and continuous innovation, we are
-                    helping build a cleaner, greener future, one package at a time.&rdquo;
-                  </p>
-                </div>
-                <div className="mt-8 flex items-center gap-4 border-t border-border pt-6">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#0A6A38]/8">
-                    <span className="font-display text-base font-bold text-[#0A6A38]">MR</span>
-                  </div>
-                  <div>
-                    <div className="font-display text-base font-bold text-[#0B2D6B]">Md. Mashiur Rahman</div>
-                    <div className="text-sm text-muted-foreground">Managing Director · NBPPI</div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Photo frame — right side */}
-              <div className="flex justify-center lg:justify-end">
-                <div className="relative">
-                  <div className="absolute -inset-3 rounded-3xl bg-linear-to-br from-[#0A6A38]/10 to-[#0B2D6B]/10 blur-2xl" />
-                  <img
-                    src={mdMashiur}
-                    alt="Md. Mashiur Rahman — Managing Director, NBPPI"
-                    loading="lazy"
-                    className="relative h-80 w-64 rounded-2xl object-cover object-top shadow-[0_24px_70px_-16px_rgba(11,45,107,0.28)] sm:h-96 sm:w-72 lg:h-110 lg:w-80"
-                  />
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
+      {/* 4. Core Values */}
       <CoreValues />
 
+      {/* 5. Our Commitments */}
+      <OurCommitments />
+
+      {/* 6. Journey Timeline */}
       <JourneyTimeline />
+
     </PageShell>
   );
 }
