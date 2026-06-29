@@ -7,11 +7,40 @@ export const Route = createFileRoute("/blog/bopp-lamination")({
   head: () => ({
     meta: [
       { title: "Why BOPP lamination is winning premium retail — NBPPI Blog" },
-      { name: "description", content: "From rice to pet food — premium brands are turning to BOPP-laminated woven bags for shelf-grade graphics." },
+      { name: "description", content: "BOPP laminated woven bags are replacing standard flexo bags across premium retail in Bangladesh and export markets. Learn why rice, pet food and flour brands are switching — print specs, cost comparison and supplier checklist." },
       { property: "og:title", content: "Why BOPP lamination is winning premium retail" },
-      { property: "og:url", content: "/blog/bopp-lamination" },
+      { property: "og:description", content: "From rice to pet food — premium brands are turning to BOPP-laminated woven bags for photo-grade shelf graphics. A deep dive into print specs and market trends." },
+      { property: "og:url", content: "https://nbppi.com/blog/bopp-lamination" },
+      { property: "og:image", content: "https://nbppi.com/og-image.jpg" },
+      { property: "og:type", content: "article" },
+      { property: "og:site_name", content: "NBPPI" },
+      { property: "article:published_time", content: "2026-06-02" },
+      { property: "article:section", content: "Insights" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Why BOPP lamination is winning premium retail" },
+      { name: "twitter:description", content: "Rice, pet food and flour brands are switching to BOPP-laminated woven bags for photo-grade shelf presence. Print specs and cost comparison." },
+      { name: "twitter:image", content: "https://nbppi.com/og-image.jpg" },
     ],
-    links: [{ rel: "canonical", href: "/blog/bopp-lamination" }],
+    links: [{ rel: "canonical", href: "https://nbppi.com/blog/bopp-lamination" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: "Why BOPP lamination is winning premium retail",
+          description: "From rice to pet food — premium brands are turning to BOPP-laminated woven bags for shelf-grade graphics.",
+          datePublished: "2026-06-02",
+          dateModified: "2026-06-02",
+          image: { "@type": "ImageObject", url: "https://nbppi.com/og-image.jpg", width: 1200, height: 630 },
+          author: { "@type": "Person", name: "NBPPI Editorial Team", url: "https://nbppi.com/about" },
+          publisher: { "@type": "Organization", name: "NBPPI", logo: { "@type": "ImageObject", url: "https://nbppi.com/logoWebsite.png" } },
+          url: "https://nbppi.com/blog/bopp-lamination",
+          articleSection: "Insights",
+          keywords: "BOPP laminated bags, premium retail packaging, woven bag printing, Bangladesh bag manufacturer",
+        }),
+      },
+    ],
   }),
   component: ArticlePage,
 });
@@ -20,7 +49,7 @@ function ArticlePage() {
   return (
     <PageShell>
       {/* Hero */}
-      <div className="relative h-[420px] overflow-hidden sm:h-[500px] lg:h-[560px]">
+      <div className="relative h-105 overflow-hidden sm:h-125 lg:h-140">
         <img src={productBopp} alt="BOPP laminated bags" className="h-full w-full object-cover" />
         <div className="absolute inset-0 bg-linear-to-t from-[#07204E]/90 via-[#07204E]/40 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 px-4 pb-10 sm:px-6">

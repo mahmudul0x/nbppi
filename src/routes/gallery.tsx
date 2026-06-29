@@ -34,10 +34,13 @@ export const Route = createFileRoute("/gallery")({
     meta: [
       { title: "Gallery — NBPPI" },
       { name: "description", content: "An inside look at NBPPI's factory, warehouse, production lines and finished goods." },
-      { property: "og:title", content: "Gallery — NBPPI" },
-      { property: "og:url", content: "/gallery" },
+      { property: "og:title", content: "Factory & Product Gallery — NBPPI" },
+      { property: "og:description", content: "25 photos inside NBPPI's manufacturing plant — extrusion, weaving, lamination, printing, QC lab, warehouse and finished PP woven bag products." },
+      { property: "og:url", content: "https://nbppi.com/gallery" },
+      { property: "og:image", content: "https://nbppi.com/og-image.jpg" },
+      { property: "og:site_name", content: "NBPPI" },
     ],
-    links: [{ rel: "canonical", href: "/gallery" }],
+    links: [{ rel: "canonical", href: "https://nbppi.com/gallery" }],
   }),
   component: GalleryPage,
 });

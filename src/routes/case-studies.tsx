@@ -13,10 +13,13 @@ export const Route = createFileRoute("/case-studies")({
     meta: [
       { title: "Case Studies — NBPPI" },
       { name: "description", content: "How NBPPI solves real packaging challenges for feed mills, rice exporters, cement manufacturers and international buyers." },
-      { property: "og:title", content: "Case Studies — NBPPI" },
-      { property: "og:url", content: "/case-studies" },
+      { property: "og:title", content: "Client Case Studies — NBPPI Packaging Solutions" },
+      { property: "og:description", content: "Real results: Aman Feed scaled 3×, Golden Harvest won UK retail, Gulf Construction achieved zero complaints across 18 containers. See how NBPPI solves packaging challenges." },
+      { property: "og:url", content: "https://nbppi.com/case-studies" },
+      { property: "og:image", content: "https://nbppi.com/og-image.jpg" },
+      { property: "og:site_name", content: "NBPPI" },
     ],
-    links: [{ rel: "canonical", href: "/case-studies" }],
+    links: [{ rel: "canonical", href: "https://nbppi.com/case-studies" }],
   }),
   component: CaseStudiesPage,
 });

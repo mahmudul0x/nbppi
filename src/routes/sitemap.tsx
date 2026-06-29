@@ -8,9 +8,11 @@ export const Route = createFileRoute("/sitemap")({
       { title: "Sitemap — NBPPI" },
       { name: "description", content: "Complete sitemap of the NBPPI website — all pages and sections." },
       { property: "og:title", content: "Sitemap — NBPPI" },
-      { property: "og:url", content: "/sitemap" },
+      { property: "og:description", content: "Complete sitemap of the NBPPI website — all pages including products, industries, blog, case studies, FAQ and more." },
+      { property: "og:url", content: "https://nbppi.com/sitemap" },
+      { property: "og:site_name", content: "NBPPI" },
     ],
-    links: [{ rel: "canonical", href: "/sitemap" }],
+    links: [{ rel: "canonical", href: "https://nbppi.com/sitemap" }],
   }),
   component: SitemapPage,
 });

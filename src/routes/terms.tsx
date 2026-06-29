@@ -8,9 +8,11 @@ export const Route = createFileRoute("/terms")({
       { title: "Terms of Use — NBPPI" },
       { name: "description", content: "Terms of Use for the North Bengal Poly & Packaging Industries Ltd. website — your rights and responsibilities when using our site." },
       { property: "og:title", content: "Terms of Use — NBPPI" },
-      { property: "og:url", content: "/terms" },
+      { property: "og:description", content: "Terms of Use for the NBPPI website — your rights and responsibilities when using nbppi.com." },
+      { property: "og:url", content: "https://nbppi.com/terms" },
+      { property: "og:site_name", content: "NBPPI" },
     ],
-    links: [{ rel: "canonical", href: "/terms" }],
+    links: [{ rel: "canonical", href: "https://nbppi.com/terms" }],
   }),
   component: TermsPage,
 });

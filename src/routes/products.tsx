@@ -9,12 +9,39 @@ import productWoven from "@/assets/product-woven.jpg";
 export const Route = createFileRoute("/products")({
   head: () => ({
     meta: [
-      { title: "Products — NBPPI" },
-      { name: "description", content: "PP woven, laminated, BOPP, lined and gusseted industrial packaging — engineered for agriculture, food, construction and export." },
-      { property: "og:title", content: "Products — NBPPI" },
-      { property: "og:url", content: "/products" },
+      { title: "PP Woven Bags Bangladesh — BOPP, Laminated & Printed Bags | NBPPI" },
+      { name: "description", content: "Buy PP woven bags from Bangladesh — plain, BOPP laminated, flexo printed, PE-lined and gusseted bags. Custom sizes, GSM and print. MOQ 10,000 pcs. ISO certified manufacturer. Export to 22+ countries." },
+      { property: "og:title", content: "PP Woven Bag Products — NBPPI" },
+      { property: "og:description", content: "Plain PP woven, BOPP laminated, printed, lined and gusseted bags — 6 product lines engineered for agriculture, food, construction and export industries." },
+      { property: "og:url", content: "https://nbppi.com/products" },
+      { property: "og:image", content: "https://nbppi.com/og-image.jpg" },
+      { property: "og:site_name", content: "NBPPI" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "PP Woven Bags Bangladesh — BOPP, Laminated & Printed | NBPPI" },
+      { name: "twitter:description", content: "Plain PP woven, BOPP laminated, flexo printed, PE-lined and gusseted bags. MOQ 10,000 pcs. ISO certified. Export to 22+ countries." },
+      { name: "twitter:image", content: "https://nbppi.com/og-image.jpg" },
     ],
-    links: [{ rel: "canonical", href: "/products" }],
+    links: [{ rel: "canonical", href: "https://nbppi.com/products" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "NBPPI PP Woven Bag Products",
+          description: "Polypropylene woven packaging product range",
+          url: "https://nbppi.com/products",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Plain PP Woven Bags", url: "https://nbppi.com/products" },
+            { "@type": "ListItem", position: 2, name: "Laminated PP Woven Bags", url: "https://nbppi.com/products" },
+            { "@type": "ListItem", position: 3, name: "BOPP Printed Bags", url: "https://nbppi.com/products" },
+            { "@type": "ListItem", position: 4, name: "PP Bags with Inner Liners", url: "https://nbppi.com/products" },
+            { "@type": "ListItem", position: 5, name: "Gusseted Bags", url: "https://nbppi.com/products" },
+            { "@type": "ListItem", position: 6, name: "Printed PP Woven Bags", url: "https://nbppi.com/products" },
+          ],
+        }),
+      },
+    ],
   }),
   component: ProductsPage,
 });

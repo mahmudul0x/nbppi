@@ -20,9 +20,34 @@ export const Route = createFileRoute("/quality")({
       { title: "Licenses, Certifications & Quality — NBPPI" },
       { name: "description", content: "NBPPI holds all mandatory Bangladesh government licenses — Trade License, Factory License (DIFE), BIDA, DoE Environment Clearance, Fire License, ERC, BSTI and ISO 9001:2015." },
       { property: "og:title", content: "Licenses, Certifications & Quality — NBPPI" },
-      { property: "og:url", content: "/quality" },
+      { property: "og:description", content: "NBPPI holds ISO 9001:2015, BSTI, BIDA, EPB, DIFE and DoE certifications — all mandatory Bangladesh government licenses plus international quality standards." },
+      { property: "og:url", content: "https://nbppi.com/quality" },
+      { property: "og:image", content: "https://nbppi.com/og-image.jpg" },
+      { property: "og:site_name", content: "NBPPI" },
     ],
-    links: [{ rel: "canonical", href: "/quality" }],
+    links: [{ rel: "canonical", href: "https://nbppi.com/quality" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Licenses, Certifications & Quality — NBPPI",
+          description: "NBPPI holds ISO 9001:2015, BSTI, BIDA, EPB, DIFE and DoE certifications.",
+          url: "https://nbppi.com/quality",
+          about: {
+            "@type": "Organization",
+            name: "North Bengal Poly & Packaging Industries Ltd.",
+            hasCredential: [
+              { "@type": "EducationalOccupationalCredential", credentialCategory: "ISO 9001:2015", recognizedBy: { "@type": "Organization", name: "International Organization for Standardization" } },
+              { "@type": "EducationalOccupationalCredential", credentialCategory: "BSTI Certification", recognizedBy: { "@type": "Organization", name: "Bangladesh Standards and Testing Institution" } },
+              { "@type": "EducationalOccupationalCredential", credentialCategory: "EPB Export Registration", recognizedBy: { "@type": "Organization", name: "Export Promotion Bureau Bangladesh" } },
+              { "@type": "EducationalOccupationalCredential", credentialCategory: "BIDA Registration", recognizedBy: { "@type": "Organization", name: "Bangladesh Investment Development Authority" } },
+            ],
+          },
+        }),
+      },
+    ],
   }),
   component: QualityPage,
 });

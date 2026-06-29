@@ -9,9 +9,38 @@ export const Route = createFileRoute("/blog/export-logistics")({
       { title: "Scaling export logistics in 2026 — NBPPI Blog" },
       { name: "description", content: "How NBPPI is reducing FCL turnaround times across 22+ export markets." },
       { property: "og:title", content: "Scaling export logistics in 2026" },
-      { property: "og:url", content: "/blog/export-logistics" },
+      { property: "og:description", content: "How NBPPI is reducing FCL turnaround times and improving export documentation across 22+ markets — from Chittagong port to GCC, Africa and Europe." },
+      { property: "og:url", content: "https://nbppi.com/blog/export-logistics" },
+      { property: "og:image", content: "https://nbppi.com/og-image.jpg" },
+      { property: "og:type", content: "article" },
+      { property: "og:site_name", content: "NBPPI" },
+      { property: "article:published_time", content: "2026-04-30" },
+      { property: "article:section", content: "Operations" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Scaling export logistics in 2026 — NBPPI" },
+      { name: "twitter:description", content: "How NBPPI reduced FCL turnaround times and LC discrepancy rates across 22+ export markets including GCC, Africa and Europe." },
+      { name: "twitter:image", content: "https://nbppi.com/og-image.jpg" },
     ],
-    links: [{ rel: "canonical", href: "/blog/export-logistics" }],
+    links: [{ rel: "canonical", href: "https://nbppi.com/blog/export-logistics" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: "Scaling export logistics in 2026",
+          description: "How NBPPI is reducing FCL turnaround times across 22+ export markets.",
+          datePublished: "2026-04-30",
+          dateModified: "2026-04-30",
+          image: { "@type": "ImageObject", url: "https://nbppi.com/og-image.jpg", width: 1200, height: 630 },
+          author: { "@type": "Person", name: "NBPPI Editorial Team", url: "https://nbppi.com/about" },
+          publisher: { "@type": "Organization", name: "NBPPI", logo: { "@type": "ImageObject", url: "https://nbppi.com/logoWebsite.png" } },
+          url: "https://nbppi.com/blog/export-logistics",
+          articleSection: "Operations",
+          keywords: "PP bag export Bangladesh, FCL shipping, export packaging, Chittagong port logistics",
+        }),
+      },
+    ],
   }),
   component: ArticlePage,
 });
@@ -20,7 +49,7 @@ function ArticlePage() {
   return (
     <PageShell>
       {/* Hero */}
-      <div className="relative h-[420px] overflow-hidden sm:h-[500px] lg:h-[560px]">
+      <div className="relative h-105 overflow-hidden sm:h-125 lg:h-140">
         <img src={warehouseImg} alt="NBPPI warehouse and export logistics" className="h-full w-full object-cover" />
         <div className="absolute inset-0 bg-linear-to-t from-[#07204E]/90 via-[#07204E]/40 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 px-4 pb-10 sm:px-6">

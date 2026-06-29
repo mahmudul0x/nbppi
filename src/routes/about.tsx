@@ -14,12 +14,43 @@ import {
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — NBPPI" },
-      { name: "description", content: "Two decades of engineering excellence in polypropylene woven packaging — NBPPI's story, mission and leadership." },
-      { property: "og:title", content: "About — NBPPI" },
-      { property: "og:url", content: "/about" },
+      { title: "PP Woven Bag Manufacturer Bangladesh — About NBPPI" },
+      { name: "description", content: "North Bengal Poly & Packaging Industries Ltd. (NBPPI) — Bangladesh's leading PP woven bag manufacturer since 2008. ISO 9001:2015 certified. 150+ clients, 22+ export markets. Meet our leadership team and learn our story." },
+      { property: "og:title", content: "About NBPPI — Our Story, Mission & Leadership" },
+      { property: "og:description", content: "Two decades of engineering excellence in polypropylene woven packaging — NBPPI's story, mission and leadership team based in Rangpur, Bangladesh." },
+      { property: "og:url", content: "https://nbppi.com/about" },
+      { property: "og:image", content: "https://nbppi.com/og-image.jpg" },
+      { property: "og:site_name", content: "NBPPI" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "PP Woven Bag Manufacturer Bangladesh — About NBPPI" },
+      { name: "twitter:description", content: "Bangladesh's leading PP woven bag manufacturer since 2008. ISO 9001:2015 certified. 150+ clients, 22+ export markets." },
+      { name: "twitter:image", content: "https://nbppi.com/og-image.jpg" },
     ],
-    links: [{ rel: "canonical", href: "/about" }],
+    links: [{ rel: "canonical", href: "https://nbppi.com/about" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "North Bengal Poly & Packaging Industries Ltd.",
+          alternateName: "NBPPI",
+          url: "https://nbppi.com",
+          logo: "https://nbppi.com/logoWebsite.png",
+          foundingDate: "2008",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Rangpur Industrial Zone",
+            addressLocality: "Rangpur",
+            addressCountry: "BD",
+          },
+          member: [
+            { "@type": "Person", name: "S.M. Nayon Mahmood", jobTitle: "Chairman" },
+            { "@type": "Person", name: "Md. Mashiur Rahman", jobTitle: "Managing Director" },
+          ],
+        }),
+      },
+    ],
   }),
   component: AboutPage,
 });

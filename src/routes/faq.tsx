@@ -6,12 +6,55 @@ import { ArrowRight, ChevronDown, MessageSquare } from "lucide-react";
 export const Route = createFileRoute("/faq")({
   head: () => ({
     meta: [
-      { title: "FAQ — NBPPI" },
-      { name: "description", content: "Frequently asked questions about NBPPI's PP woven bags — minimum order, custom printing, export, lead time, samples and payment terms." },
-      { property: "og:title", content: "FAQ — NBPPI" },
-      { property: "og:url", content: "/faq" },
+      { title: "PP Woven Bag FAQ — MOQ, Custom Print, Export & Pricing | NBPPI" },
+      { name: "description", content: "Frequently asked questions about NBPPI's polypropylene woven bags — minimum order quantity (MOQ), custom printing options, export documentation, lead times, sample policy, payment terms and certifications." },
+      { property: "og:title", content: "Frequently Asked Questions — NBPPI" },
+      { property: "og:description", content: "Answers to common questions about NBPPI's PP woven bags — MOQ, custom printing, lead times, export documentation, samples and payment terms." },
+      { property: "og:url", content: "https://nbppi.com/faq" },
+      { property: "og:image", content: "https://nbppi.com/og-image.jpg" },
+      { property: "og:site_name", content: "NBPPI" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "PP Woven Bag FAQ — MOQ, Custom Print, Export | NBPPI" },
+      { name: "twitter:description", content: "MOQ, lead times, custom print options, export documentation, payment terms and certifications — all your questions answered." },
+      { name: "twitter:image", content: "https://nbppi.com/og-image.jpg" },
     ],
-    links: [{ rel: "canonical", href: "/faq" }],
+    links: [{ rel: "canonical", href: "https://nbppi.com/faq" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: "What is the minimum order quantity (MOQ)?",
+              acceptedAnswer: { "@type": "Answer", text: "Our standard MOQ is 10,000 pieces per design/size. For trial or sample orders, we can accommodate smaller quantities." },
+            },
+            {
+              "@type": "Question",
+              name: "Can you print custom designs on the bags?",
+              acceptedAnswer: { "@type": "Answer", text: "Yes. We offer up to 8-colour flexographic printing and BOPP laminated bags with rotogravure-quality graphics." },
+            },
+            {
+              "@type": "Question",
+              name: "What is the typical lead time for an order?",
+              acceptedAnswer: { "@type": "Answer", text: "Standard lead time is 21–28 days from order confirmation and deposit. Rush orders may be possible — contact our team." },
+            },
+            {
+              "@type": "Question",
+              name: "Do you export internationally?",
+              acceptedAnswer: { "@type": "Answer", text: "Yes. NBPPI exports to 22+ countries across South Asia, the Middle East, Africa and Europe. We support LC and open account payment terms." },
+            },
+            {
+              "@type": "Question",
+              name: "What certifications does NBPPI hold?",
+              acceptedAnswer: { "@type": "Answer", text: "NBPPI holds ISO 9001:2015, BSTI, BIDA, EPB Export Registration Certificate, DIFE Factory License, DoE Environment Clearance and Fire License." },
+            },
+          ],
+        }),
+      },
+    ],
   }),
   component: FaqPage,
 });

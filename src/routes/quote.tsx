@@ -10,10 +10,13 @@ export const Route = createFileRoute("/quote")({
     meta: [
       { title: "Request Quote — NBPPI" },
       { name: "description", content: "Request a tailored quotation for PP woven, BOPP, laminated, lined or gusseted bags — typically returned within 24 business hours." },
-      { property: "og:title", content: "Request Quote — NBPPI" },
-      { property: "og:url", content: "/quote" },
+      { property: "og:title", content: "Request a Quote — NBPPI PP Woven Bags" },
+      { property: "og:description", content: "Request a tailored quote for PP woven, BOPP laminated, printed or lined bags. Custom sizes, GSM and print specifications. Response within 24 hours." },
+      { property: "og:url", content: "https://nbppi.com/quote" },
+      { property: "og:image", content: "https://nbppi.com/og-image.jpg" },
+      { property: "og:site_name", content: "NBPPI" },
     ],
-    links: [{ rel: "canonical", href: "/quote" }],
+    links: [{ rel: "canonical", href: "https://nbppi.com/quote" }],
   }),
   component: QuotePage,
 });

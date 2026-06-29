@@ -9,9 +9,38 @@ export const Route = createFileRoute("/blog/quality-laboratory")({
       { title: "Inside the NBPPI quality laboratory — NBPPI Blog" },
       { name: "description", content: "A tour through our in-house testing protocols: tensile, GSM, burst, moisture and print accuracy." },
       { property: "og:title", content: "Inside the NBPPI quality laboratory" },
-      { property: "og:url", content: "/blog/quality-laboratory" },
+      { property: "og:description", content: "8-checkpoint in-house QC protocol — tensile strength, GSM, burst resistance, moisture barrier, seam integrity, print accuracy, dimensional tolerance and AQL sampling." },
+      { property: "og:url", content: "https://nbppi.com/blog/quality-laboratory" },
+      { property: "og:image", content: "https://nbppi.com/og-image.jpg" },
+      { property: "og:type", content: "article" },
+      { property: "og:site_name", content: "NBPPI" },
+      { property: "article:published_time", content: "2026-05-18" },
+      { property: "article:section", content: "Manufacturing" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Inside the NBPPI quality laboratory" },
+      { name: "twitter:description", content: "8-checkpoint QC protocol — tensile, GSM, burst, moisture, seam, print accuracy and AQL sampling. How NBPPI maintains zero defect shipments." },
+      { name: "twitter:image", content: "https://nbppi.com/og-image.jpg" },
     ],
-    links: [{ rel: "canonical", href: "/blog/quality-laboratory" }],
+    links: [{ rel: "canonical", href: "https://nbppi.com/blog/quality-laboratory" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: "Inside the NBPPI quality laboratory",
+          description: "A tour through our in-house testing protocols: tensile, GSM, burst, moisture and print accuracy.",
+          datePublished: "2026-05-18",
+          dateModified: "2026-05-18",
+          image: { "@type": "ImageObject", url: "https://nbppi.com/og-image.jpg", width: 1200, height: 630 },
+          author: { "@type": "Person", name: "NBPPI Editorial Team", url: "https://nbppi.com/about" },
+          publisher: { "@type": "Organization", name: "NBPPI", logo: { "@type": "ImageObject", url: "https://nbppi.com/logoWebsite.png" } },
+          url: "https://nbppi.com/blog/quality-laboratory",
+          articleSection: "Manufacturing",
+          keywords: "PP bag quality control, ISO 9001 packaging, tensile test GSM test, woven bag QC Bangladesh",
+        }),
+      },
+    ],
   }),
   component: ArticlePage,
 });
@@ -63,7 +92,7 @@ function ArticlePage() {
   return (
     <PageShell>
       {/* Hero */}
-      <div className="relative h-[420px] overflow-hidden sm:h-[500px] lg:h-[560px]">
+      <div className="relative h-105 overflow-hidden sm:h-125 lg:h-140">
         <img src={qualityLab} alt="NBPPI quality laboratory" className="h-full w-full object-cover" />
         <div className="absolute inset-0 bg-linear-to-t from-[#07204E]/90 via-[#07204E]/40 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 px-4 pb-10 sm:px-6">

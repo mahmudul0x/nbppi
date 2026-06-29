@@ -10,12 +10,20 @@ import { ArrowUpRight } from "lucide-react";
 export const Route = createFileRoute("/blog")({
   head: () => ({
     meta: [
-      { title: "News & Insights — NBPPI" },
-      { name: "description", content: "Latest news, manufacturing insights and industry analysis from NBPPI." },
-      { property: "og:title", content: "News & Insights — NBPPI" },
-      { property: "og:url", content: "/blog" },
+      { title: "PP Packaging Industry Insights & News — NBPPI Blog" },
+      { name: "description", content: "Expert insights on polypropylene woven bag manufacturing, BOPP lamination trends, circular economy packaging, export logistics and quality standards — from NBPPI's production team in Bangladesh." },
+      { property: "og:title", content: "News & Insights — NBPPI Blog" },
+      { property: "og:description", content: "Manufacturing updates, sustainability progress, BOPP trends and export logistics insights from the NBPPI production team in Bangladesh." },
+      { property: "og:url", content: "https://nbppi.com/blog" },
+      { property: "og:image", content: "https://nbppi.com/og-image.jpg" },
+      { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "NBPPI" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "PP Packaging Industry Insights & News — NBPPI Blog" },
+      { name: "twitter:description", content: "Expert insights on PP woven bag manufacturing, BOPP trends, circular economy packaging and export logistics from Bangladesh." },
+      { name: "twitter:image", content: "https://nbppi.com/og-image.jpg" },
     ],
-    links: [{ rel: "canonical", href: "/blog" }],
+    links: [{ rel: "canonical", href: "https://nbppi.com/blog" }],
   }),
   component: BlogPage,
 });
@@ -43,12 +51,12 @@ function BlogPage() {
             <Link
               to={p.slug}
               key={p.t}
-              className={`group overflow-hidden rounded-2xl border border-border bg-card transition hover:-translate-y-1 hover:shadow-[var(--shadow-elevated)] ${
+              className={`group overflow-hidden rounded-2xl border border-border bg-card transition hover:-translate-y-1 hover:shadow-(--shadow-elevated) ${
                 i === 0 ? "md:col-span-2" : ""
               }`}
             >
               <div className="grid md:grid-cols-2">
-                <div className="relative aspect-[4/3] overflow-hidden bg-muted md:aspect-auto">
+                <div className="relative aspect-4/3 overflow-hidden bg-muted md:aspect-auto">
                   <img src={p.img} alt="" loading="lazy" className="h-full w-full object-cover transition-transform duration-[1.2s] group-hover:scale-110" />
                 </div>
                 <div className="flex flex-col justify-between p-8">

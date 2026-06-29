@@ -10,9 +10,38 @@ export const Route = createFileRoute("/blog/circular-economy")({
       { title: "Inside NBPPI's new circular-economy line — NBPPI Blog" },
       { name: "description", content: "How our mono-material PP programme is reshaping recyclable industrial packaging across South Asia." },
       { property: "og:title", content: "Inside NBPPI's new circular-economy line" },
-      { property: "og:url", content: "/blog/circular-economy" },
+      { property: "og:description", content: "How our mono-material PP programme is reshaping recyclable industrial packaging across South Asia — from water-based inks to on-site granulation." },
+      { property: "og:url", content: "https://nbppi.com/blog/circular-economy" },
+      { property: "og:image", content: "https://nbppi.com/og-image.jpg" },
+      { property: "og:type", content: "article" },
+      { property: "og:site_name", content: "NBPPI" },
+      { property: "article:published_time", content: "2026-06-24" },
+      { property: "article:section", content: "Sustainability" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Inside NBPPI's new circular-economy line" },
+      { name: "twitter:description", content: "How mono-material PP and water-based inks are reshaping recyclable industrial packaging across South Asia." },
+      { name: "twitter:image", content: "https://nbppi.com/og-image.jpg" },
     ],
-    links: [{ rel: "canonical", href: "/blog/circular-economy" }],
+    links: [{ rel: "canonical", href: "https://nbppi.com/blog/circular-economy" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: "Inside NBPPI's new circular-economy line",
+          description: "How our mono-material PP programme is reshaping recyclable industrial packaging across South Asia.",
+          datePublished: "2026-06-24",
+          dateModified: "2026-06-24",
+          image: { "@type": "ImageObject", url: "https://nbppi.com/og-image.jpg", width: 1200, height: 630 },
+          author: { "@type": "Person", name: "NBPPI Editorial Team", url: "https://nbppi.com/about" },
+          publisher: { "@type": "Organization", name: "NBPPI", logo: { "@type": "ImageObject", url: "https://nbppi.com/logoWebsite.png" } },
+          url: "https://nbppi.com/blog/circular-economy",
+          articleSection: "Sustainability",
+          keywords: "circular economy packaging, recyclable PP bags, mono-material polypropylene, Bangladesh packaging",
+        }),
+      },
+    ],
   }),
   component: ArticlePage,
 });
@@ -21,7 +50,7 @@ function ArticlePage() {
   return (
     <PageShell>
       {/* Hero */}
-      <div className="relative h-[420px] overflow-hidden sm:h-[500px] lg:h-[560px]">
+      <div className="relative h-105 overflow-hidden sm:h-125 lg:h-140">
         <img src={factoryAerial} alt="NBPPI factory aerial" className="h-full w-full object-cover" />
         <div className="absolute inset-0 bg-linear-to-t from-[#07204E]/90 via-[#07204E]/40 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 px-4 pb-10 sm:px-6">

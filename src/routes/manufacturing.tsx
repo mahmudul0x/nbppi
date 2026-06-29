@@ -32,10 +32,13 @@ export const Route = createFileRoute("/manufacturing")({
     meta: [
       { title: "Manufacturing — NBPPI" },
       { name: "description", content: "An 11-stage vertically integrated production process: extrusion, weaving, lamination, printing, QC and dispatch — under one roof." },
-      { property: "og:title", content: "Manufacturing — NBPPI" },
-      { property: "og:url", content: "/manufacturing" },
+      { property: "og:title", content: "PP Woven Bag Manufacturing Process — NBPPI" },
+      { property: "og:description", content: "11-stage vertically integrated PP woven bag production — extrusion, weaving, lamination, printing, quality control and dispatch under one roof in Rangpur, Bangladesh." },
+      { property: "og:url", content: "https://nbppi.com/manufacturing" },
+      { property: "og:image", content: "https://nbppi.com/og-image.jpg" },
+      { property: "og:site_name", content: "NBPPI" },
     ],
-    links: [{ rel: "canonical", href: "/manufacturing" }],
+    links: [{ rel: "canonical", href: "https://nbppi.com/manufacturing" }],
   }),
   component: ManufacturingPage,
 });

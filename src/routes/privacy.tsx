@@ -8,9 +8,11 @@ export const Route = createFileRoute("/privacy")({
       { title: "Privacy Policy — NBPPI" },
       { name: "description", content: "Privacy Policy of North Bengal Poly & Packaging Industries Ltd. — how we collect, use and protect your information." },
       { property: "og:title", content: "Privacy Policy — NBPPI" },
-      { property: "og:url", content: "/privacy" },
+      { property: "og:description", content: "Privacy Policy of North Bengal Poly & Packaging Industries Ltd. — how we collect, use and protect your personal information." },
+      { property: "og:url", content: "https://nbppi.com/privacy" },
+      { property: "og:site_name", content: "NBPPI" },
     ],
-    links: [{ rel: "canonical", href: "/privacy" }],
+    links: [{ rel: "canonical", href: "https://nbppi.com/privacy" }],
   }),
   component: PrivacyPage,
 });

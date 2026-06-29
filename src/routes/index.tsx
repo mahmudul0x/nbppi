@@ -61,9 +61,13 @@ export const Route = createFileRoute("/")({
           "Premium PP woven, BOPP, laminated and export packaging solutions — engineered in Bangladesh, trusted across 22+ countries.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: "https://nbppi.com/" },
+      { property: "og:image", content: "https://nbppi.com/og-image.jpg" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:site_name", content: "NBPPI" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://nbppi.com/" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -72,13 +76,21 @@ export const Route = createFileRoute("/")({
           "@type": "Organization",
           name: "North Bengal Poly & Packaging Industries Ltd.",
           alternateName: "NBPPI",
-          url: "/",
+          url: "https://nbppi.com",
+          logo: "https://nbppi.com/logoWebsite.png",
+          image: "https://nbppi.com/og-image.jpg",
           industry: "Polypropylene Woven Bag Manufacturing",
+          foundingDate: "2008",
           address: {
             "@type": "PostalAddress",
+            streetAddress: "Rangpur Industrial Zone",
             addressLocality: "Rangpur",
             addressCountry: "BD",
           },
+          sameAs: [
+            "https://www.facebook.com/nbppi",
+            "https://www.linkedin.com/company/nbppi",
+          ],
         }),
       },
     ],
@@ -828,7 +840,7 @@ function ManufacturingTeaser() {
         <div className="mt-10 grid gap-6 lg:mt-12 lg:grid-cols-3">
           <div className="lg:col-span-1">
             <div className="overflow-hidden rounded-2xl shadow-[var(--shadow-card)]">
-              <img src={manufacturingExtrusion} alt="" loading="lazy" className="h-48 w-full object-cover lg:h-full" />
+              <img src={manufacturingExtrusion} alt="PP tape extrusion line at NBPPI factory" loading="lazy" className="h-48 w-full object-cover lg:h-full" />
             </div>
           </div>
           <div className="lg:col-span-2">
@@ -842,7 +854,7 @@ function ManufacturingTeaser() {
                 ["Warehousing", warehouseImg],
               ].map(([t, img]) => (
                 <div key={t} className="group relative overflow-hidden rounded-xl">
-                  <img src={img} alt="" loading="lazy" className="h-24 w-full object-cover transition-transform duration-700 group-hover:scale-110 sm:h-32 md:h-36" />
+                  <img src={img} alt={`${t} process at NBPPI manufacturing plant`} loading="lazy" className="h-24 w-full object-cover transition-transform duration-700 group-hover:scale-110 sm:h-32 md:h-36" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0B2D6B]/85 to-transparent" />
                   <div className="absolute bottom-3 left-3 font-display text-sm font-semibold text-white">{t}</div>
                 </div>

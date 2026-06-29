@@ -10,10 +10,13 @@ export const Route = createFileRoute("/career")({
     meta: [
       { title: "Careers — NBPPI" },
       { name: "description", content: "Build a career in industrial manufacturing with NBPPI — open roles across engineering, operations, QC and export." },
-      { property: "og:title", content: "Careers — NBPPI" },
-      { property: "og:url", content: "/career" },
+      { property: "og:title", content: "Careers at NBPPI — Join Our Team" },
+      { property: "og:description", content: "Build a career in industrial manufacturing with NBPPI — open roles in engineering, production, QC, export and administration at our Rangpur plant." },
+      { property: "og:url", content: "https://nbppi.com/career" },
+      { property: "og:image", content: "https://nbppi.com/og-image.jpg" },
+      { property: "og:site_name", content: "NBPPI" },
     ],
-    links: [{ rel: "canonical", href: "/career" }],
+    links: [{ rel: "canonical", href: "https://nbppi.com/career" }],
   }),
   component: CareerPage,
 });

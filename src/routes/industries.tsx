@@ -17,10 +17,17 @@ export const Route = createFileRoute("/industries")({
     meta: [
       { title: "Industries We Serve — NBPPI" },
       { name: "description", content: "Polypropylene packaging engineered for agriculture, food, construction, chemical, feed, retail and export industries." },
-      { property: "og:title", content: "Industries We Serve — NBPPI" },
-      { property: "og:url", content: "/industries" },
+      { property: "og:title", content: "Industries We Serve — NBPPI PP Packaging" },
+      { property: "og:description", content: "PP woven packaging for 9 industries — feed mills, agriculture, fertilizer, construction, retail, export, food processing, industrial and aquaculture sectors." },
+      { property: "og:url", content: "https://nbppi.com/industries" },
+      { property: "og:image", content: "https://nbppi.com/og-image.jpg" },
+      { property: "og:site_name", content: "NBPPI" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Industries We Serve — NBPPI PP Packaging" },
+      { name: "twitter:description", content: "Feed, agriculture, fertilizer, construction, retail, export, food processing, industrial and aquaculture — PP packaging for 9 industries." },
+      { name: "twitter:image", content: "https://nbppi.com/og-image.jpg" },
     ],
-    links: [{ rel: "canonical", href: "/industries" }],
+    links: [{ rel: "canonical", href: "https://nbppi.com/industries" }],
   }),
   component: IndustriesPage,
 });
@@ -141,7 +148,7 @@ function IndustriesPage() {
               className={`grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16 ${i % 2 ? "lg:[&>*:first-child]:order-2" : ""}`}
             >
               {/* Image */}
-              <div className="overflow-hidden rounded-2xl shadow-[var(--shadow-card)]">
+              <div className="overflow-hidden rounded-2xl shadow-(--shadow-card)">
                 <img src={r.image} alt={r.t} loading="lazy" className="aspect-4/3 w-full object-cover transition-transform duration-700 hover:scale-105" />
               </div>
 
