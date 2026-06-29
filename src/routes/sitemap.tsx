@@ -44,6 +44,7 @@ const SITE_STRUCTURE = [
     pages: [
       { label: "Gallery", to: "/gallery", desc: "Factory, product and facility photography" },
       { label: "News & Blog", to: "/blog", desc: "Industry insights, company updates and sustainability news" },
+      { label: "Case Studies", to: "/case-studies", desc: "Client success stories with measurable outcomes" },
       { label: "FAQ", to: "/faq", desc: "Frequently asked questions about orders, products and export" },
     ],
   },

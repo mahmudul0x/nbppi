@@ -21,10 +21,15 @@ import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as CareerRouteImport } from './routes/career'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BlogQualityLaboratoryRouteImport } from './routes/blog.quality-laboratory'
+import { Route as BlogExportLogisticsRouteImport } from './routes/blog.export-logistics'
+import { Route as BlogCircularEconomyRouteImport } from './routes/blog.circular-economy'
+import { Route as BlogBoppLaminationRouteImport } from './routes/blog.bopp-lamination'
 
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
@@ -86,6 +91,11 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CaseStudiesRoute = CaseStudiesRouteImport.update({
+  id: '/case-studies',
+  path: '/case-studies',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CareerRoute = CareerRouteImport.update({
   id: '/career',
   path: '/career',
@@ -106,12 +116,33 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogQualityLaboratoryRoute = BlogQualityLaboratoryRouteImport.update({
+  id: '/quality-laboratory',
+  path: '/quality-laboratory',
+  getParentRoute: () => BlogRoute,
+} as any)
+const BlogExportLogisticsRoute = BlogExportLogisticsRouteImport.update({
+  id: '/export-logistics',
+  path: '/export-logistics',
+  getParentRoute: () => BlogRoute,
+} as any)
+const BlogCircularEconomyRoute = BlogCircularEconomyRouteImport.update({
+  id: '/circular-economy',
+  path: '/circular-economy',
+  getParentRoute: () => BlogRoute,
+} as any)
+const BlogBoppLaminationRoute = BlogBoppLaminationRouteImport.update({
+  id: '/bopp-lamination',
+  path: '/bopp-lamination',
+  getParentRoute: () => BlogRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/blog': typeof BlogRoute
+  '/blog': typeof BlogRouteWithChildren
   '/career': typeof CareerRoute
+  '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
@@ -124,12 +155,17 @@ export interface FileRoutesByFullPath {
   '/sitemap': typeof SitemapRoute
   '/sustainability': typeof SustainabilityRoute
   '/terms': typeof TermsRoute
+  '/blog/bopp-lamination': typeof BlogBoppLaminationRoute
+  '/blog/circular-economy': typeof BlogCircularEconomyRoute
+  '/blog/export-logistics': typeof BlogExportLogisticsRoute
+  '/blog/quality-laboratory': typeof BlogQualityLaboratoryRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/blog': typeof BlogRoute
+  '/blog': typeof BlogRouteWithChildren
   '/career': typeof CareerRoute
+  '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
@@ -142,13 +178,18 @@ export interface FileRoutesByTo {
   '/sitemap': typeof SitemapRoute
   '/sustainability': typeof SustainabilityRoute
   '/terms': typeof TermsRoute
+  '/blog/bopp-lamination': typeof BlogBoppLaminationRoute
+  '/blog/circular-economy': typeof BlogCircularEconomyRoute
+  '/blog/export-logistics': typeof BlogExportLogisticsRoute
+  '/blog/quality-laboratory': typeof BlogQualityLaboratoryRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/blog': typeof BlogRoute
+  '/blog': typeof BlogRouteWithChildren
   '/career': typeof CareerRoute
+  '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
@@ -161,6 +202,10 @@ export interface FileRoutesById {
   '/sitemap': typeof SitemapRoute
   '/sustainability': typeof SustainabilityRoute
   '/terms': typeof TermsRoute
+  '/blog/bopp-lamination': typeof BlogBoppLaminationRoute
+  '/blog/circular-economy': typeof BlogCircularEconomyRoute
+  '/blog/export-logistics': typeof BlogExportLogisticsRoute
+  '/blog/quality-laboratory': typeof BlogQualityLaboratoryRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -169,6 +214,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/blog'
     | '/career'
+    | '/case-studies'
     | '/contact'
     | '/faq'
     | '/gallery'
@@ -181,12 +227,17 @@ export interface FileRouteTypes {
     | '/sitemap'
     | '/sustainability'
     | '/terms'
+    | '/blog/bopp-lamination'
+    | '/blog/circular-economy'
+    | '/blog/export-logistics'
+    | '/blog/quality-laboratory'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/blog'
     | '/career'
+    | '/case-studies'
     | '/contact'
     | '/faq'
     | '/gallery'
@@ -199,12 +250,17 @@ export interface FileRouteTypes {
     | '/sitemap'
     | '/sustainability'
     | '/terms'
+    | '/blog/bopp-lamination'
+    | '/blog/circular-economy'
+    | '/blog/export-logistics'
+    | '/blog/quality-laboratory'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/blog'
     | '/career'
+    | '/case-studies'
     | '/contact'
     | '/faq'
     | '/gallery'
@@ -217,13 +273,18 @@ export interface FileRouteTypes {
     | '/sitemap'
     | '/sustainability'
     | '/terms'
+    | '/blog/bopp-lamination'
+    | '/blog/circular-economy'
+    | '/blog/export-logistics'
+    | '/blog/quality-laboratory'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  BlogRoute: typeof BlogRoute
+  BlogRoute: typeof BlogRouteWithChildren
   CareerRoute: typeof CareerRoute
+  CaseStudiesRoute: typeof CaseStudiesRoute
   ContactRoute: typeof ContactRoute
   FaqRoute: typeof FaqRoute
   GalleryRoute: typeof GalleryRoute
@@ -324,6 +385,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/case-studies': {
+      id: '/case-studies'
+      path: '/case-studies'
+      fullPath: '/case-studies'
+      preLoaderRoute: typeof CaseStudiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/career': {
       id: '/career'
       path: '/career'
@@ -352,14 +420,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/quality-laboratory': {
+      id: '/blog/quality-laboratory'
+      path: '/quality-laboratory'
+      fullPath: '/blog/quality-laboratory'
+      preLoaderRoute: typeof BlogQualityLaboratoryRouteImport
+      parentRoute: typeof BlogRoute
+    }
+    '/blog/export-logistics': {
+      id: '/blog/export-logistics'
+      path: '/export-logistics'
+      fullPath: '/blog/export-logistics'
+      preLoaderRoute: typeof BlogExportLogisticsRouteImport
+      parentRoute: typeof BlogRoute
+    }
+    '/blog/circular-economy': {
+      id: '/blog/circular-economy'
+      path: '/circular-economy'
+      fullPath: '/blog/circular-economy'
+      preLoaderRoute: typeof BlogCircularEconomyRouteImport
+      parentRoute: typeof BlogRoute
+    }
+    '/blog/bopp-lamination': {
+      id: '/blog/bopp-lamination'
+      path: '/bopp-lamination'
+      fullPath: '/blog/bopp-lamination'
+      preLoaderRoute: typeof BlogBoppLaminationRouteImport
+      parentRoute: typeof BlogRoute
+    }
   }
 }
+
+interface BlogRouteChildren {
+  BlogBoppLaminationRoute: typeof BlogBoppLaminationRoute
+  BlogCircularEconomyRoute: typeof BlogCircularEconomyRoute
+  BlogExportLogisticsRoute: typeof BlogExportLogisticsRoute
+  BlogQualityLaboratoryRoute: typeof BlogQualityLaboratoryRoute
+}
+
+const BlogRouteChildren: BlogRouteChildren = {
+  BlogBoppLaminationRoute: BlogBoppLaminationRoute,
+  BlogCircularEconomyRoute: BlogCircularEconomyRoute,
+  BlogExportLogisticsRoute: BlogExportLogisticsRoute,
+  BlogQualityLaboratoryRoute: BlogQualityLaboratoryRoute,
+}
+
+const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  BlogRoute: BlogRoute,
+  BlogRoute: BlogRouteWithChildren,
   CareerRoute: CareerRoute,
+  CaseStudiesRoute: CaseStudiesRoute,
   ContactRoute: ContactRoute,
   FaqRoute: FaqRoute,
   GalleryRoute: GalleryRoute,

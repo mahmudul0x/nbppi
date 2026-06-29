@@ -650,19 +650,44 @@ function ClientsMarquee() {
 
 const TESTIMONIALS = [
   {
-    q: "NBPPI has been the backbone of our packaging supply for nearly a decade — their consistency at scale is what differentiates them in this industry.",
-    n: "Procurement Director",
-    c: "Leading FMCG Group, Dhaka",
+    q: "NBPPI has been the backbone of our packaging supply for nearly a decade. We've scaled from 3 containers a quarter to 12 — their consistency at that volume is genuinely rare in this market.",
+    n: "Md. Rafiqul Islam",
+    role: "Head of Procurement",
+    c: "Aman Feed Ltd., Dhaka",
+    industry: "Feed Manufacturing",
+    stat: "10 years · 12 containers/quarter",
   },
   {
-    q: "From custom BOPP print to on-time export documentation, NBPPI operates with the discipline of a multinational manufacturer.",
-    n: "Import Manager",
-    c: "Agri Exporter, East Africa",
+    q: "We switched to NBPPI's BOPP laminated bags for our premium rice export line in 2023. Our UK distributor immediately commented that our packaging was now competitive with Thai product. That's not a small thing.",
+    n: "S.M. Tanvir Ahmed",
+    role: "Export Manager",
+    c: "Golden Harvest Agro, Narayanganj",
+    industry: "Agriculture & Rice Export",
+    stat: "Since 2023 · UK & UAE markets",
   },
   {
-    q: "Zero quality complaints across 14 container shipments. That speaks louder than any certificate.",
-    n: "Supply Chain Lead",
-    c: "Cement Manufacturer, GCC",
+    q: "Zero quality complaints across 18 container shipments to the GCC. For a cement manufacturer, packaging failure means product failure — NBPPI understands that and it shows in every batch.",
+    n: "Khalid Al-Rashidi",
+    role: "Supply Chain Director",
+    c: "Gulf Construction Supplies, UAE",
+    industry: "Cement & Construction",
+    stat: "18 containers · 0 complaints",
+  },
+  {
+    q: "Their export documentation team is genuinely outstanding. Our LC discrepancy rate dropped from 8% to under 1% after we moved to NBPPI. That alone saves us more than the price difference.",
+    n: "Amara Diallo",
+    role: "Procurement Manager",
+    c: "West Africa Trading Co., Nigeria",
+    industry: "Industrial Distribution",
+    stat: "LC discrepancy rate: < 1%",
+  },
+  {
+    q: "We needed food-grade PE-lined bags with a specific GSM and MVTR for our processed food export. NBPPI's technical team walked us through the specification, provided pre-production samples, and hit every target on the first production run.",
+    n: "Nurul Huda",
+    role: "Operations Director",
+    c: "Bengal Foods Processing, Chittagong",
+    industry: "Food Processing",
+    stat: "First-run approval · food-grade certified",
   },
 ];
 
@@ -703,12 +728,24 @@ function Testimonials() {
           ref={cardRef}
           className="mt-10 rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur sm:mt-14 sm:p-10"
         >
-          <Quote className="h-8 w-8 text-[#7FE0D4]" />
+          <div className="flex items-center justify-between">
+            <Quote className="h-8 w-8 text-[#7FE0D4]" />
+            <span className="rounded-full border border-[#7FE0D4]/30 bg-[#7FE0D4]/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-[#7FE0D4]">
+              {t.industry}
+            </span>
+          </div>
           <p className="mt-6 text-base leading-relaxed text-white/85 sm:text-lg">{t.q}</p>
-          <div className="mt-8 flex items-center justify-between border-t border-white/10 pt-5">
+          {t.stat && (
+            <div className="mt-5 inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#0A6A38]" />
+              <span className="text-[11px] font-semibold text-white/60">{t.stat}</span>
+            </div>
+          )}
+          <div className="mt-6 flex items-center justify-between border-t border-white/10 pt-5">
             <div>
               <div className="font-display text-sm font-semibold text-white">{t.n}</div>
-              <div className="mt-0.5 text-xs text-white/50">{t.c}</div>
+              <div className="mt-0.5 text-[11px] text-[#7FE0D4]">{t.role}</div>
+              <div className="mt-0.5 text-xs text-white/45">{t.c}</div>
             </div>
             <div className="flex gap-2">
               {TESTIMONIALS.map((_, i) => (

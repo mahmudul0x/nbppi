@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/site/page-shell";
 import { PageHero } from "@/components/site/page-hero";
 import factoryAerial from "@/assets/factory-aerial.jpg";
@@ -21,10 +21,10 @@ export const Route = createFileRoute("/blog")({
 });
 
 const POSTS = [
-  { t: "Inside NBPPI's new circular-economy line", c: "Sustainability", d: "Jun 24, 2026", img: factoryAerial, desc: "How our mono-material PP programme is reshaping recyclable industrial packaging across South Asia." },
-  { t: "Why BOPP lamination is winning premium retail", c: "Insights", d: "Jun 02, 2026", img: productBopp, desc: "From rice to pet food — premium brands are turning to BOPP-laminated woven bags for shelf-grade graphics." },
-  { t: "Inside the NBPPI quality laboratory", c: "Manufacturing", d: "May 18, 2026", img: qualityLab, desc: "A tour through our in-house testing protocols: tensile, GSM, burst, moisture and print accuracy." },
-  { t: "Scaling export logistics in 2026", c: "Operations", d: "Apr 30, 2026", img: warehouseImg, desc: "How NBPPI is reducing FCL turnaround times across 22+ export markets." },
+  { t: "Inside NBPPI's new circular-economy line", c: "Sustainability", d: "Jun 24, 2026", img: factoryAerial, desc: "How our mono-material PP programme is reshaping recyclable industrial packaging across South Asia.", slug: "/blog/circular-economy" },
+  { t: "Why BOPP lamination is winning premium retail", c: "Insights", d: "Jun 02, 2026", img: productBopp, desc: "From rice to pet food — premium brands are turning to BOPP-laminated woven bags for shelf-grade graphics.", slug: "/blog/bopp-lamination" },
+  { t: "Inside the NBPPI quality laboratory", c: "Manufacturing", d: "May 18, 2026", img: qualityLab, desc: "A tour through our in-house testing protocols: tensile, GSM, burst, moisture and print accuracy.", slug: "/blog/quality-laboratory" },
+  { t: "Scaling export logistics in 2026", c: "Operations", d: "Apr 30, 2026", img: warehouseImg, desc: "How NBPPI is reducing FCL turnaround times across 22+ export markets.", slug: "/blog/export-logistics" },
 ];
 
 function BlogPage() {
@@ -40,7 +40,8 @@ function BlogPage() {
       <section className="bg-background py-24">
         <div className="mx-auto grid max-w-7xl gap-8 px-6 md:grid-cols-2">
           {POSTS.map((p, i) => (
-            <article
+            <Link
+              to={p.slug}
               key={p.t}
               className={`group overflow-hidden rounded-2xl border border-border bg-card transition hover:-translate-y-1 hover:shadow-[var(--shadow-elevated)] ${
                 i === 0 ? "md:col-span-2" : ""
@@ -65,7 +66,7 @@ function BlogPage() {
                   </div>
                 </div>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </section>

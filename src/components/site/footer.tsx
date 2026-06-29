@@ -27,10 +27,10 @@ const cols = [
     t: "Resources",
     l: [
       ["FAQ", "/faq"],
+      ["Case Studies", "/case-studies"],
       ["Certifications", "/quality"],
       ["Gallery", "/gallery"],
       ["Sitemap", "/sitemap"],
-      ["Contact", "/contact"],
     ],
   },
 ] as const;
