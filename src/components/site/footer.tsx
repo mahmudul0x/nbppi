@@ -26,10 +26,10 @@ const cols = [
   {
     t: "Resources",
     l: [
-      ["Brochures", "/contact"],
+      ["FAQ", "/faq"],
       ["Certifications", "/quality"],
-      ["Quality Policy", "/quality"],
       ["Gallery", "/gallery"],
+      ["Sitemap", "/sitemap"],
       ["Contact", "/contact"],
     ],
   },
@@ -115,9 +115,8 @@ export function SiteFooter() {
               © {new Date().getFullYear()} North Bengal Poly &amp; Packaging Industries Ltd. All rights reserved.
             </div>
             <div className="flex gap-6">
-              <a className="hover:text-white">Privacy</a>
-              <a className="hover:text-white">Terms</a>
-              <a className="hover:text-white">Sitemap</a>
+              <Link to="/privacy" className="hover:text-white">Privacy Policy</Link>
+              <Link to="/terms" className="hover:text-white">Terms of Use</Link>
             </div>
           </div>
         </div>

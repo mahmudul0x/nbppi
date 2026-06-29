@@ -9,22 +9,36 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SustainabilityRouteImport } from './routes/sustainability'
+import { Route as SitemapRouteImport } from './routes/sitemap'
 import { Route as QuoteRouteImport } from './routes/quote'
 import { Route as QualityRouteImport } from './routes/quality'
 import { Route as ProductsRouteImport } from './routes/products'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ManufacturingRouteImport } from './routes/manufacturing'
 import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as FaqRouteImport } from './routes/faq'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CareerRouteImport } from './routes/career'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SustainabilityRoute = SustainabilityRouteImport.update({
   id: '/sustainability',
   path: '/sustainability',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapRoute = SitemapRouteImport.update({
+  id: '/sitemap',
+  path: '/sitemap',
   getParentRoute: () => rootRouteImport,
 } as any)
 const QuoteRoute = QuoteRouteImport.update({
@@ -42,6 +56,11 @@ const ProductsRoute = ProductsRouteImport.update({
   path: '/products',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ManufacturingRoute = ManufacturingRouteImport.update({
   id: '/manufacturing',
   path: '/manufacturing',
@@ -55,6 +74,11 @@ const IndustriesRoute = IndustriesRouteImport.update({
 const GalleryRoute = GalleryRouteImport.update({
   id: '/gallery',
   path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -89,13 +113,17 @@ export interface FileRoutesByFullPath {
   '/blog': typeof BlogRoute
   '/career': typeof CareerRoute
   '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
   '/industries': typeof IndustriesRoute
   '/manufacturing': typeof ManufacturingRoute
+  '/privacy': typeof PrivacyRoute
   '/products': typeof ProductsRoute
   '/quality': typeof QualityRoute
   '/quote': typeof QuoteRoute
+  '/sitemap': typeof SitemapRoute
   '/sustainability': typeof SustainabilityRoute
+  '/terms': typeof TermsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -103,13 +131,17 @@ export interface FileRoutesByTo {
   '/blog': typeof BlogRoute
   '/career': typeof CareerRoute
   '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
   '/industries': typeof IndustriesRoute
   '/manufacturing': typeof ManufacturingRoute
+  '/privacy': typeof PrivacyRoute
   '/products': typeof ProductsRoute
   '/quality': typeof QualityRoute
   '/quote': typeof QuoteRoute
+  '/sitemap': typeof SitemapRoute
   '/sustainability': typeof SustainabilityRoute
+  '/terms': typeof TermsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -118,13 +150,17 @@ export interface FileRoutesById {
   '/blog': typeof BlogRoute
   '/career': typeof CareerRoute
   '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
   '/industries': typeof IndustriesRoute
   '/manufacturing': typeof ManufacturingRoute
+  '/privacy': typeof PrivacyRoute
   '/products': typeof ProductsRoute
   '/quality': typeof QualityRoute
   '/quote': typeof QuoteRoute
+  '/sitemap': typeof SitemapRoute
   '/sustainability': typeof SustainabilityRoute
+  '/terms': typeof TermsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -134,13 +170,17 @@ export interface FileRouteTypes {
     | '/blog'
     | '/career'
     | '/contact'
+    | '/faq'
     | '/gallery'
     | '/industries'
     | '/manufacturing'
+    | '/privacy'
     | '/products'
     | '/quality'
     | '/quote'
+    | '/sitemap'
     | '/sustainability'
+    | '/terms'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -148,13 +188,17 @@ export interface FileRouteTypes {
     | '/blog'
     | '/career'
     | '/contact'
+    | '/faq'
     | '/gallery'
     | '/industries'
     | '/manufacturing'
+    | '/privacy'
     | '/products'
     | '/quality'
     | '/quote'
+    | '/sitemap'
     | '/sustainability'
+    | '/terms'
   id:
     | '__root__'
     | '/'
@@ -162,13 +206,17 @@ export interface FileRouteTypes {
     | '/blog'
     | '/career'
     | '/contact'
+    | '/faq'
     | '/gallery'
     | '/industries'
     | '/manufacturing'
+    | '/privacy'
     | '/products'
     | '/quality'
     | '/quote'
+    | '/sitemap'
     | '/sustainability'
+    | '/terms'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -177,22 +225,40 @@ export interface RootRouteChildren {
   BlogRoute: typeof BlogRoute
   CareerRoute: typeof CareerRoute
   ContactRoute: typeof ContactRoute
+  FaqRoute: typeof FaqRoute
   GalleryRoute: typeof GalleryRoute
   IndustriesRoute: typeof IndustriesRoute
   ManufacturingRoute: typeof ManufacturingRoute
+  PrivacyRoute: typeof PrivacyRoute
   ProductsRoute: typeof ProductsRoute
   QualityRoute: typeof QualityRoute
   QuoteRoute: typeof QuoteRoute
+  SitemapRoute: typeof SitemapRoute
   SustainabilityRoute: typeof SustainabilityRoute
+  TermsRoute: typeof TermsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sustainability': {
       id: '/sustainability'
       path: '/sustainability'
       fullPath: '/sustainability'
       preLoaderRoute: typeof SustainabilityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap': {
+      id: '/sitemap'
+      path: '/sitemap'
+      fullPath: '/sitemap'
+      preLoaderRoute: typeof SitemapRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/quote': {
@@ -216,6 +282,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/manufacturing': {
       id: '/manufacturing'
       path: '/manufacturing'
@@ -235,6 +308,13 @@ declare module '@tanstack/react-router' {
       path: '/gallery'
       fullPath: '/gallery'
       preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -281,13 +361,17 @@ const rootRouteChildren: RootRouteChildren = {
   BlogRoute: BlogRoute,
   CareerRoute: CareerRoute,
   ContactRoute: ContactRoute,
+  FaqRoute: FaqRoute,
   GalleryRoute: GalleryRoute,
   IndustriesRoute: IndustriesRoute,
   ManufacturingRoute: ManufacturingRoute,
+  PrivacyRoute: PrivacyRoute,
   ProductsRoute: ProductsRoute,
   QualityRoute: QualityRoute,
   QuoteRoute: QuoteRoute,
+  SitemapRoute: SitemapRoute,
   SustainabilityRoute: SustainabilityRoute,
+  TermsRoute: TermsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

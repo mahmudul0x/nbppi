@@ -225,6 +225,88 @@ function TrustBar() {
   );
 }
 
+function OurPurpose() {
+  return (
+    <section className="relative overflow-hidden bg-white py-14 sm:py-20 lg:py-24">
+      {/* Dot grid */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-40"
+        style={{
+          backgroundImage: "radial-gradient(circle, #0B2D6B0F 1.5px, transparent 1.5px)",
+          backgroundSize: "28px 28px",
+        }}
+      />
+      {/* Top accent */}
+      <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#0A6A38]/0 via-[#0A6A38] to-[#0A6A38]/0" />
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
+
+          {/* Left */}
+          <div>
+            <div className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.28em] text-[#0A6A38]">
+              <span className="h-px w-8 bg-[#0A6A38]" />
+              Our Purpose
+            </div>
+            <h2 className="mt-5 font-display text-3xl font-bold leading-tight text-[#0B2D6B] sm:text-4xl lg:text-5xl">
+              Why we exist.
+            </h2>
+            <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
+              At North Bengal Poly &amp; Packaging Industries Ltd., manufacturing is more than
+              producing packaging — it is about creating value, building trust, and acting
+              responsibly for a better future.
+            </p>
+            {/* Three pillars */}
+            <div className="mt-8 grid grid-cols-3 gap-3">
+              {[
+                { n: "People", d: "Creating value for every stakeholder." },
+                { n: "Planet", d: "Protecting the environment we share." },
+                { n: "Trust", d: "Earned through every product we make." },
+              ].map(({ n, d }) => (
+                <div key={n} className="rounded-xl border border-[#0A6A38]/15 bg-[#0A6A38]/5 p-4 text-center">
+                  <div className="font-display text-sm font-bold text-[#0A6A38]">{n}</div>
+                  <div className="mt-1 text-[10px] leading-snug text-muted-foreground">{d}</div>
+                </div>
+              ))}
+            </div>
+            <Link
+              to="/about"
+              className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[#0B2D6B] hover:text-[#0A6A38]"
+            >
+              Learn more about us <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+
+          {/* Right — quote card */}
+          <div className="relative">
+            <div className="absolute -right-10 -top-10 h-48 w-48 rounded-full bg-[#0A6A38]/8 blur-3xl" />
+            <div className="absolute -bottom-10 -left-10 h-48 w-48 rounded-full bg-[#0B2D6B]/8 blur-3xl" />
+            <div className="relative rounded-3xl border border-border bg-gradient-to-br from-[#0B2D6B] to-[#07204E] p-8 shadow-[0_30px_80px_-20px_rgba(11,45,107,0.35)] sm:p-12">
+              <div className="font-display text-8xl font-black leading-none text-[#7FE0D4]/20 sm:text-9xl">&ldquo;</div>
+              <p className="mt-2 font-display text-lg font-semibold leading-relaxed text-white sm:text-xl lg:text-2xl">
+                We create value for people, protect our planet, and earn trust through every product we deliver.
+              </p>
+              <div className="mt-8 flex items-center gap-3">
+                <div className="h-px flex-1 bg-white/15" />
+                <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#7FE0D4]">
+                  Brand Philosophy · NBPPI
+                </span>
+                <div className="h-px flex-1 bg-white/15" />
+              </div>
+              <div className="mt-6 flex justify-center gap-2">
+                <span className="h-1.5 w-6 rounded-full bg-[#7FE0D4]" />
+                <span className="h-1.5 w-1.5 rounded-full bg-white/30" />
+                <span className="h-1.5 w-1.5 rounded-full bg-white/30" />
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function About() {
   const values = [
     { icon: Settings2, t: "Engineering", d: "Precision-engineered specs across every product line." },
@@ -842,6 +924,7 @@ function Index() {
       <main>
         <Hero />
         <TrustBar />
+        <OurPurpose />
         <About />
         <CustomManufacturing />
         <WhyChooseUs />

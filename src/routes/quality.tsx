@@ -34,13 +34,14 @@ const CATEGORIES = [
     color: "#0B2D6B",
     bg: "#0B2D6B12",
     certs: [
-      { logo: bdGovtSeal, name: "Trade License", authority: "City Corporation" },
-      { logo: bdGovtSeal, name: "TIN Certificate", authority: "NBR Bangladesh" },
-      { logo: bdGovtSeal, name: "BIN / VAT", authority: "NBR Bangladesh" },
-      { logo: bidaLogo,   name: "BIDA Registration", authority: "Prime Minister's Office" },
-      { logo: difeLogo,   name: "Factory License", authority: "DIFE — Ministry of Labour" },
-      { logo: fireLogo,   name: "Fire License", authority: "Fire Service & Civil Defence" },
-      { logo: doeLogo,    name: "Environment Clearance", authority: "Dept. of Environment" },
+      { logo: bdGovtSeal, name: "Trade License",           authority: "City Corporation" },
+      { logo: bdGovtSeal, name: "Company TIN",             authority: "NBR Bangladesh" },
+      { logo: bdGovtSeal, name: "VAT (BIN)",               authority: "NBR Bangladesh" },
+      { logo: doeLogo,    name: "Environmental Clearance", authority: "পরিবেশ অধিদপ্তর (DoE)" },
+      { logo: difeLogo,   name: "Factory License",         authority: "DIFE — Ministry of Labour" },
+      { logo: fireLogo,   name: "Fire Safety Clearance",   authority: "Fire Service & Civil Defence" },
+      { logo: bdGovtSeal, name: "Electricity & Gas",       authority: "Utility Connection Clearance" },
+      { logo: bidaLogo,   name: "BIDA Registration",       authority: "Prime Minister's Office" },
     ],
   },
   {
@@ -49,9 +50,9 @@ const CATEGORIES = [
     color: "#1f618d",
     bg: "#1f618d12",
     certs: [
-      { logo: bdGovtSeal, name: "Export Registration", authority: "CCI&E — Ministry of Commerce" },
-      { logo: bdGovtSeal, name: "Import Registration", authority: "CCI&E — Ministry of Commerce" },
-      { logo: epbLogo,    name: "EPB Registration", authority: "Export Promotion Bureau" },
+      { logo: bdGovtSeal, name: "IRC — Import Registration",  authority: "CCI&E — Ministry of Commerce" },
+      { logo: bdGovtSeal, name: "ERC — Export Registration",  authority: "CCI&E — Ministry of Commerce" },
+      { logo: epbLogo,    name: "EPB Registration",           authority: "Export Promotion Bureau" },
     ],
   },
   {
@@ -60,8 +61,8 @@ const CATEGORIES = [
     color: "#0A6A38",
     bg: "#0A6A3812",
     certs: [
-      { logo: iso9001Logo, name: "ISO 9001:2015", authority: "Accredited Certification Body" },
-      { logo: bstiLogo,    name: "BSTI Certification", authority: "Ministry of Industries, BD" },
+      { logo: iso9001Logo, name: "ISO 9001:2015",       authority: "Accredited Certification Body" },
+      { logo: bstiLogo,    name: "BSTI Certification",  authority: "Ministry of Industries, BD" },
     ],
   },
 ] as const;
@@ -174,17 +175,42 @@ function CertSection() {
                     </div>
 
                     {/* active badge */}
-                    <div className="mt-3 inline-flex items-center gap-1 rounded-full px-2 py-0.5" style={{ backgroundColor: bg }}>
-                      <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: color }} />
-                      <span className="text-[9px] font-bold uppercase tracking-wide sm:text-[10px]" style={{ color }}>
-                        Active
-                      </span>
+                    <div className="mt-3 flex items-center justify-between">
+                      <div className="inline-flex items-center gap-1 rounded-full px-2 py-0.5" style={{ backgroundColor: bg }}>
+                        <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: color }} />
+                        <span className="text-[9px] font-bold uppercase tracking-wide sm:text-[10px]" style={{ color }}>
+                          Active
+                        </span>
+                      </div>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
           ))}
+        </div>
+
+        {/* CTA strip */}
+        <div className="mt-12 overflow-hidden rounded-2xl border border-[#0B2D6B]/15 bg-linear-to-br from-[#0B2D6B] to-[#07204E] p-6 sm:p-8">
+          <div className="flex flex-col items-start justify-between gap-5 sm:flex-row sm:items-center">
+            <div>
+              <div className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#7FE0D4]">
+                Compliance Documents
+              </div>
+              <h3 className="mt-1 font-display text-lg font-bold text-white sm:text-xl">
+                Need certified copies of our licenses?
+              </h3>
+              <p className="mt-1 text-sm text-white/55">
+                Our compliance team provides certified document copies within 24 hours — for RFQ support, supplier audits or LC documentation.
+              </p>
+            </div>
+            <a
+              href="mailto:compliance@nbppi.com?subject=Certificate%20Request%20-%20NBPPI&body=Dear%20NBPPI%20Compliance%20Team%2C%0A%0AI%20would%20like%20to%20request%20certified%20copies%20of%20your%20licenses%20and%20certifications.%0A%0AThank%20you."
+              className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-[#0A6A38] px-6 py-3 text-sm font-semibold text-white shadow-[0_8px_20px_-8px_rgba(10,106,56,0.5)] transition hover:bg-[#22887b]"
+            >
+              Request Documents
+            </a>
+          </div>
         </div>
       </div>
     </section>

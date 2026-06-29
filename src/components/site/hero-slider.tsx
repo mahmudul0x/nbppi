@@ -304,7 +304,7 @@ export function HeroSlider() {
           className="flex max-w-4xl flex-col items-center text-center"
         >
           <div className="text-[11px] font-semibold uppercase tracking-[0.32em] text-white/80 animate-[fadeUp_700ms_ease-out_both]">
-            {current.tagline}
+            We build Trust Through Every Layer.
           </div>
           <h1 className="mt-5 font-display text-4xl font-bold uppercase leading-[1.02] tracking-tight text-white drop-shadow-[0_8px_30px_rgba(0,0,0,0.7)] animate-[fadeUp_800ms_120ms_ease-out_both] md:text-6xl lg:text-7xl">
             {current.name}

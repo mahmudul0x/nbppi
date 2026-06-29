@@ -414,12 +414,11 @@ function Leadership() {
                   of the most trusted names in the packaging industry — recognized for reliability,
                   innovation, and long-term partnerships.
                 </p>
-                <p className="font-display text-sm font-semibold italic text-[#0B2D6B] sm:text-base">
-                  &ldquo;We create value for people, protect our planet, and earn trust through every
-                  product we deliver.&rdquo;
-                </p>
                 <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
                   Thank you for being part of our journey — your confidence in us drives everything we do.
+                </p>
+                <p className="font-display text-sm font-semibold italic text-[#0B2D6B] sm:text-base">
+                  &ldquo;Excellence is not our destination — it is our daily standard.&rdquo;
                 </p>
               </div>
               <div className="mt-8 flex items-center gap-4 border-t border-border pt-6">
@@ -590,6 +589,114 @@ function OurCommitments() {
   );
 }
 
+/* ── Who We Are ──────────────────────────────────────────────────────── */
+function WhoWeAre() {
+  return (
+    <section className="bg-background py-14 sm:py-20 lg:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+          {/* Left */}
+          <div>
+            <div className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.25em] text-[#0A6A38]">
+              <span className="h-px w-8 bg-[#0A6A38]" />
+              Who We Are
+            </div>
+            <h2 className="mt-4 font-display text-2xl font-bold leading-tight text-[#0B2D6B] sm:text-3xl lg:text-4xl">
+              A vertically integrated packaging manufacturer — built for the world.
+            </h2>
+            <p className="mt-5 text-base leading-relaxed text-muted-foreground">
+              North Bengal Poly &amp; Packaging Industries Ltd. (NBPPI) is one of Bangladesh's leading
+              manufacturers of polypropylene woven packaging. Founded in 2008 with a single weaving
+              line in Rangpur, we have grown into a fully vertically integrated operation serving
+              agriculture, food, feed, chemical, industrial and export markets across 22+ countries.
+            </p>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+              Our 320,000 sq.ft facility houses every stage of production — from PP extrusion and
+              circular weaving to lamination, multi-color printing, quality inspection and
+              container-ready dispatch — under a single, monitored roof.
+            </p>
+          </div>
+
+          {/* Right — stat grid */}
+          <div className="grid grid-cols-2 gap-4">
+            {[
+              { v: "2008", l: "Year Founded" },
+              { v: "1,200+", l: "Engineers & Operators" },
+              { v: "320,000", l: "Sq.ft Facility" },
+              { v: "30,000 MT", l: "Annual Capacity" },
+              { v: "22+", l: "Export Markets" },
+              { v: "4", l: "Continents Served" },
+              { v: "11", l: "Production Stages" },
+              { v: "100%", l: "Pre-Shipment QC" },
+            ].map(({ v, l }) => (
+              <div
+                key={l}
+                className="rounded-xl border border-border bg-card p-5 transition hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-6px_rgba(11,45,107,0.10)]"
+              >
+                <div className="font-display text-2xl font-bold text-[#0B2D6B]">{v}</div>
+                <div className="mt-1 text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">{l}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ── Why Choose North Bengal ──────────────────────────────────────────── */
+function WhyChoose() {
+  const reasons = [
+    { n: "Global Standards", d: "ISO 9001:2015 certified processes with export-grade QC at every stage." },
+    { n: "Local Commitment", d: "Headquartered in Bangladesh, deeply invested in local supply chains and communities." },
+    { n: "Custom Manufacturing", d: "Every bag engineered to your exact dimensions, GSM, print and lamination spec." },
+    { n: "Vertically Integrated", d: "Extrusion to dispatch — every stage under one roof for consistency and speed." },
+    { n: "Bulk Capability", d: "Container-scale production with consistent quality across high-volume orders." },
+    { n: "Trusted Partnerships", d: "150+ clients across Bangladesh and 22+ export markets — relationships built over decades." },
+  ];
+
+  return (
+    <section className="relative overflow-hidden bg-[#0B2D6B] py-14 text-white sm:py-20 lg:py-24">
+      <div
+        className="absolute inset-0 opacity-[0.05]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)",
+          backgroundSize: "56px 56px",
+        }}
+      />
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
+        {/* Header */}
+        <div className="text-center">
+          <div className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.28em] text-[#7FE0D4]">
+            <span className="h-px w-8 bg-[#7FE0D4]" />
+            Why Choose North Bengal
+            <span className="h-px w-8 bg-[#7FE0D4]" />
+          </div>
+          <h2 className="mt-4 font-display text-2xl font-bold leading-tight sm:text-3xl lg:text-4xl">
+            Global Standards &bull; Local Commitment.
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-base text-white/65">
+            We combine world-class manufacturing practices with the agility, relationships and
+            cost-efficiency of a locally rooted industrial operation.
+          </p>
+        </div>
+
+        {/* Reasons grid */}
+        <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/5 sm:grid-cols-2 sm:mt-14 lg:grid-cols-3">
+          {reasons.map(({ n, d }) => (
+            <div key={n} className="group bg-[#0B2D6B] p-6 transition hover:bg-[#0d3a73] sm:p-8">
+              <div className="flex h-2 w-8 rounded-full bg-[#7FE0D4] transition-all duration-300 group-hover:w-14" />
+              <div className="mt-5 font-display text-base font-bold text-white">{n}</div>
+              <p className="mt-2 text-sm leading-relaxed text-white/60">{d}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ── Page ─────────────────────────────────────────────────────────────── */
 function AboutPage() {
   return (
@@ -611,13 +718,19 @@ function AboutPage() {
       {/* 3. Leadership Messages */}
       <Leadership />
 
-      {/* 4. Core Values */}
+      {/* 4. Who We Are */}
+      <WhoWeAre />
+
+      {/* 5. Core Values */}
       <CoreValues />
 
-      {/* 5. Our Commitments */}
+      {/* 6. Our Commitments */}
       <OurCommitments />
 
-      {/* 6. Journey Timeline */}
+      {/* 7. Why Choose North Bengal */}
+      <WhyChoose />
+
+      {/* 8. Journey Timeline */}
       <JourneyTimeline />
 
     </PageShell>
