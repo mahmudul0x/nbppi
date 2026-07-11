@@ -14,7 +14,6 @@ import { Route as SustainabilityRouteImport } from './routes/sustainability'
 import { Route as SitemapRouteImport } from './routes/sitemap'
 import { Route as QuoteRouteImport } from './routes/quote'
 import { Route as QualityRouteImport } from './routes/quality'
-import { Route as ProductsRouteImport } from './routes/products'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ManufacturingRouteImport } from './routes/manufacturing'
 import { Route as IndustriesRouteImport } from './routes/industries'
@@ -26,6 +25,8 @@ import { Route as CareerRouteImport } from './routes/career'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProductsIndexRouteImport } from './routes/products.index'
+import { Route as ProductsSlugRouteImport } from './routes/products_.$slug'
 import { Route as BlogQualityLaboratoryRouteImport } from './routes/blog.quality-laboratory'
 import { Route as BlogExportLogisticsRouteImport } from './routes/blog.export-logistics'
 import { Route as BlogCircularEconomyRouteImport } from './routes/blog.circular-economy'
@@ -54,11 +55,6 @@ const QuoteRoute = QuoteRouteImport.update({
 const QualityRoute = QualityRouteImport.update({
   id: '/quality',
   path: '/quality',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProductsRoute = ProductsRouteImport.update({
-  id: '/products',
-  path: '/products',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -116,6 +112,16 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProductsIndexRoute = ProductsIndexRouteImport.update({
+  id: '/products/',
+  path: '/products/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsSlugRoute = ProductsSlugRouteImport.update({
+  id: '/products_/$slug',
+  path: '/products/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BlogQualityLaboratoryRoute = BlogQualityLaboratoryRouteImport.update({
   id: '/quality-laboratory',
   path: '/quality-laboratory',
@@ -149,7 +155,6 @@ export interface FileRoutesByFullPath {
   '/industries': typeof IndustriesRoute
   '/manufacturing': typeof ManufacturingRoute
   '/privacy': typeof PrivacyRoute
-  '/products': typeof ProductsRoute
   '/quality': typeof QualityRoute
   '/quote': typeof QuoteRoute
   '/sitemap': typeof SitemapRoute
@@ -159,6 +164,8 @@ export interface FileRoutesByFullPath {
   '/blog/circular-economy': typeof BlogCircularEconomyRoute
   '/blog/export-logistics': typeof BlogExportLogisticsRoute
   '/blog/quality-laboratory': typeof BlogQualityLaboratoryRoute
+  '/products/$slug': typeof ProductsSlugRoute
+  '/products/': typeof ProductsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -172,7 +179,6 @@ export interface FileRoutesByTo {
   '/industries': typeof IndustriesRoute
   '/manufacturing': typeof ManufacturingRoute
   '/privacy': typeof PrivacyRoute
-  '/products': typeof ProductsRoute
   '/quality': typeof QualityRoute
   '/quote': typeof QuoteRoute
   '/sitemap': typeof SitemapRoute
@@ -182,6 +188,8 @@ export interface FileRoutesByTo {
   '/blog/circular-economy': typeof BlogCircularEconomyRoute
   '/blog/export-logistics': typeof BlogExportLogisticsRoute
   '/blog/quality-laboratory': typeof BlogQualityLaboratoryRoute
+  '/products/$slug': typeof ProductsSlugRoute
+  '/products': typeof ProductsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -196,7 +204,6 @@ export interface FileRoutesById {
   '/industries': typeof IndustriesRoute
   '/manufacturing': typeof ManufacturingRoute
   '/privacy': typeof PrivacyRoute
-  '/products': typeof ProductsRoute
   '/quality': typeof QualityRoute
   '/quote': typeof QuoteRoute
   '/sitemap': typeof SitemapRoute
@@ -206,6 +213,8 @@ export interface FileRoutesById {
   '/blog/circular-economy': typeof BlogCircularEconomyRoute
   '/blog/export-logistics': typeof BlogExportLogisticsRoute
   '/blog/quality-laboratory': typeof BlogQualityLaboratoryRoute
+  '/products_/$slug': typeof ProductsSlugRoute
+  '/products/': typeof ProductsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -221,7 +230,6 @@ export interface FileRouteTypes {
     | '/industries'
     | '/manufacturing'
     | '/privacy'
-    | '/products'
     | '/quality'
     | '/quote'
     | '/sitemap'
@@ -231,6 +239,8 @@ export interface FileRouteTypes {
     | '/blog/circular-economy'
     | '/blog/export-logistics'
     | '/blog/quality-laboratory'
+    | '/products/$slug'
+    | '/products/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -244,7 +254,6 @@ export interface FileRouteTypes {
     | '/industries'
     | '/manufacturing'
     | '/privacy'
-    | '/products'
     | '/quality'
     | '/quote'
     | '/sitemap'
@@ -254,6 +263,8 @@ export interface FileRouteTypes {
     | '/blog/circular-economy'
     | '/blog/export-logistics'
     | '/blog/quality-laboratory'
+    | '/products/$slug'
+    | '/products'
   id:
     | '__root__'
     | '/'
@@ -267,7 +278,6 @@ export interface FileRouteTypes {
     | '/industries'
     | '/manufacturing'
     | '/privacy'
-    | '/products'
     | '/quality'
     | '/quote'
     | '/sitemap'
@@ -277,6 +287,8 @@ export interface FileRouteTypes {
     | '/blog/circular-economy'
     | '/blog/export-logistics'
     | '/blog/quality-laboratory'
+    | '/products_/$slug'
+    | '/products/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -291,12 +303,13 @@ export interface RootRouteChildren {
   IndustriesRoute: typeof IndustriesRoute
   ManufacturingRoute: typeof ManufacturingRoute
   PrivacyRoute: typeof PrivacyRoute
-  ProductsRoute: typeof ProductsRoute
   QualityRoute: typeof QualityRoute
   QuoteRoute: typeof QuoteRoute
   SitemapRoute: typeof SitemapRoute
   SustainabilityRoute: typeof SustainabilityRoute
   TermsRoute: typeof TermsRoute
+  ProductsSlugRoute: typeof ProductsSlugRoute
+  ProductsIndexRoute: typeof ProductsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -334,13 +347,6 @@ declare module '@tanstack/react-router' {
       path: '/quality'
       fullPath: '/quality'
       preLoaderRoute: typeof QualityRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/products': {
-      id: '/products'
-      path: '/products'
-      fullPath: '/products'
-      preLoaderRoute: typeof ProductsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -420,6 +426,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/products/': {
+      id: '/products/'
+      path: '/products'
+      fullPath: '/products/'
+      preLoaderRoute: typeof ProductsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products_/$slug': {
+      id: '/products_/$slug'
+      path: '/products/$slug'
+      fullPath: '/products/$slug'
+      preLoaderRoute: typeof ProductsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blog/quality-laboratory': {
       id: '/blog/quality-laboratory'
       path: '/quality-laboratory'
@@ -479,12 +499,13 @@ const rootRouteChildren: RootRouteChildren = {
   IndustriesRoute: IndustriesRoute,
   ManufacturingRoute: ManufacturingRoute,
   PrivacyRoute: PrivacyRoute,
-  ProductsRoute: ProductsRoute,
   QualityRoute: QualityRoute,
   QuoteRoute: QuoteRoute,
   SitemapRoute: SitemapRoute,
   SustainabilityRoute: SustainabilityRoute,
   TermsRoute: TermsRoute,
+  ProductsSlugRoute: ProductsSlugRoute,
+  ProductsIndexRoute: ProductsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

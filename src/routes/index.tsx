@@ -518,7 +518,8 @@ function ProductsPreview() {
                     {p.applications.length} applications
                   </span>
                   <Link
-                    to="/products"
+                    to="/products/$slug"
+                    params={{ slug: p.slug }}
                     className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#0A6A38] transition group-hover:gap-2.5"
                   >
                     Read more <ChevronRight className="h-4 w-4" />
