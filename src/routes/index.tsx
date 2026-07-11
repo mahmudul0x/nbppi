@@ -373,17 +373,20 @@ function About() {
                 loading="lazy"
                 className="h-56 w-full object-cover transition-transform duration-[1.4s] hover:scale-105 sm:h-80 md:h-105 lg:h-130"
               />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0B2D6B]/85 via-[#0B2D6B]/30 to-transparent p-8 text-white">
-                <div className="flex flex-wrap items-end justify-between gap-6">
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0B2D6B] via-[#0B2D6B]/75 to-transparent p-6 pt-24 text-white sm:p-8 sm:pt-32">
+                <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
                   <div>
                     <div className="text-xs uppercase tracking-[0.2em] text-white/60">
                       Headquarters &amp; Plant
                     </div>
-                    <div className="mt-2 font-display text-2xl font-semibold">
-                      Rangpur Industrial Zone, Bangladesh
+                    <div className="mt-2 font-display text-2xl font-semibold sm:text-3xl">
+                      Dinajpur, Bangladesh
+                    </div>
+                    <div className="mt-1 text-sm font-medium uppercase tracking-[0.15em] text-white/70">
+                      Exporting Worldwide
                     </div>
                   </div>
-                  <div className="text-right text-sm text-white/75">
+                  <div className="flex gap-6 text-sm text-white/75 sm:flex-col sm:text-right">
                     <div>15,000 sq.ft facility</div>
                     <div>25+ engineers &amp; operators</div>
                   </div>
