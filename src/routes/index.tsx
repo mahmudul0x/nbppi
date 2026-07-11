@@ -384,8 +384,8 @@ function About() {
                     </div>
                   </div>
                   <div className="text-right text-sm text-white/75">
-                    <div>320,000 sq.ft facility</div>
-                    <div>1,200+ engineers &amp; operators</div>
+                    <div>15,000 sq.ft facility</div>
+                    <div>25+ engineers &amp; operators</div>
                   </div>
                 </div>
               </div>
