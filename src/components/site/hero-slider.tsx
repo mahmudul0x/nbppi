@@ -12,7 +12,6 @@ import bagFish from "@/assets/hero-bag-fish.jpg";
 import bagCattle from "@/assets/hero-bag-cattle.jpg";
 import bagRice from "@/assets/hero-bag-rice.jpg";
 import bagLaminated from "@/assets/hero-bag-laminated.jpg";
-import bagPlain from "@/assets/hero-bag-plain.jpg";
 import bagLiner from "@/assets/hero-bag-liner.jpg";
 import bagGusseted from "@/assets/hero-bag-gusseted.jpg";
 import bagSeed from "@/assets/hero-bag-seed.jpg";
@@ -32,6 +31,16 @@ type Slide = {
 };
 
 const SLIDES: Slide[] = [
+  {
+    id: "export",
+    name: "Export-Ready PP Packaging",
+    tagline: "North Bengal Poly & Packaging Industries Ltd.",
+    description:
+      "From our factory floor to ports worldwide — woven polypropylene packaging manufactured at container scale, with strict quality control and on-time shipment for buyers at home and abroad.",
+    product: factoryAerial,
+    background: factoryAerial,
+    badges: ["Container-Scale Volumes", "Export Quality", "On-Time Shipment"],
+  },
   {
     id: "printed",
     name: "Printed PP Woven Bags",
@@ -61,16 +70,6 @@ const SLIDES: Slide[] = [
     product: bagLaminated,
     background: heroFactory,
     badges: ["BOPP Lamination", "UV Stable", "Water Resistant"],
-  },
-  {
-    id: "plain",
-    name: "Unlaminated PP Woven Bags",
-    tagline: "Breathable Agricultural Packaging",
-    description:
-      "Lightweight breathable woven sacks engineered for ventilated storage of potatoes, onions, vegetables and coarse grain.",
-    product: bagPlain,
-    background: warehouseImg,
-    badges: ["Breathable", "Lightweight", "Reusable"],
   },
   {
     id: "liner",

@@ -16,7 +16,6 @@ import industryCement from "@/assets/industry-cement.jpg";
 import heroBagBopp from "@/assets/hero-bag-bopp.jpg";
 import heroBagLaminated from "@/assets/hero-bag-laminated.jpg";
 import heroBagPrinted from "@/assets/hero-bag-printed.jpg";
-import heroBagPlain from "@/assets/hero-bag-plain.jpg";
 import heroBagRice from "@/assets/hero-bag-rice.jpg";
 import heroBagFish from "@/assets/hero-bag-fish.jpg";
 import heroBagPoultry from "@/assets/hero-bag-poultry.jpg";
@@ -50,7 +49,7 @@ type Category = (typeof CATEGORIES)[number];
 
 const TILES: { src: string; h: string; alt: string; caption: string; cat: Category }[] = [
   { src: heroFactory,          h: "row-span-2", alt: "Main factory floor",          caption: "Main production floor — Rangpur Industrial Zone",       cat: "Factory" },
-  { src: factoryAerial,        h: "",           alt: "Factory aerial view",          caption: "Aerial view of the NBPPI manufacturing complex",        cat: "Factory" },
+  { src: factoryAerial,        h: "",           alt: "Aerial view of the NBPPI factory with export trucks loading", caption: "Aerial view of the NBPPI complex — export loading in progress", cat: "Factory" },
   { src: weavingImg,           h: "",           alt: "Circular weaving looms",       caption: "Starlinger circular weaving looms in operation",        cat: "Factory" },
   { src: manufacturingExtrusion, h: "row-span-2", alt: "Extrusion line",            caption: "PP tape extrusion — converting granules to woven tape",  cat: "Factory" },
   { src: qualityLab,           h: "",           alt: "In-house QC laboratory",       caption: "In-house quality control laboratory — tensile & GSM testing", cat: "Factory" },
@@ -61,7 +60,6 @@ const TILES: { src: string; h: string; alt: string; caption: string; cat: Catego
   { src: heroBagBopp,          h: "",           alt: "BOPP bag close-up",            caption: "BOPP bag — photo-grade surface finish",                 cat: "Products" },
   { src: heroBagLaminated,     h: "",           alt: "Laminated PP woven bag",       caption: "Laminated PP woven bag — moisture barrier coating",     cat: "Products" },
   { src: heroBagPrinted,       h: "row-span-2", alt: "8-color printed bag",          caption: "8-color flexographic printed bag — custom brand design", cat: "Products" },
-  { src: heroBagPlain,         h: "",           alt: "Plain unlaminated bag",        caption: "Plain breathable woven bag — agriculture & grain use",  cat: "Products" },
   { src: heroBagRice,          h: "",           alt: "Rice packaging bag",           caption: "Premium rice packaging — BOPP laminated retail grade",  cat: "Products" },
   { src: heroBagGusseted,      h: "",           alt: "Gusseted woven bag",           caption: "Gusseted bags — expanded side-wall for bulk filling",   cat: "Products" },
   { src: heroBagLiner,         h: "",           alt: "PP bag with inner liner",      caption: "PP woven bag with PE inner liner — food-grade barrier", cat: "Products" },
