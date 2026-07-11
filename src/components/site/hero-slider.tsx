@@ -32,16 +32,6 @@ type Slide = {
 
 const SLIDES: Slide[] = [
   {
-    id: "export",
-    name: "Export-Ready PP Packaging",
-    tagline: "North Bengal Poly & Packaging Industries Ltd.",
-    description:
-      "From our factory floor to ports worldwide — woven polypropylene packaging manufactured at container scale, with strict quality control and on-time shipment for buyers at home and abroad.",
-    product: factoryAerial,
-    background: factoryAerial,
-    badges: ["Container-Scale Volumes", "Export Quality", "On-Time Shipment"],
-  },
-  {
     id: "printed",
     name: "Printed PP Woven Bags",
     tagline: "Custom PP Woven Bag Manufacturer",
