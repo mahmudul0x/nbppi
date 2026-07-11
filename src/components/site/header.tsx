@@ -42,7 +42,7 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
             : "border-b border-border bg-background/90 shadow-[0_1px_0_rgba(8,43,89,0.06)]"
         }`}
       >
-          <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3.5">
+          <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5">
           <Link to="/" className="flex min-w-0 items-center gap-3">
             <img
               src={logoImg}
@@ -67,7 +67,7 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
                 <Link
                   key={n.to}
                   to={n.to}
-                  className={`relative rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+                  className={`relative whitespace-nowrap rounded-md px-2 py-2 text-sm font-medium transition-colors xl:px-3 ${
                     onDark
                       ? `${active ? "text-white" : "text-white/70 hover:text-white"}`
                       : `${active ? "text-[#0B2D6B]" : "text-foreground/70 hover:text-[#0B2D6B]"}`
@@ -76,7 +76,7 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
                   {n.label}
                   {active ? (
                     <span
-                      className={`absolute inset-x-3 -bottom-0.5 h-0.5 ${
+                      className={`absolute inset-x-2 -bottom-0.5 h-0.5 xl:inset-x-3 ${
                         onDark ? "bg-[#0A6A38]" : "bg-[#0A6A38]"
                       }`}
                     />

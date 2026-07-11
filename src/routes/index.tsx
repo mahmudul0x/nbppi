@@ -52,7 +52,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "North Bengal Poly & Packaging Industries Ltd. manufactures premium polypropylene woven packaging for agriculture, food, construction and industrial sectors worldwide.",
+          "North Bengal Poly & Packaging Industries Ltd. manufactures premium 100% recyclable polypropylene woven packaging for agriculture, food, construction and industrial sectors worldwide.",
       },
       { property: "og:title", content: "NBPPI — Engineering Stronger Packaging for Tomorrow" },
       {
@@ -213,16 +213,20 @@ function TrustBar() {
         className="absolute bottom-0 left-0 h-0.5 w-full bg-linear-to-r from-[#0A6A38]/60 via-[#0B2D6B]/40 to-[#0A6A38]/60"
       />
 
-      <div className="mx-auto grid max-w-7xl grid-cols-2 divide-x divide-border md:grid-cols-3 lg:grid-cols-6">
+      <div className="mx-auto grid max-w-7xl grid-cols-2 divide-x divide-border md:grid-cols-3 lg:grid-cols-7">
         {TRUST_BAR.map((t, i) => (
           <div
             key={t}
             ref={(el) => { itemRefs.current[i] = el; }}
-            className="group flex flex-col items-center justify-center gap-2 px-3 py-5 text-center sm:px-6 sm:py-6"
+            className="group flex flex-col items-center justify-center gap-2 px-3 py-5 text-center last:col-span-2 sm:px-6 sm:py-6 md:last:col-span-3 lg:last:col-span-1"
           >
             {/* Icon with ring */}
             <div className="flex h-9 w-9 items-center justify-center rounded-full border border-[#0A6A38]/20 bg-[#0A6A38]/6 transition-all duration-300 group-hover:border-[#0A6A38]/50 group-hover:bg-[#0A6A38]/12 group-hover:scale-110">
-              <CircleCheck className="h-4 w-4 text-[#0A6A38]" />
+              {t === "100% Recyclable PP" ? (
+                <Recycle className="h-4 w-4 text-[#0A6A38]" />
+              ) : (
+                <CircleCheck className="h-4 w-4 text-[#0A6A38]" />
+              )}
             </div>
             {/* Label */}
             <span className="text-[11px] font-semibold leading-snug text-[#0B2D6B] transition-colors duration-200 group-hover:text-[#0A6A38] sm:text-xs">
@@ -981,9 +985,9 @@ function Index() {
         <CustomManufacturing />
         <WhyChooseUs />
         <ProductsPreview />
+        <Sustainability />
         <ManufacturingTeaser />
         <Industries />
-        <Sustainability />
         <FutureExpansion />
         <ClientsMarquee />
         <Testimonials />

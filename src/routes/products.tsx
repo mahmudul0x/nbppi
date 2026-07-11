@@ -4,13 +4,14 @@ import { PageShell } from "@/components/site/page-shell";
 import { PageHero } from "@/components/site/page-hero";
 import { PRODUCTS } from "@/lib/site-data";
 import { ArrowRight, CircleCheck, ChevronDown } from "lucide-react";
+import { RecycleBadge } from "@/components/site/recycle-badge";
 import productWoven from "@/assets/product-woven.jpg";
 
 export const Route = createFileRoute("/products")({
   head: () => ({
     meta: [
       { title: "PP Woven Bags Bangladesh — BOPP, Laminated & Printed Bags | NBPPI" },
-      { name: "description", content: "Buy PP woven bags from Bangladesh — plain, BOPP laminated, flexo printed, PE-lined and gusseted bags. Custom sizes, GSM and print. MOQ 10,000 pcs. ISO certified manufacturer. Export to 22+ countries." },
+      { name: "description", content: "Buy 100% recyclable PP woven bags from Bangladesh — plain, BOPP laminated, flexo printed, PE-lined and gusseted bags. Custom sizes, GSM and print. MOQ 10,000 pcs. ISO certified manufacturer. Export to 22+ countries." },
       { property: "og:title", content: "PP Woven Bag Products — NBPPI" },
       { property: "og:description", content: "Plain PP woven, BOPP laminated, printed, lined and gusseted bags — 6 product lines engineered for agriculture, food, construction and export industries." },
       { property: "og:url", content: "https://nbppi.com/products" },
@@ -94,8 +95,11 @@ function ProductCard({ p, i }: { p: typeof PRODUCTS[number]; i: number }) {
           />
           <div className="absolute inset-0 bg-linear-to-t from-[#0B2D6B]/70 via-[#0B2D6B]/10 to-transparent" />
           <div className="absolute bottom-0 left-0 p-4">
-            <span className="inline-flex rounded-full bg-white/20 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.15em] text-white backdrop-blur">
-              {p.category}
+            <span className="inline-flex flex-wrap items-center gap-1.5">
+              <span className="inline-flex rounded-full bg-white/20 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.15em] text-white backdrop-blur">
+                {p.category}
+              </span>
+              {p.eco && <RecycleBadge tone="dark" label="Recyclable" />}
             </span>
             <h2 className="mt-2 font-display text-lg font-bold text-white leading-tight">{p.name}</h2>
           </div>
@@ -152,6 +156,12 @@ function ProductCard({ p, i }: { p: typeof PRODUCTS[number]; i: number }) {
                   <div className="mt-1 text-[11px] leading-relaxed text-muted-foreground">{p.customization.join(" · ")}</div>
                 </div>
               )}
+              {p.eco && (
+                <div className="col-span-2">
+                  <div className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#0A6A38]">Sustainability</div>
+                  <div className="mt-1 text-[11px] leading-relaxed text-muted-foreground">{p.eco.join(" · ")}</div>
+                </div>
+              )}
             </div>
           )}
 
@@ -183,8 +193,11 @@ function ProductCard({ p, i }: { p: typeof PRODUCTS[number]; i: number }) {
           <img src={p.image} alt={p.name} loading="lazy" className="aspect-4/3 w-full object-cover transition-transform duration-[1.4s] hover:scale-105" />
         </div>
         <div>
-          <div className="inline-flex rounded-full bg-[#0A6A38]/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#0A6A38]">
-            {p.category}
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="inline-flex rounded-full bg-[#0A6A38]/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#0A6A38]">
+              {p.category}
+            </span>
+            {p.eco && <RecycleBadge tone="light" />}
           </div>
           <h2 className="mt-4 font-display text-3xl font-bold text-[#0B2D6B] md:text-4xl">{p.name}</h2>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">{p.description}</p>
@@ -236,6 +249,12 @@ function ProductCard({ p, i }: { p: typeof PRODUCTS[number]; i: number }) {
                   <div className="mt-1.5 text-sm text-muted-foreground">{p.customization.join(" · ")}</div>
                 </div>
               )}
+              {p.eco && (
+                <div className="sm:col-span-2">
+                  <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#0A6A38]">Sustainability</div>
+                  <div className="mt-1.5 text-sm text-muted-foreground">{p.eco.join(" · ")}</div>
+                </div>
+              )}
             </div>
           )}
           <div className="mt-10 flex flex-wrap gap-3">
@@ -264,7 +283,7 @@ function ProductsPage() {
       <PageHero
         eyebrow="Product Catalogue"
         title={<>Industrial packaging,<br /> engineered to specification.</>}
-        intro="A complete polypropylene woven packaging portfolio — from breathable agricultural sacks to premium BOPP retail bags and bespoke export programmes."
+        intro="A complete portfolio in 100% recyclable polypropylene — from breathable agricultural sacks to premium BOPP retail bags and bespoke export programmes."
         image={productWoven}
         crumbs={[{ label: "Home", to: "/" }, { label: "Products" }]}
       />

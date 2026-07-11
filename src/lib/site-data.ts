@@ -12,6 +12,7 @@ export const NAV = [
   { label: "Manufacturing", to: "/manufacturing" },
   { label: "Industries", to: "/industries" },
   { label: "Quality", to: "/quality" },
+  { label: "Sustainability", to: "/sustainability" },
   { label: "Contact", to: "/contact" },
 ] as const;
 
@@ -28,6 +29,7 @@ export type Product = {
   printing?: string[];
   lamination?: string[];
   customization?: string[];
+  eco?: string[];
 };
 
 export const PRODUCTS: Product[] = [
@@ -60,6 +62,7 @@ export const PRODUCTS: Product[] = [
     printing: ["Up to 8-color flexo", "Pantone-matched brand colors", "Logo & artwork registration", "Variable text / batch coding"],
     lamination: ["Optional BOPP overlay", "PE inner liner add-on", "Plain (unlaminated) finish"],
     customization: ["GSM 55–120", "Fabric color & weave", "Handle / valve options", "Hot-cut or stitched bottom"],
+    eco: ["100% recyclable mono-material PP", "Reusable multi-trip construction", "Production trims re-granulated in-house"],
   },
   {
     slug: "plain-pp-woven-bags",
@@ -76,6 +79,7 @@ export const PRODUCTS: Product[] = [
     printing: ["Plain unprinted", "1–2 color stencil branding (optional)"],
     lamination: ["None (breathable weave)"],
     customization: ["GSM 50–80", "Fabric color", "Hot-cut or stitched mouth"],
+    eco: ["100% recyclable mono-material PP", "Reusable across multiple harvest cycles", "Zero lamination — single-polymer weave"],
   },
   {
     slug: "laminated-coated-bags",
@@ -91,6 +95,7 @@ export const PRODUCTS: Product[] = [
     printing: ["Up to 6-color flexo over lamination", "Brand logo & specification panel"],
     lamination: ["Inside BOPP", "Outside BOPP", "Two-side lamination"],
     customization: ["Anti-slip coating", "UV-stable resin", "Heavy-duty stitching"],
+    eco: ["Mono-material PP structure — fully recyclable", "Extended service life reduces packaging waste", "Trim recovery & re-granulation in production"],
   },
   {
     slug: "pp-bags-inner-liner",
@@ -107,6 +112,7 @@ export const PRODUCTS: Product[] = [
     printing: ["Brand printing on outer woven layer"],
     lamination: ["Inner PE liner", "Optional outer BOPP"],
     customization: ["Liner micron thickness", "Heat-sealed or loose liner"],
+    eco: ["Recyclable PP outer with separable PE liner", "Reusable outer bag after liner removal", "Liner thickness optimised to minimise material use"],
   },
   {
     slug: "bopp-laminated-bags",
@@ -123,6 +129,7 @@ export const PRODUCTS: Product[] = [
     printing: ["Up to 8-color photo-grade BOPP", "Pantone matching", "Matte / gloss finish"],
     lamination: ["BOPP film laminated woven"],
     customization: ["Window patch", "Tear notch", "Easy-open seal"],
+    eco: ["Mono-material PP + BOPP — recyclable in one stream", "Water-based inks available on request", "Durable finish extends packaging life cycle"],
   },
   {
     slug: "gusseted-bags",
@@ -139,6 +146,7 @@ export const PRODUCTS: Product[] = [
     printing: ["Branding on front & back panels"],
     lamination: ["Laminated or unlaminated"],
     customization: ["Gusset width", "Bottom stitching style", "Load rating"],
+    eco: ["100% recyclable mono-material PP", "Higher pallet density lowers transport footprint", "Reusable for bulk storage rotations"],
   },
 ];
 
@@ -160,7 +168,7 @@ export const INDUSTRIES = [
 
 export const PROCESS = [
   ["01", "Raw Material", "Certified virgin PP granules from global petrochemical partners."],
-  ["02", "Extrusion", "Tape extrusion calibrated to denier and tensile spec."],
+  ["02", "Extrusion", "Tape extrusion calibrated to denier and tensile spec — with trim recovery & re-granulation."],
   ["03", "Tape Stretching", "Mono-axial stretching for optimal warp / weft strength."],
   ["04", "Circular Weaving", "Starlinger / Lohia looms produce uniform fabric tubes."],
   ["05", "Lamination", "Optional BOPP / PE lamination for moisture barrier."],
@@ -184,4 +192,5 @@ export const TRUST_BAR = [
   "ISO 9001:2015 Certified",
   "ERC — Export Authorized",
   "BSTI Certified",
+  "100% Recyclable PP",
 ];

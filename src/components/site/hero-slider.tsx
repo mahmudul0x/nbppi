@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { RecycleBadge } from "@/components/site/recycle-badge";
 import heroFactory from "@/assets/hero-factory.jpg";
 import factoryAerial from "@/assets/factory-aerial.jpg";
 import warehouseImg from "@/assets/warehouse.jpg";
@@ -327,6 +328,9 @@ export function HeroSlider() {
               Request Quote
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
+          </div>
+          <div className="mt-6 animate-[fadeUp_900ms_520ms_ease-out_both]">
+            <RecycleBadge tone="dark" label="100% Recyclable PP" to="/sustainability" />
           </div>
         </div>
       </div>

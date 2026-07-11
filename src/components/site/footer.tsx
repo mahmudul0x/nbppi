@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Linkedin, Facebook, Youtube } from "lucide-react";
+import { RecycleBadge } from "@/components/site/recycle-badge";
 import logoImg from "@/assets/logoWebsite.png";
 
 const cols = [
@@ -60,6 +61,12 @@ export function SiteFooter() {
               A vertically integrated manufacturer of polypropylene woven packaging serving
               agriculture, food, construction, chemical and export markets across 22+ countries.
             </p>
+            <div className="mt-5 flex flex-wrap items-center gap-3">
+              <RecycleBadge tone="dark" to="/sustainability" />
+              <span className="text-xs text-white/55">
+                Recyclable by design — mono-material PP packaging.
+              </span>
+            </div>
 
             {/* Social icons */}
             <div className="mt-8">
