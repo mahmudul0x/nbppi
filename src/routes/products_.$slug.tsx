@@ -14,7 +14,7 @@ export const Route = createFileRoute("/products_/$slug")({
   head: ({ loaderData }) => {
     const p = loaderData?.product;
     if (!p) return {};
-    const url = `https://nbppi.com/products/${p.slug}`;
+    const url = `https://northbengalpoly.com/products/${p.slug}`;
     const title = `${p.name} — PP Woven Bag Manufacturer Bangladesh | NBPPI`;
     return {
       meta: [
@@ -23,13 +23,13 @@ export const Route = createFileRoute("/products_/$slug")({
         { property: "og:title", content: `${p.name} — NBPPI` },
         { property: "og:description", content: p.short },
         { property: "og:url", content: url },
-        { property: "og:image", content: "https://nbppi.com/og-image.jpg" },
+        { property: "og:image", content: "https://northbengalpoly.com/og-image.jpg" },
         { property: "og:type", content: "product" },
         { property: "og:site_name", content: "NBPPI" },
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: `${p.name} — NBPPI` },
         { name: "twitter:description", content: p.short },
-        { name: "twitter:image", content: "https://nbppi.com/og-image.jpg" },
+        { name: "twitter:image", content: "https://northbengalpoly.com/og-image.jpg" },
       ],
       links: [{ rel: "canonical", href: url }],
       scripts: [
@@ -43,13 +43,13 @@ export const Route = createFileRoute("/products_/$slug")({
             category: p.category,
             url,
             image: (p.gallery?.map((g) => g.src) ?? [p.image]).map(
-              (src) => new URL(src, "https://nbppi.com").href
+              (src) => new URL(src, "https://northbengalpoly.com").href
             ),
             brand: { "@type": "Brand", name: "NBPPI" },
             manufacturer: {
               "@type": "Organization",
               name: "North Bengal Poly & Packaging Industries Ltd.",
-              url: "https://nbppi.com",
+              url: "https://northbengalpoly.com",
             },
           }),
         },

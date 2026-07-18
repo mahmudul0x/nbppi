@@ -13,15 +13,15 @@ export const Route = createFileRoute("/contact")({
       { name: "description", content: "Contact NBPPI's sales and export teams. Head office at Zaman Court, Dilkusha, Dhaka and zonal office in Bogura, Bangladesh. Respond within 24 business hours." },
       { property: "og:title", content: "Contact NBPPI — Sales, Export & Enquiries" },
       { property: "og:description", content: "Contact NBPPI's sales and export team. Head office in Dhaka (Dilkusha) and zonal office in Bogura. Respond within 24 business hours." },
-      { property: "og:url", content: "https://nbppi.com/contact" },
-      { property: "og:image", content: "https://nbppi.com/og-image.jpg" },
+      { property: "og:url", content: "https://northbengalpoly.com/contact" },
+      { property: "og:image", content: "https://northbengalpoly.com/og-image.jpg" },
       { property: "og:site_name", content: "NBPPI" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Contact NBPPI — Sales, Export & Enquiries" },
       { name: "twitter:description", content: "Contact NBPPI's sales and export team. Head office Dhaka (Dilkusha), zonal office Bogura. Response within 24 hours." },
-      { name: "twitter:image", content: "https://nbppi.com/og-image.jpg" },
+      { name: "twitter:image", content: "https://northbengalpoly.com/og-image.jpg" },
     ],
-    links: [{ rel: "canonical", href: "https://nbppi.com/contact" }],
+    links: [{ rel: "canonical", href: "https://northbengalpoly.com/contact" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -30,10 +30,10 @@ export const Route = createFileRoute("/contact")({
           "@type": "LocalBusiness",
           name: "North Bengal Poly & Packaging Industries Ltd.",
           alternateName: "NBPPI",
-          url: "https://nbppi.com",
-          logo: "https://nbppi.com/logoWebsite.png",
-          image: "https://nbppi.com/og-image.jpg",
-          email: "sales@nbppi.com",
+          url: "https://northbengalpoly.com",
+          logo: "https://northbengalpoly.com/logoWebsite.png",
+          image: "https://northbengalpoly.com/og-image.jpg",
+          email: "sales@northbengalpoly.com",
           telephone: "+8801714570179",
           address: {
             "@type": "PostalAddress",
@@ -70,14 +70,14 @@ const OFFICES = [
     address: "Room-807, Level-7, Zaman Court, 45 Dilkusha C/A",
     city: "Dhaka-1000, Bangladesh",
     phone: "+880 1714 570179",
-    email: "info@nbppi.com",
+    email: "info@northbengalpoly.com",
   },
   {
     type: "Zonal Office",
     address: "Sydney Tower, 3rd Floor, Court House Street, Joleshoritola",
     city: "Bogura-5800, Bangladesh",
     phone: "+880 1714 570179",
-    email: "info@nbppi.com",
+    email: "info@northbengalpoly.com",
   },
 ];
 
@@ -135,11 +135,11 @@ function ContactPage() {
               +880 1714 570179
             </a>
             <a
-              href="mailto:sales@nbppi.com"
+              href="mailto:sales@northbengalpoly.com"
               className="inline-flex items-center gap-2 rounded-lg border border-white/15 bg-white/8 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-white/15"
             >
               <Mail className="h-4 w-4 text-[#7FE0D4]" />
-              sales@nbppi.com
+              sales@northbengalpoly.com
             </a>
             <a
               href="https://wa.me/8801714570179"

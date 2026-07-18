@@ -9,10 +9,10 @@ export const Route = createFileRoute("/sitemap")({
       { name: "description", content: "Complete sitemap of the NBPPI website — all pages and sections." },
       { property: "og:title", content: "Sitemap — NBPPI" },
       { property: "og:description", content: "Complete sitemap of the NBPPI website — all pages including products, industries, blog, case studies, FAQ and more." },
-      { property: "og:url", content: "https://nbppi.com/sitemap" },
+      { property: "og:url", content: "https://northbengalpoly.com/sitemap" },
       { property: "og:site_name", content: "NBPPI" },
     ],
-    links: [{ rel: "canonical", href: "https://nbppi.com/sitemap" }],
+    links: [{ rel: "canonical", href: "https://northbengalpoly.com/sitemap" }],
   }),
   component: SitemapPage,
 });

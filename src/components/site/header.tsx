@@ -187,9 +187,9 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
               <Phone className="h-4 w-4 text-[#0A6A38]" />
               +880 1714 570179
             </a>
-            <a href="mailto:info@nbppi.com" className="flex items-center gap-3 text-foreground/80 hover:text-[#0B2D6B]">
+            <a href="mailto:info@northbengalpoly.com" className="flex items-center gap-3 text-foreground/80 hover:text-[#0B2D6B]">
               <Mail className="h-4 w-4 text-[#0A6A38]" />
-              info@nbppi.com
+              info@northbengalpoly.com
             </a>
             <div className="flex items-start gap-3 text-foreground/70">
               <MapPin className="mt-0.5 h-4 w-4 text-[#0A6A38]" />

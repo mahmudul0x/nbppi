@@ -12,11 +12,11 @@ export const Route = createFileRoute("/quote")({
       { name: "description", content: "Request a tailored quotation for PP woven, BOPP, laminated, lined or gusseted bags — typically returned within 24 business hours." },
       { property: "og:title", content: "Request a Quote — NBPPI PP Woven Bags" },
       { property: "og:description", content: "Request a tailored quote for PP woven, BOPP laminated, printed or lined bags. Custom sizes, GSM and print specifications. Response within 24 hours." },
-      { property: "og:url", content: "https://nbppi.com/quote" },
-      { property: "og:image", content: "https://nbppi.com/og-image.jpg" },
+      { property: "og:url", content: "https://northbengalpoly.com/quote" },
+      { property: "og:image", content: "https://northbengalpoly.com/og-image.jpg" },
       { property: "og:site_name", content: "NBPPI" },
     ],
-    links: [{ rel: "canonical", href: "https://nbppi.com/quote" }],
+    links: [{ rel: "canonical", href: "https://northbengalpoly.com/quote" }],
   }),
   component: QuotePage,
 });
@@ -54,7 +54,7 @@ function QuotePage() {
               <div className="mt-8 rounded-xl bg-[#0B2D6B] p-5 text-white">
                 <div className="text-xs uppercase tracking-[0.18em] text-white/60">Direct line</div>
                 <div className="mt-2 font-display text-lg font-bold">+880 1714 570179</div>
-                <div className="text-sm text-white/70">sales@nbppi.com</div>
+                <div className="text-sm text-white/70">sales@northbengalpoly.com</div>
               </div>
             </div>
           </aside>

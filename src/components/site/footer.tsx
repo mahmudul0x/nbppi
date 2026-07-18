@@ -160,8 +160,8 @@ export function SiteFooter() {
               <div className="font-display text-[10px] font-semibold uppercase tracking-[0.2em] text-white/50">
                 Email
               </div>
-              <a href="mailto:info@nbppi.com" className="mt-1.5 block text-sm transition hover:text-white">
-                info@nbppi.com
+              <a href="mailto:info@northbengalpoly.com" className="mt-1.5 block text-sm transition hover:text-white">
+                info@northbengalpoly.com
               </a>
             </div>
           </div>

@@ -8,11 +8,11 @@ export const Route = createFileRoute("/terms")({
       { title: "Terms of Use — NBPPI" },
       { name: "description", content: "Terms of Use for the North Bengal Poly & Packaging Industries Ltd. website — your rights and responsibilities when using our site." },
       { property: "og:title", content: "Terms of Use — NBPPI" },
-      { property: "og:description", content: "Terms of Use for the NBPPI website — your rights and responsibilities when using nbppi.com." },
-      { property: "og:url", content: "https://nbppi.com/terms" },
+      { property: "og:description", content: "Terms of Use for the NBPPI website — your rights and responsibilities when using northbengalpoly.com." },
+      { property: "og:url", content: "https://northbengalpoly.com/terms" },
       { property: "og:site_name", content: "NBPPI" },
     ],
-    links: [{ rel: "canonical", href: "https://nbppi.com/terms" }],
+    links: [{ rel: "canonical", href: "https://northbengalpoly.com/terms" }],
   }),
   component: TermsPage,
 });
@@ -21,7 +21,7 @@ const SECTIONS = [
   {
     title: "1. Acceptance of Terms",
     body: [
-      "By accessing or using the NBPPI website (www.nbppi.com), you agree to be bound by these Terms of Use and all applicable laws and regulations. If you do not agree with any part of these terms, you must not use this website.",
+      "By accessing or using the NBPPI website (www.northbengalpoly.com), you agree to be bound by these Terms of Use and all applicable laws and regulations. If you do not agree with any part of these terms, you must not use this website.",
     ],
   },
   {
@@ -93,7 +93,7 @@ const SECTIONS = [
       "For any questions regarding these Terms of Use, please contact:",
       "North Bengal Poly & Packaging Industries Ltd.",
       "Head Office: Room-807, Level-7, Zaman Court, 45 Dilkusha C/A, Dhaka-1000, Bangladesh",
-      "Email: info@nbppi.com",
+      "Email: info@northbengalpoly.com",
       "Phone: +880 1714 570179",
     ],
   },
@@ -183,8 +183,8 @@ function TermsPage() {
             <div className="border-t border-border bg-[#0B2D6B] px-8 py-7 sm:px-10">
               <div className="flex flex-wrap items-center gap-6">
                 <div className="text-sm font-semibold text-white">Legal enquiries:</div>
-                <a href="mailto:info@nbppi.com" className="inline-flex items-center gap-2 text-sm text-[#7FE0D4] hover:underline">
-                  <Mail className="h-4 w-4" /> info@nbppi.com
+                <a href="mailto:info@northbengalpoly.com" className="inline-flex items-center gap-2 text-sm text-[#7FE0D4] hover:underline">
+                  <Mail className="h-4 w-4" /> info@northbengalpoly.com
                 </a>
                 <a href="tel:+8801714570179" className="inline-flex items-center gap-2 text-sm text-[#7FE0D4] hover:underline">
                   <Phone className="h-4 w-4" /> +880 1714 570179

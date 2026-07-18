@@ -9,10 +9,10 @@ export const Route = createFileRoute("/privacy")({
       { name: "description", content: "Privacy Policy of North Bengal Poly & Packaging Industries Ltd. — how we collect, use and protect your information." },
       { property: "og:title", content: "Privacy Policy — NBPPI" },
       { property: "og:description", content: "Privacy Policy of North Bengal Poly & Packaging Industries Ltd. — how we collect, use and protect your personal information." },
-      { property: "og:url", content: "https://nbppi.com/privacy" },
+      { property: "og:url", content: "https://northbengalpoly.com/privacy" },
       { property: "og:site_name", content: "NBPPI" },
     ],
-    links: [{ rel: "canonical", href: "https://nbppi.com/privacy" }],
+    links: [{ rel: "canonical", href: "https://northbengalpoly.com/privacy" }],
   }),
   component: PrivacyPage,
 });
@@ -98,7 +98,7 @@ const SECTIONS = [
       "If you have any questions or concerns regarding this Privacy Policy, please contact us:",
       "North Bengal Poly & Packaging Industries Ltd.",
       "Head Office: Room-807, Level-7, Zaman Court, 45 Dilkusha C/A, Dhaka-1000, Bangladesh",
-      "Email: info@nbppi.com",
+      "Email: info@northbengalpoly.com",
       "Phone: +880 1714 570179",
     ],
   },
@@ -188,8 +188,8 @@ function PrivacyPage() {
             <div className="border-t border-border bg-[#0B2D6B] px-8 py-7 sm:px-10">
               <div className="flex flex-wrap items-center gap-6">
                 <div className="text-sm font-semibold text-white">Privacy enquiries:</div>
-                <a href="mailto:info@nbppi.com" className="inline-flex items-center gap-2 text-sm text-[#7FE0D4] hover:underline">
-                  <Mail className="h-4 w-4" /> info@nbppi.com
+                <a href="mailto:info@northbengalpoly.com" className="inline-flex items-center gap-2 text-sm text-[#7FE0D4] hover:underline">
+                  <Mail className="h-4 w-4" /> info@northbengalpoly.com
                 </a>
                 <a href="tel:+8801714570179" className="inline-flex items-center gap-2 text-sm text-[#7FE0D4] hover:underline">
                   <Phone className="h-4 w-4" /> +880 1714 570179

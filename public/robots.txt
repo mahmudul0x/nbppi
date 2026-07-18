@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nbppi.com/sitemap.xml
+Sitemap: https://northbengalpoly.com/sitemap.xml

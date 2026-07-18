@@ -21,11 +21,11 @@ export const Route = createFileRoute("/quality")({
       { name: "description", content: "NBPPI holds all mandatory Bangladesh government licenses — Trade License, Factory License (DIFE), BIDA, DoE Environment Clearance, Fire License, ERC, BSTI and ISO 9001:2015." },
       { property: "og:title", content: "Licenses, Certifications & Quality — NBPPI" },
       { property: "og:description", content: "NBPPI holds ISO 9001:2015, BSTI, BIDA, EPB, DIFE and DoE certifications — all mandatory Bangladesh government licenses plus international quality standards." },
-      { property: "og:url", content: "https://nbppi.com/quality" },
-      { property: "og:image", content: "https://nbppi.com/og-image.jpg" },
+      { property: "og:url", content: "https://northbengalpoly.com/quality" },
+      { property: "og:image", content: "https://northbengalpoly.com/og-image.jpg" },
       { property: "og:site_name", content: "NBPPI" },
     ],
-    links: [{ rel: "canonical", href: "https://nbppi.com/quality" }],
+    links: [{ rel: "canonical", href: "https://northbengalpoly.com/quality" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -34,7 +34,7 @@ export const Route = createFileRoute("/quality")({
           "@type": "WebPage",
           name: "Licenses, Certifications & Quality — NBPPI",
           description: "NBPPI holds ISO 9001:2015, BSTI, BIDA, EPB, DIFE and DoE certifications.",
-          url: "https://nbppi.com/quality",
+          url: "https://northbengalpoly.com/quality",
           about: {
             "@type": "Organization",
             name: "North Bengal Poly & Packaging Industries Ltd.",
@@ -230,7 +230,7 @@ function CertSection() {
               </p>
             </div>
             <a
-              href="mailto:compliance@nbppi.com?subject=Certificate%20Request%20-%20NBPPI&body=Dear%20NBPPI%20Compliance%20Team%2C%0A%0AI%20would%20like%20to%20request%20certified%20copies%20of%20your%20licenses%20and%20certifications.%0A%0AThank%20you."
+              href="mailto:compliance@northbengalpoly.com?subject=Certificate%20Request%20-%20NBPPI&body=Dear%20NBPPI%20Compliance%20Team%2C%0A%0AI%20would%20like%20to%20request%20certified%20copies%20of%20your%20licenses%20and%20certifications.%0A%0AThank%20you."
               className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-[#0A6A38] px-6 py-3 text-sm font-semibold text-white shadow-[0_8px_20px_-8px_rgba(10,106,56,0.5)] transition hover:bg-[#22887b]"
             >
               Request Documents

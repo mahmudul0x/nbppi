@@ -10,15 +10,15 @@ export const Route = createFileRoute("/faq")({
       { name: "description", content: "Frequently asked questions about NBPPI's polypropylene woven bags — minimum order quantity (MOQ), custom printing options, export documentation, lead times, sample policy, payment terms and certifications." },
       { property: "og:title", content: "Frequently Asked Questions — NBPPI" },
       { property: "og:description", content: "Answers to common questions about NBPPI's PP woven bags — MOQ, custom printing, lead times, export documentation, samples and payment terms." },
-      { property: "og:url", content: "https://nbppi.com/faq" },
-      { property: "og:image", content: "https://nbppi.com/og-image.jpg" },
+      { property: "og:url", content: "https://northbengalpoly.com/faq" },
+      { property: "og:image", content: "https://northbengalpoly.com/og-image.jpg" },
       { property: "og:site_name", content: "NBPPI" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "PP Woven Bag FAQ — MOQ, Custom Print, Export | NBPPI" },
       { name: "twitter:description", content: "MOQ, lead times, custom print options, export documentation, payment terms and certifications — all your questions answered." },
-      { name: "twitter:image", content: "https://nbppi.com/og-image.jpg" },
+      { name: "twitter:image", content: "https://northbengalpoly.com/og-image.jpg" },
     ],
-    links: [{ rel: "canonical", href: "https://nbppi.com/faq" }],
+    links: [{ rel: "canonical", href: "https://northbengalpoly.com/faq" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -119,7 +119,7 @@ const FAQS = [
       },
       {
         q: "Can you provide certified copies of your licenses and certificates?",
-        a: "Yes. Our compliance team can provide certified copies of all active licenses and certificates within 24 hours — for RFQ support, supplier audits, LC documentation or buyer due diligence. Contact us via the Quality page or email info@nbppi.com.",
+        a: "Yes. Our compliance team can provide certified copies of all active licenses and certificates within 24 hours — for RFQ support, supplier audits, LC documentation or buyer due diligence. Contact us via the Quality page or email info@northbengalpoly.com.",
       },
     ],
   },
@@ -149,7 +149,7 @@ const FAQS = [
       },
       {
         q: "How do I get a quotation?",
-        a: "You can request a quotation through our online quote form, by emailing sales@nbppi.com or by calling +880 1714 570179. Please provide your product type, quantity, dimensions, print requirements and destination — and we will respond within 24 business hours.",
+        a: "You can request a quotation through our online quote form, by emailing sales@northbengalpoly.com or by calling +880 1714 570179. Please provide your product type, quantity, dimensions, print requirements and destination — and we will respond within 24 business hours.",
       },
       {
         q: "Do you work with both local and international buyers?",
