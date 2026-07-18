@@ -83,8 +83,9 @@ export const Route = createFileRoute("/")({
           foundingDate: "2008",
           address: {
             "@type": "PostalAddress",
-            streetAddress: "Rangpur Industrial Zone",
-            addressLocality: "Rangpur",
+            streetAddress: "Room-807, Level-7, Zaman Court, 45 Dilkusha C/A",
+            addressLocality: "Dhaka",
+            postalCode: "1000",
             addressCountry: "BD",
           },
           sameAs: [

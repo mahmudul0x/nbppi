@@ -145,11 +145,11 @@ const FAQS = [
     items: [
       {
         q: "Where is NBPPI located?",
-        a: "Our manufacturing plant is located in Rangpur Industrial Zone, Bangladesh. Our head office is at House 12, Road 4, Banani, Dhaka 1213, Bangladesh.",
+        a: "Our head office is at Room-807, Level-7, Zaman Court, 45 Dilkusha C/A, Dhaka-1000, Bangladesh. Our zonal office is at Sydney Tower, 3rd Floor, Court House Street, Joleshoritola, Bogura-5800, Bangladesh.",
       },
       {
         q: "How do I get a quotation?",
-        a: "You can request a quotation through our online quote form, by emailing sales@nbppi.com or by calling +880 1700 000 000. Please provide your product type, quantity, dimensions, print requirements and destination — and we will respond within 24 business hours.",
+        a: "You can request a quotation through our online quote form, by emailing sales@nbppi.com or by calling +880 1714 570179. Please provide your product type, quantity, dimensions, print requirements and destination — and we will respond within 24 business hours.",
       },
       {
         q: "Do you work with both local and international buyers?",
@@ -220,7 +220,7 @@ function FaqPage() {
               Request Quote <ArrowRight className="h-4 w-4" />
             </Link>
             <a
-              href="https://wa.me/8801700000000"
+              href="https://wa.me/8801714570179"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/8 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white/15"

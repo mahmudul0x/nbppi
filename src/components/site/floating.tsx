@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { ArrowUp } from "lucide-react";
 
-const WHATSAPP_NUMBER = "8801700000000";
+const WHATSAPP_NUMBER = "8801714570179";
 const WHATSAPP_MESSAGE = encodeURIComponent(
   "Hello NBPPI, I'd like to enquire about your packaging products."
 );

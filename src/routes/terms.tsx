@@ -92,9 +92,9 @@ const SECTIONS = [
     body: [
       "For any questions regarding these Terms of Use, please contact:",
       "North Bengal Poly & Packaging Industries Ltd.",
-      "Head Office: House 12, Road 4, Banani, Dhaka 1213, Bangladesh",
+      "Head Office: Room-807, Level-7, Zaman Court, 45 Dilkusha C/A, Dhaka-1000, Bangladesh",
       "Email: info@nbppi.com",
-      "Phone: +880 2 555 0000",
+      "Phone: +880 1714 570179",
     ],
   },
 ];
@@ -186,8 +186,8 @@ function TermsPage() {
                 <a href="mailto:info@nbppi.com" className="inline-flex items-center gap-2 text-sm text-[#7FE0D4] hover:underline">
                   <Mail className="h-4 w-4" /> info@nbppi.com
                 </a>
-                <a href="tel:+88025550000" className="inline-flex items-center gap-2 text-sm text-[#7FE0D4] hover:underline">
-                  <Phone className="h-4 w-4" /> +880 2 555 0000
+                <a href="tel:+8801714570179" className="inline-flex items-center gap-2 text-sm text-[#7FE0D4] hover:underline">
+                  <Phone className="h-4 w-4" /> +880 1714 570179
                 </a>
               </div>
             </div>

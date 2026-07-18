@@ -183,9 +183,9 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
             <div className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#0B2D6B]">
               Get in touch
             </div>
-            <a href="tel:+8801700000000" className="flex items-center gap-3 text-foreground/80 hover:text-[#0B2D6B]">
+            <a href="tel:+8801714570179" className="flex items-center gap-3 text-foreground/80 hover:text-[#0B2D6B]">
               <Phone className="h-4 w-4 text-[#0A6A38]" />
-              +880 1700 000 000
+              +880 1714 570179
             </a>
             <a href="mailto:info@nbppi.com" className="flex items-center gap-3 text-foreground/80 hover:text-[#0B2D6B]">
               <Mail className="h-4 w-4 text-[#0A6A38]" />
@@ -193,7 +193,7 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
             </a>
             <div className="flex items-start gap-3 text-foreground/70">
               <MapPin className="mt-0.5 h-4 w-4 text-[#0A6A38]" />
-              <span>Rangpur Industrial Zone, Bangladesh</span>
+              <span>Room-807, Level-7, Zaman Court, 45 Dilkusha C/A, Dhaka-1000</span>
             </div>
           </div>
         </nav>

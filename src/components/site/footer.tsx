@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Linkedin, Facebook, Youtube } from "lucide-react";
+import { Linkedin, Facebook, Youtube, MapPin, Phone, Mail } from "lucide-react";
 import { RecycleBadge } from "@/components/site/recycle-badge";
 import logoImg from "@/assets/logoWebsite.png";
 
@@ -116,7 +116,58 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-white/10 pt-6 pb-4 sm:mt-16">
+        {/* Contact row */}
+        <div className="mt-12 grid grid-cols-1 gap-6 border-t border-white/10 pt-10 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="flex items-start gap-3">
+            <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-[#7FE0D4]" />
+            <div>
+              <div className="font-display text-[10px] font-semibold uppercase tracking-[0.2em] text-white/50">
+                Head Office
+              </div>
+              <p className="mt-1.5 text-sm leading-relaxed">
+                Room-807, Level-7, Zaman Court, 45 Dilkusha C/A, Dhaka-1000
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-3">
+            <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-[#7FE0D4]" />
+            <div>
+              <div className="font-display text-[10px] font-semibold uppercase tracking-[0.2em] text-white/50">
+                Zonal Office
+              </div>
+              <p className="mt-1.5 text-sm leading-relaxed">
+                Sydney Tower, 3rd Floor, Court House Street, Joleshoritola, Bogura-5800
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-3">
+            <Phone className="mt-0.5 h-5 w-5 shrink-0 text-[#7FE0D4]" />
+            <div>
+              <div className="font-display text-[10px] font-semibold uppercase tracking-[0.2em] text-white/50">
+                Phone
+              </div>
+              <a href="tel:+8801714570179" className="mt-1.5 block text-sm transition hover:text-white">
+                +880 1714 570179
+              </a>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-3">
+            <Mail className="mt-0.5 h-5 w-5 shrink-0 text-[#7FE0D4]" />
+            <div>
+              <div className="font-display text-[10px] font-semibold uppercase tracking-[0.2em] text-white/50">
+                Email
+              </div>
+              <a href="mailto:info@nbppi.com" className="mt-1.5 block text-sm transition hover:text-white">
+                info@nbppi.com
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-10 border-t border-white/10 pt-6 pb-4">
           <div className="flex flex-wrap items-center justify-between gap-4 text-xs text-white/50">
             <div>
               © {new Date().getFullYear()} North Bengal Poly &amp; Packaging Industries Ltd. All rights reserved.

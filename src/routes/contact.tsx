@@ -10,15 +10,15 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact NBPPI — Sales, Export & Enquiries" },
-      { name: "description", content: "Contact NBPPI's sales and export teams. Head office in Dhaka, manufacturing plant in Rangpur Industrial Zone, Bangladesh. Respond within 24 business hours." },
+      { name: "description", content: "Contact NBPPI's sales and export teams. Head office at Zaman Court, Dilkusha, Dhaka and zonal office in Bogura, Bangladesh. Respond within 24 business hours." },
       { property: "og:title", content: "Contact NBPPI — Sales, Export & Enquiries" },
-      { property: "og:description", content: "Contact NBPPI's sales and export team. Head office in Dhaka, manufacturing plant in Rangpur. Respond within 24 business hours." },
+      { property: "og:description", content: "Contact NBPPI's sales and export team. Head office in Dhaka (Dilkusha) and zonal office in Bogura. Respond within 24 business hours." },
       { property: "og:url", content: "https://nbppi.com/contact" },
       { property: "og:image", content: "https://nbppi.com/og-image.jpg" },
       { property: "og:site_name", content: "NBPPI" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Contact NBPPI — Sales, Export & Enquiries" },
-      { name: "twitter:description", content: "Contact NBPPI's sales and export team. Head office Dhaka, plant in Rangpur. Response within 24 hours." },
+      { name: "twitter:description", content: "Contact NBPPI's sales and export team. Head office Dhaka (Dilkusha), zonal office Bogura. Response within 24 hours." },
       { name: "twitter:image", content: "https://nbppi.com/og-image.jpg" },
     ],
     links: [{ rel: "canonical", href: "https://nbppi.com/contact" }],
@@ -34,17 +34,18 @@ export const Route = createFileRoute("/contact")({
           logo: "https://nbppi.com/logoWebsite.png",
           image: "https://nbppi.com/og-image.jpg",
           email: "sales@nbppi.com",
+          telephone: "+8801714570179",
           address: {
             "@type": "PostalAddress",
-            streetAddress: "Rangpur Industrial Zone",
-            addressLocality: "Rangpur",
-            addressRegion: "Rangpur Division",
+            streetAddress: "Room-807, Level-7, Zaman Court, 45 Dilkusha C/A",
+            addressLocality: "Dhaka",
+            postalCode: "1000",
             addressCountry: "BD",
           },
           geo: {
             "@type": "GeoCoordinates",
-            latitude: "25.7439",
-            longitude: "89.2752",
+            latitude: "23.7276",
+            longitude: "90.4159",
           },
           openingHoursSpecification: {
             "@type": "OpeningHoursSpecification",
@@ -66,17 +67,17 @@ export const Route = createFileRoute("/contact")({
 const OFFICES = [
   {
     type: "Head Office",
-    address: "House 12, Road 4, Banani",
-    city: "Dhaka 1213, Bangladesh",
-    phone: "+880 2 555 0000",
+    address: "Room-807, Level-7, Zaman Court, 45 Dilkusha C/A",
+    city: "Dhaka-1000, Bangladesh",
+    phone: "+880 1714 570179",
     email: "info@nbppi.com",
   },
   {
-    type: "Manufacturing Plant",
-    address: "Rangpur Industrial Zone",
-    city: "Rangpur, Bangladesh",
-    phone: "+880 1700 000 000",
-    email: "plant@nbppi.com",
+    type: "Zonal Office",
+    address: "Sydney Tower, 3rd Floor, Court House Street, Joleshoritola",
+    city: "Bogura-5800, Bangladesh",
+    phone: "+880 1714 570179",
+    email: "info@nbppi.com",
   },
 ];
 
@@ -127,11 +128,11 @@ function ContactPage() {
           {/* Quick contact chips */}
           <div className="mt-10 flex flex-wrap gap-3">
             <a
-              href="tel:+8801700000000"
+              href="tel:+8801714570179"
               className="inline-flex items-center gap-2 rounded-lg border border-white/15 bg-white/8 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-white/15"
             >
               <Phone className="h-4 w-4 text-[#7FE0D4]" />
-              +880 1700 000 000
+              +880 1714 570179
             </a>
             <a
               href="mailto:sales@nbppi.com"
@@ -141,7 +142,7 @@ function ContactPage() {
               sales@nbppi.com
             </a>
             <a
-              href="https://wa.me/8801700000000"
+              href="https://wa.me/8801714570179"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-lg border border-white/15 bg-white/8 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-white/15"
@@ -247,7 +248,7 @@ function ContactPage() {
                           { label: "Full Name",    type: "text",  placeholder: "Your full name",    required: true },
                           { label: "Company",      type: "text",  placeholder: "Company name",      required: true },
                           { label: "Email Address",type: "email", placeholder: "you@company.com",   required: true },
-                          { label: "Phone / WhatsApp", type: "tel", placeholder: "+880 1700 000 000", required: false },
+                          { label: "Phone / WhatsApp", type: "tel", placeholder: "+880 1714 570179", required: false },
                         ].map((f) => (
                           <label key={f.label} className="block">
                             <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#0B2D6B]">
@@ -330,11 +331,11 @@ function ContactPage() {
               <div className="flex items-center gap-2.5">
                 <MapPin className="h-4 w-4 text-[#0A6A38]" />
                 <span className="font-display text-sm font-semibold text-[#0B2D6B]">
-                  NBPPI — Rangpur Industrial Zone, Bangladesh
+                  NBPPI — Zaman Court, Dilkusha C/A, Dhaka-1000, Bangladesh
                 </span>
               </div>
               <a
-                href="https://maps.google.com/?q=Rangpur,Bangladesh"
+                href="https://maps.google.com/?q=Zaman+Court,+Dilkusha,+Dhaka-1000,+Bangladesh"
                 target="_blank"
                 rel="noreferrer"
                 className="text-xs font-semibold text-[#0A6A38] hover:underline"
@@ -343,8 +344,8 @@ function ContactPage() {
               </a>
             </div>
             <iframe
-              title="NBPPI manufacturing plant location"
-              src="https://www.google.com/maps?q=Rangpur,Bangladesh&output=embed"
+              title="NBPPI head office location"
+              src="https://www.google.com/maps?q=Zaman+Court,+Dilkusha,+Dhaka-1000,+Bangladesh&output=embed"
               className="h-100 w-full border-0"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
