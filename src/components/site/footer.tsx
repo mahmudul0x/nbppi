@@ -148,8 +148,8 @@ export function SiteFooter() {
               <div className="font-display text-[10px] font-semibold uppercase tracking-[0.2em] text-white/50">
                 Phone
               </div>
-              <a href="tel:+8801714570179" className="mt-1.5 block text-sm transition hover:text-white">
-                +880 1714 570179
+              <a href="tel:+8801301771919" className="mt-1.5 block text-sm transition hover:text-white">
+                +880 1301 771919
               </a>
             </div>
           </div>

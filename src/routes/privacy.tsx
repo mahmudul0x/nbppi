@@ -99,7 +99,7 @@ const SECTIONS = [
       "North Bengal Poly & Packaging Industries Ltd.",
       "Head Office: Room-807, Level-7, Zaman Court, 45 Dilkusha C/A, Dhaka-1000, Bangladesh",
       "Email: info@northbengalpoly.com",
-      "Phone: +880 1714 570179",
+      "Phone: +880 1301 771919",
     ],
   },
 ];
@@ -191,8 +191,8 @@ function PrivacyPage() {
                 <a href="mailto:info@northbengalpoly.com" className="inline-flex items-center gap-2 text-sm text-[#7FE0D4] hover:underline">
                   <Mail className="h-4 w-4" /> info@northbengalpoly.com
                 </a>
-                <a href="tel:+8801714570179" className="inline-flex items-center gap-2 text-sm text-[#7FE0D4] hover:underline">
-                  <Phone className="h-4 w-4" /> +880 1714 570179
+                <a href="tel:+8801301771919" className="inline-flex items-center gap-2 text-sm text-[#7FE0D4] hover:underline">
+                  <Phone className="h-4 w-4" /> +880 1301 771919
                 </a>
               </div>
             </div>

@@ -183,9 +183,9 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
             <div className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#0B2D6B]">
               Get in touch
             </div>
-            <a href="tel:+8801714570179" className="flex items-center gap-3 text-foreground/80 hover:text-[#0B2D6B]">
+            <a href="tel:+8801301771919" className="flex items-center gap-3 text-foreground/80 hover:text-[#0B2D6B]">
               <Phone className="h-4 w-4 text-[#0A6A38]" />
-              +880 1714 570179
+              +880 1301 771919
             </a>
             <a href="mailto:info@northbengalpoly.com" className="flex items-center gap-3 text-foreground/80 hover:text-[#0B2D6B]">
               <Mail className="h-4 w-4 text-[#0A6A38]" />

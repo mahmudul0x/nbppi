@@ -53,7 +53,7 @@ function QuotePage() {
               </ul>
               <div className="mt-8 rounded-xl bg-[#0B2D6B] p-5 text-white">
                 <div className="text-xs uppercase tracking-[0.18em] text-white/60">Direct line</div>
-                <div className="mt-2 font-display text-lg font-bold">+880 1714 570179</div>
+                <div className="mt-2 font-display text-lg font-bold">+880 1301 771919</div>
                 <div className="text-sm text-white/70">sales@northbengalpoly.com</div>
               </div>
             </div>

@@ -34,7 +34,7 @@ export const Route = createFileRoute("/contact")({
           logo: "https://northbengalpoly.com/logoWebsite.png",
           image: "https://northbengalpoly.com/og-image.jpg",
           email: "sales@northbengalpoly.com",
-          telephone: "+8801714570179",
+          telephone: "+8801301771919",
           address: {
             "@type": "PostalAddress",
             streetAddress: "Room-807, Level-7, Zaman Court, 45 Dilkusha C/A",
@@ -69,14 +69,14 @@ const OFFICES = [
     type: "Head Office",
     address: "Room-807, Level-7, Zaman Court, 45 Dilkusha C/A",
     city: "Dhaka-1000, Bangladesh",
-    phone: "+880 1714 570179",
+    phone: "+880 1301 771919",
     email: "info@northbengalpoly.com",
   },
   {
     type: "Zonal Office",
     address: "Sydney Tower, 3rd Floor, Court House Street, Joleshoritola",
     city: "Bogura-5800, Bangladesh",
-    phone: "+880 1714 570179",
+    phone: "+880 1301 771919",
     email: "info@northbengalpoly.com",
   },
 ];
@@ -128,11 +128,11 @@ function ContactPage() {
           {/* Quick contact chips */}
           <div className="mt-10 flex flex-wrap gap-3">
             <a
-              href="tel:+8801714570179"
+              href="tel:+8801301771919"
               className="inline-flex items-center gap-2 rounded-lg border border-white/15 bg-white/8 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-white/15"
             >
               <Phone className="h-4 w-4 text-[#7FE0D4]" />
-              +880 1714 570179
+              +880 1301 771919
             </a>
             <a
               href="mailto:sales@northbengalpoly.com"
@@ -142,7 +142,7 @@ function ContactPage() {
               sales@northbengalpoly.com
             </a>
             <a
-              href="https://wa.me/8801714570179"
+              href="https://wa.me/8801301771919"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-lg border border-white/15 bg-white/8 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-white/15"
@@ -248,7 +248,7 @@ function ContactPage() {
                           { label: "Full Name",    type: "text",  placeholder: "Your full name",    required: true },
                           { label: "Company",      type: "text",  placeholder: "Company name",      required: true },
                           { label: "Email Address",type: "email", placeholder: "you@company.com",   required: true },
-                          { label: "Phone / WhatsApp", type: "tel", placeholder: "+880 1714 570179", required: false },
+                          { label: "Phone / WhatsApp", type: "tel", placeholder: "+880 1301 771919", required: false },
                         ].map((f) => (
                           <label key={f.label} className="block">
                             <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#0B2D6B]">
