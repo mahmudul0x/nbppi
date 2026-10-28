@@ -34,7 +34,7 @@ export const Route = createFileRoute("/gallery")({
       { title: "Gallery — NBPPI" },
       { name: "description", content: "An inside look at NBPPI's factory, warehouse, production lines and finished goods." },
       { property: "og:title", content: "Factory & Product Gallery — NBPPI" },
-      { property: "og:description", content: "25 photos inside NBPPI's manufacturing plant — extrusion, weaving, lamination, printing, QC lab, warehouse and finished PP woven bag products." },
+      { property: "og:description", content: "Photos from inside NBPPI's manufacturing plant — extrusion, weaving, warehouse and finished PP woven and leno mesh bag products." },
       { property: "og:url", content: "https://northbengalpoly.com/gallery" },
       { property: "og:image", content: "https://northbengalpoly.com/og-image.jpg" },
       { property: "og:site_name", content: "NBPPI" },
@@ -44,10 +44,52 @@ export const Route = createFileRoute("/gallery")({
   component: GalleryPage,
 });
 
-const CATEGORIES = ["All", "Factory", "Products", "Industries"] as const;
+const CATEGORIES = ["All", "Machinery", "Production", "Products", "Warehouse", "Factory", "Industries"] as const;
 type Category = (typeof CATEGORIES)[number];
 
+// Real photos from the NBPPI plant, keyed by file name in src/assets/gallery
+const REAL = import.meta.glob<string>("../assets/gallery/*.jpg", { eager: true, import: "default" });
+const real = (file: string) => REAL[`../assets/gallery/${file}.jpg`];
+
+const REAL_TILES: { file: string; h: string; caption: string; cat: Category }[] = [
+  { file: "08-circular-loom-hall",        h: "row-span-2", caption: "Circular loom hall — woven tubular fabric production",   cat: "Machinery" },
+  { file: "25-extrusion-line-overview",   h: "",           caption: "PP tape extrusion line",                                  cat: "Machinery" },
+  { file: "29-creel-tapes",               h: "",           caption: "Creel stand feeding PP tapes to the looms",               cat: "Machinery" },
+  { file: "27-circular-loom-tall",        h: "row-span-2", caption: "Circular loom in operation",                              cat: "Machinery" },
+  { file: "09-tape-extrusion-line",       h: "",           caption: "Tape extrusion and stretching unit",                      cat: "Machinery" },
+  { file: "17-extrusion-line-operator",   h: "",           caption: "Operator monitoring the extrusion line",                  cat: "Machinery" },
+  { file: "16-winder-bobbins-visit",      h: "",           caption: "Tape winders loaded with bobbins",                        cat: "Machinery" },
+  { file: "18-winder-bobbins-operator",   h: "",           caption: "Winding section — tape bobbins ready for weaving",        cat: "Machinery" },
+  { file: "19-extrusion-line-floor",      h: "",           caption: "Extrusion line on the production floor",                  cat: "Machinery" },
+  { file: "15-extrusion-line-visit",      h: "",           caption: "Visit to the tape extrusion line",                        cat: "Machinery" },
+  { file: "20-winder-bobbins-row",        h: "",           caption: "Row of automatic tape winders",                           cat: "Machinery" },
+  { file: "21-extruder-hopper",           h: "",           caption: "Extruder and raw-material hopper",                        cat: "Machinery" },
+  { file: "23-creel-stand",               h: "",           caption: "Creel stands in the weaving section",                     cat: "Machinery" },
+  { file: "07-woven-fabric-red-loom",     h: "row-span-2", caption: "Red woven fabric coming off the loom",                    cat: "Production" },
+  { file: "10-woven-fabric-red-roll",     h: "row-span-2", caption: "Woven fabric being taken up on the roll",                 cat: "Production" },
+  { file: "02-mesh-bags-red-bundle",      h: "",           caption: "Red leno mesh bags — bundled for dispatch",               cat: "Products" },
+  { file: "01-mesh-bags-yellow-stack",    h: "row-span-2", caption: "Leno mesh bags — stacked and ready",                      cat: "Products" },
+  { file: "05-mesh-bags-red-on-bales",    h: "",           caption: "Red leno mesh bags",                                      cat: "Products" },
+  { file: "26-mesh-bag-yellow-green",     h: "",           caption: "Yellow leno mesh bag with green border",                  cat: "Products" },
+  { file: "06-mesh-bag-red-closeup",      h: "row-span-2", caption: "Leno mesh bag — close-up of the open weave",              cat: "Products" },
+  { file: "12-mesh-bag-orange",           h: "",           caption: "Orange leno mesh bag",                                    cat: "Products" },
+  { file: "22-mesh-bag-yellow",           h: "",           caption: "Yellow leno mesh bag",                                    cat: "Products" },
+  { file: "03-printed-rice-bag-golden-key", h: "",         caption: "Printed PP woven rice bag",                               cat: "Products" },
+  { file: "04-printed-rice-bag-vk-gold",  h: "row-span-2", caption: "Printed rice bag artwork",                                cat: "Products" },
+  { file: "33-warehouse-stock-2",         h: "",           caption: "Finished bales in the warehouse",                         cat: "Warehouse" },
+  { file: "30-bales-packed",              h: "",           caption: "Packed and labelled bales",                               cat: "Warehouse" },
+  { file: "31-bags-stacked",              h: "row-span-2", caption: "Finished bags stacked for baling",                        cat: "Warehouse" },
+  { file: "32-warehouse-stock-1",         h: "",           caption: "Warehouse stock",                                         cat: "Warehouse" },
+  { file: "34-warehouse-stock-3",         h: "",           caption: "Bales ready for dispatch",                                cat: "Warehouse" },
+  { file: "24-warehouse-bales-3",         h: "",           caption: "Finished goods storage",                                  cat: "Warehouse" },
+  { file: "11-warehouse-bales",           h: "",           caption: "Bales in the finished goods store",                       cat: "Warehouse" },
+  { file: "14-warehouse-bales-2",         h: "",           caption: "Baled bags awaiting shipment",                            cat: "Warehouse" },
+  { file: "13-warehouse-loading",         h: "",           caption: "Handling stock in the warehouse",                         cat: "Warehouse" },
+  { file: "28-warehouse-liner-rolls",     h: "",           caption: "Packed liner rolls",                                      cat: "Warehouse" },
+];
+
 const TILES: { src: string; h: string; alt: string; caption: string; cat: Category }[] = [
+  ...REAL_TILES.map((t) => ({ src: real(t.file), h: t.h, alt: t.caption, caption: t.caption, cat: t.cat })),
   { src: heroFactory,          h: "row-span-2", alt: "Main factory floor",          caption: "Main production floor — Rangpur Industrial Zone",       cat: "Factory" },
   { src: factoryAerial,        h: "",           alt: "Aerial view of the NBPPI factory with export trucks loading", caption: "Aerial view of the NBPPI complex — export loading in progress", cat: "Factory" },
   { src: weavingImg,           h: "",           alt: "Circular weaving looms",       caption: "Starlinger circular weaving looms in operation",        cat: "Factory" },
