@@ -99,9 +99,10 @@ export const NAV = [
   { label: "About", to: "/about" },
   { label: "Products", to: "/products" },
   { label: "Manufacturing", to: "/manufacturing" },
-  { label: "Industries", to: "/industries" },
+  // Hidden from the nav for now — uncomment to show again
+  // { label: "Industries", to: "/industries" },
   { label: "Quality", to: "/quality" },
-  { label: "Sustainability", to: "/sustainability" },
+  // { label: "Sustainability", to: "/sustainability" },
   { label: "Gallery", to: "/gallery" },
   { label: "Contact", to: "/contact" },
 ] as const;
