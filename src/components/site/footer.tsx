@@ -30,7 +30,7 @@ const cols = [
       ["FAQ", "/faq"],
       ["Case Studies", "/case-studies"],
       ["Certifications", "/quality"],
-      ["Gallery", "/gallery"],
+      ["Photo Gallery", "/gallery"],
       ["Sitemap", "/sitemap"],
     ],
   },

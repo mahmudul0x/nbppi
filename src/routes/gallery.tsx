@@ -31,7 +31,7 @@ import { X, ChevronLeft, ChevronRight } from "lucide-react";
 export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: [
-      { title: "Gallery — NBPPI" },
+      { title: "Photo & Video Gallery — NBPPI" },
       { name: "description", content: "An inside look at NBPPI's factory, warehouse, production lines and finished goods." },
       { property: "og:title", content: "Factory & Product Gallery — NBPPI" },
       { property: "og:description", content: "Photos from inside NBPPI's manufacturing plant — extrusion, weaving, warehouse and finished PP woven and leno mesh bag products." },
@@ -128,11 +128,11 @@ function GalleryPage() {
   return (
     <PageShell>
       <PageHero
-        eyebrow="Gallery"
-        title={<>Inside the NBPPI plant.</>}
+        eyebrow="Inside the NBPPI plant"
+        title={<>Photo & Video Gallery</>}
         intro={`A visual tour through our factory, products and industries — ${TILES.length} photos.`}
         image={heroFactory}
-        crumbs={[{ label: "Home", to: "/" }, { label: "Gallery" }]}
+        crumbs={[{ label: "Home", to: "/" }, { label: "Photo Gallery" }]}
       />
 
       <section className="bg-background py-16 sm:py-20">
