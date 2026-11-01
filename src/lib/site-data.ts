@@ -94,6 +94,25 @@ import lenoFactoryAlt from "@/assets/products/leno-mesh/04-factory-alt.jpeg";
 import lenoProduction from "@/assets/products/leno-mesh/05-production.jpeg";
 import lenoWeaving from "@/assets/products/leno-mesh/06-weaving.jpeg";
 
+const WHATSAPP_NUMBER = "8801301771919";
+const WHATSAPP_MESSAGE = `আসসালামু আলাইকুম,
+
+নর্থ বেঙ্গল পলি অ্যান্ড প্যাকেজিং ইন্ডাস্ট্রিজ লিমিটেড (NBPPIL)-এ আপনাকে স্বাগতম।
+
+আপনার আগ্রহের জন্য আন্তরিক ধন্যবাদ।
+খুব শীঘ্রই আমাদের একজন প্রতিনিধি আপনার সঙ্গে যোগাযোগ করবেন।
+
+আমাদের পণ্য ও সেবা সম্পর্কে বিস্তারিত জানতে ভিজিট করুন:
+
+🌐 ওয়েবসাইট: https://northbengalpoly.com/
+
+📘 ফেসবুক পেজ: https://www.facebook.com/share/1CXEcJXpqY/
+
+NBPPIL-এর সঙ্গে থাকার জন্য আপনাকে আন্তরিক ধন্যবাদ। আপনার আস্থা ও সহযোগিতা আমাদের অনুপ্রেরণা। ❤️`;
+
+/** Every WhatsApp link on the site opens this chat with the message filled in. */
+export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+
 export const NAV = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },

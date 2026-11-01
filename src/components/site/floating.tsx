@@ -1,10 +1,6 @@
 import { useEffect, useState } from "react";
 import { ArrowUp } from "lucide-react";
-
-const WHATSAPP_NUMBER = "8801301771919";
-const WHATSAPP_MESSAGE = encodeURIComponent(
-  "Hello NBPPI, I'd like to enquire about your packaging products."
-);
+import { WHATSAPP_URL } from "@/lib/site-data";
 
 export function FloatingActions() {
   const [show, setShow] = useState(false);
@@ -39,7 +35,7 @@ export function FloatingActions() {
         </div>
 
         <a
-          href={`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`}
+          href={WHATSAPP_URL}
           target="_blank"
           rel="noreferrer"
           aria-label="Chat on WhatsApp"

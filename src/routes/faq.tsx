@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { PageShell } from "@/components/site/page-shell";
+import { WHATSAPP_URL } from "@/lib/site-data";
 import { ArrowRight, ChevronDown, MessageSquare } from "lucide-react";
 
 export const Route = createFileRoute("/faq")({
@@ -220,7 +221,7 @@ function FaqPage() {
               Request Quote <ArrowRight className="h-4 w-4" />
             </Link>
             <a
-              href="https://wa.me/8801301771919"
+              href={WHATSAPP_URL}
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/8 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white/15"

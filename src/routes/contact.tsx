@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { PageShell } from "@/components/site/page-shell";
 import factoryAerial from "@/assets/factory-aerial.jpg";
+import { WHATSAPP_URL } from "@/lib/site-data";
 import {
   Phone, Mail, MapPin, Clock, ArrowRight, MessageSquare, ChevronRight,
 } from "lucide-react";
@@ -142,7 +143,7 @@ function ContactPage() {
               sales@northbengalpoly.com
             </a>
             <a
-              href="https://wa.me/8801301771919"
+              href={WHATSAPP_URL}
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-lg border border-white/15 bg-white/8 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-white/15"
