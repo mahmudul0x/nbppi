@@ -123,6 +123,7 @@ export const NAV = [
   { label: "Quality", to: "/quality" },
   // { label: "Sustainability", to: "/sustainability" },
   { label: "Photo Gallery", to: "/gallery" },
+  { label: "Career", to: "/career" },
   { label: "Contact", to: "/contact" },
 ] as const;
 
