@@ -5,7 +5,7 @@ import { PageHero } from "@/components/site/page-hero";
 import { SectionHeading } from "@/components/site/section-heading";
 import factoryAerial from "@/assets/factory-aerial.jpg";
 import teamEngineer from "@/assets/smnayonmahmud.png";
-import mdMashiur from "@/assets/md-mashiur-rahman.png";
+import mdMashiur from "@/assets/md-mashiur-rahman.jpg";
 import {
   Award, Leaf, ShieldCheck, Settings2, Target, Eye,
   HeartHandshake, Lightbulb, Users, Star,
